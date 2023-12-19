@@ -1,0 +1,37 @@
+.gradient {
+  background: linear-gradient(#17459b, #02a9ed);
+  /* background: linear-gradient(90deg, #17459b 0%, #02a9ed 98.37%) !important; */
+}
+
+.close-button {
+  float: right;
+  top: -10px;
+  right: -15px;
+}
+
+.close-icon {
+  transition: 1s ease-in-out;
+}
+
+.close-icon:hover {
+  transform: rotate(180deg);
+}
+
+::ng-deep .icon-outside .close-button {
+  float: right;
+  top: -52px;
+  right: -52px;
+}
+
+::ng-deep .icon-outside .mat-dialog-container {
+  overflow: unset
+}
+
+#myCls:hover {
+  background: linear-gradient(#17459b, #02a9ed);
+  color: white !important;
+}
+
+#myCls2:hover {
+  color: white !important;
+}

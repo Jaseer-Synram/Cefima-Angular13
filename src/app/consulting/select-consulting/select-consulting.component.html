@@ -1,0 +1,45 @@
+<!-- <mat-dialog-content>
+	<p>
+		{{message}}
+	</p>
+</mat-dialog-content>
+<mat-dialog-actions >
+	<button mat-raised-button color="primary" (click)="onConfirmClick()" tabindex="1">{{confirmButtonText}}</button>
+	<button mat-raised-button mat-dialog-close tabindex="-1">{{cancelButtonText}}</button>
+</mat-dialog-actions> -->
+
+<mat-dialog-content>
+    <button mat-icon-button class="close-button" [mat-dialog-close]="true">
+        <mat-icon class="close-icon" >close</mat-icon>
+    </button>
+    <div class="text-center mt-5 w-50 mx-auto" style="color: gray;">
+        <p class="m-0" style="color: #454C58;font-weight: 700;font-size: 18px;">Bitte wählen
+            Sie aus,welchen
+            Vorgang Sie für Ihren Kunden starten möchten</p>
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <div class="d-flex justify-content-center align-items-center w-100 m-auto mt-5 p-3">
+        <div role="button" (click)="setContractType('privatkunde')" id="myCls"
+            class="d-flex flex-column align-items-center justify-content-center mr-2"
+            style="width:250px;height:250px;border-radius:6px;border:1px solid gray;"
+            [ngClass]="{'gradient':contractType==='privatkunde'}">
+            <img *ngIf="contractType!=='privatkunde'" src="assets/kundendaten.png">
+            <img *ngIf="contractType==='privatkunde'" src="assets/kundendaten-active.png">
+            <p id="myCls2" class="m-0 mt-3 w-50 text-center" [ngStyle]="{'color':contractType==='privatkunde' ? 'white' : 'gray' }">
+                KUNDENDATEN
+                AKTUALISIEREN</p>
+        </div>
+
+        <div role="button" (click)="setContractType('firmakunde')" id="myCls"
+            class="d-flex flex-column align-items-center justify-content-center ml-2"
+            style="width:250px;height:250px;border-radius:6px;border:1px solid gray;"
+            [ngClass]="{'gradient':contractType==='firmakunde'}">
+            <img *ngIf="contractType!=='firmakunde'" src="assets/produktberatung.png">
+            <img *ngIf="contractType==='firmakunde'" src="assets/produktberatung-active.png">
+            <p id="myCls2" class="m-0 mt-3 w-50 text-center" [ngStyle]="{'color':contractType==='firmakunde' ? 'white' : 'gray' }">
+                PRODUKTBERATUNG
+                STARTEN</p>
+        </div>
+    </div>
+</mat-dialog-actions>
