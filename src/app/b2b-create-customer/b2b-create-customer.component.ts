@@ -18,6 +18,7 @@ import { ActivatedRoute, Params } from "@angular/router";
 import { MatDialog } from "@angular/material/dialog";
 import * as $ from "jquery";
 import Swal from "sweetalert2";
+import { log } from "console";
 
 @Component({
   selector: 'app-b2b-create-customer',
@@ -609,7 +610,10 @@ export class B2bCreateCustomerComponent implements OnInit,AfterViewInit {
   showhiddenfieldsSecond(i: number) {
     console.log("show hidden fields" + i);
     let prop = $("#formidSecond" + i).css("display");
+
     if (prop == "none") {
+      
+      
       $("#formidSecond" + i).css("display", "block");
       
       $("#arrowsettingheaderSecond" + i).removeClass("down");
@@ -624,16 +628,17 @@ export class B2bCreateCustomerComponent implements OnInit,AfterViewInit {
   showhiddenfieldsFirst(i: number) {
     console.log("show hidden fields" + i);
     let prop = $("#formidFirst" + i).css("display");
+    console.log(prop);
     if (prop == "none") {
       $("#formidFirst" + i).css("display", "block");
 
-      $("#arrowsettingheaderFirst" + i).removeClass("down");
-      $("#arrowsettingheaderFirst" + i).addClass("up");
+      // $("#arrowsettingheaderFirst" + i).removeClass("up");
+      $("#arrowsettingheaderFirst" + i).addClass("down");
     } else {
       $("#formidFirst" + i).css("display", "none");
     
-      $("#arrowsettingheaderFirst" + i).removeClass("up");
-      $("#arrowsettingheaderFirst" + i).addClass("down");
+      $("#arrowsettingheaderFirst" + i).removeClass("down");
+      // $("#arrowsettingheaderFirst" + i).addClass("up");
     }
   }
   calculateType3() {
@@ -812,7 +817,7 @@ export class B2bCreateCustomerComponent implements OnInit,AfterViewInit {
 
     this.getAllFieldssecond(splitArr, index);
   }
-  removelegalrepresentativeform1(i: number) {
+  removelegalrepresentativeform1(i: number) {        
     this.legalrepresentativeform1().removeAt(i);
   }
 

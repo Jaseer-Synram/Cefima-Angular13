@@ -132,9 +132,9 @@ international-phone-number {
   padding: 2px;
 }
 
-.down {
-  transform: rotate(45deg);
-  -webkit-transform: rotate(45deg);
+.up {
+  transform: rotate(-90deg);
+  -webkit-transform: rotate(-90deg);
   top: -3px;
 }
 
@@ -142,7 +142,6 @@ international-phone-number {
   padding: 3px;
   position: relative;
   margin: 0px 0px 0px 5px;
-
   left: 3px;
 }
 
@@ -161,9 +160,9 @@ international-phone-number {
   margin: 0px 0px 0px 5px;
 }
 
-.up {
-  transform: rotate(-135deg);
-  -webkit-transform: rotate(-135deg);
+.down {
+  transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
 }
 
 .radioclass1 {
@@ -233,4 +232,15 @@ button[disabled] {
   color: #0094d8;
   background-color: #dcecf8;
   padding-left: 2px;
+}
+
+i.fas.fa-angle-right::before{
+  font-weight: lighter;
+  margin-left: 3px;
+  font-size: larger;
+}
+
+.arrowsetting{
+  display: inline-block;
+  margin-left: 7px;
 }
