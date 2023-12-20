@@ -611,7 +611,8 @@
                   class="col-md-12 d-flex flex-raw  gmbhpersons button-primary px-2 py-1  my-2 mx-0 ">
 
                   <div class="p-0 m-0" style="text-align: start;">{{i+1}}.</div>
-                  <div class="py-0 px-1 m-0" style="text-align: center;"><i class="fas fa-check-square" style="color: #fff;"></i></div>
+                  <div class="py-0 px-1 m-0" style="text-align: center;"><i class="fas fa-check-square"
+                      style="color: #fff;"></i></div>
                   <div class="col-md-11  " style="text-align: start;">{{addedperson1}}</div>
                   <div class="col-md-1 p-0 m-0" style="text-align: center;">
 
@@ -804,7 +805,8 @@
                   class="col-md-12 d-flex flex-raw  gmbhpersons button-primary px-2 py-1   my-2 mx-0 ">
 
                   <div class="p-0 m-0">{{i+1}}.</div>
-                  <div class="py-0 px-1 m-0" style="text-align: center;"><i class="fas fa-check-square" style="color: #fff"></i></div>
+                  <div class="py-0 px-1 m-0" style="text-align: center;"><i class="fas fa-check-square"
+                      style="color: #fff"></i></div>
                   <div class="col-md-11 " style="text-align: start;">{{addedperson1}}</div>
                   <div class="col-md-1 p-0 m-0" style="text-align: center;">
 
@@ -1037,7 +1039,8 @@
                     class="col-md-12 d-flex flex-raw  gmbhpersons button-primary px-2 py-1  my-2 mx-0 ">
 
                     <div class="p-0 m-0" style="text-align: start;">{{i+1}}.</div>
-                    <div class="py-0 px-1 m-0" style="text-align: center;"><i class="fas fa-check-square" style="color: #fff"></i></div>
+                    <div class="py-0 px-1 m-0" style="text-align: center;"><i class="fas fa-check-square"
+                        style="color: #fff"></i></div>
                     <div class="col-md-11 ">{{addedperson1}}</div>
                     <div class="col-md-1 p-0 m-0" style="text-align: center;">
 
@@ -1276,32 +1279,63 @@
             <div class="row" id="addressFormNew" style="padding: 0px;margin-top:20px !important">
 
 
-              <div class="col-md-4 d-flex justify-content-start align-items-stretch flex-column "
+              <!-- <div class="col-md-4 d-flex justify-content-start align-items-stretch flex-column "
                 style="padding: 0px;height: 20%;">
                 <div>
                   <span style="font-size: 13px;"> Bitte beachten Sie, das der Kunde diese Telefonnummer verifizieren
                     muss.</span>
                   <img src="../assets/icons/info-icon.svg" style="height: 12px;" aria-hidden="true">
                 </div>
-                <mat-form-field class="form-width" appearance="outline">
-                  <mat-label style="margin-left: 40px">Telefonnummer eingeben</mat-label>
-                  <input matInput id="phone" [maxlength]="20" name="phone_number" formControlName="phone_number"
-                    class="test" placeholder="Telefonnummer eingeben" type="tel" value="+49"
-                    oninput="this.value=this.value.replace(/[^0-9/+]/g,'')" />
-                </mat-form-field>
-              </div>
+                
+              </div> -->
 
-              <div class="col-md-4 d-flex justify-content-start align-items-stretch flex-column "
+              <!-- <div class="col-md-4 d-flex justify-content-start align-items-stretch flex-column "
                 style="padding: 0px;height: 20%;">
                 <span>
                   <span style="font-size: 13px;">Bitte beachten Sie, das der Kunde diese E-Mail verifizieren
-                    muss.</span><img style="height: 12px;" src="../assets/icons/info-icon.svg"></span>
-                <mat-form-field class="form-width " appearance="outline">
-                  <mat-label>E-Mail</mat-label>
-                  <input type="email" matInput placeholder="E-Mail" formControlName="email"
-                    (blur)="checkemailnewcompany()" email="true" />
+                    muss. </span><img style="height: 12px;" src="../assets/icons/info-icon.svg"></span>
+                
+              </div> -->
+
+              <div class="col-md-12 d-flex align-items-stretch flex-raw p-0 m-0 "
+                style="height:  fit-content;">
+                <div class="col-md-4 p-0 m-0">
+                  <span style="font-size: 13px;text-align: start;"> Bitte beachten Sie, das der Kunde diese Telefonnummer verifizieren
+                    muss.</span>
+                  <img src="../assets/icons/info-icon.svg" style="height: fit-content;" aria-hidden="true">
+                </div>
+                <div class="col-md-4 p-0 m-0">
+                  <span style="font-size: 13px;text-align: center;">Bitte beachten Sie, das der Kunde diese E-Mail verifizieren
+                    muss. </span><img style="height:  fit-content;" src="../assets/icons/info-icon.svg">
+                </div>
+              </div>
+
+              <div class="col-md-12 d-flex justify-content-between align-items-stretch flex-raw "
+                style="padding: 0px;height: 20%;">
+                <div class="col-md-4 m-0 p-0 ">
+                  <mat-form-field class="form-width " appearance="outline">
+                    <mat-label style="margin-left: 40px">Telefonnummer eingeben</mat-label>
+                    <input matInput id="phone" [maxlength]="20" name="phone_number" formControlName="phone_number"
+                      class="test" placeholder="Telefonnummer eingeben" type="tel" value="+49"
+                      oninput="this.value=this.value.replace(/[^0-9/+]/g,'')" />
+                  </mat-form-field>
+                </div>
+                <div class="col-md-4 m-0 p-0 ">
+                  <mat-form-field class="form-width  " appearance="outline">
+                    <mat-label>E-Mail</mat-label>
+                    <input type="email" matInput placeholder="E-Mail" formControlName="email"
+                      (blur)="checkemailnewcompany()" email="true" />
+                  </mat-form-field>
+                  <p style="color: red; border-radius: 5px;margin-top: -25px;" id="checkemailerrorcompany"></p>
+                </div>
+                <div class="col-md-4 p-0 m-0 " >
+                <span><i class="" style="color: #184397;" aria-hidden="true"></i></span>
+                <mat-form-field appearance="outline" class="form-width ">
+                  <mat-label>Benutzer Nr.</mat-label>
+                  <input type="text" name="customerno" formControlName="customerno" matInput placeholder="CustomerNo"
+                    value="{{ customerNo }}" readonly="readonly" />
                 </mat-form-field>
-                <p style="color: red; border-radius: 5px;margin-top: -25px;" id="checkemailerrorcompany"></p>
+              </div>
               </div>
 
               <div class="col-md-4" style="padding: 0px" style="display: none">
@@ -1334,15 +1368,7 @@
                 </mat-form-field>
               </div>
 
-              <div class="col-md-4 d-flex justify-content-end align-items-stretch flex-column "
-                style="padding: 0px;min-height: 20%;text-align:end">
-                <span><i class="" style="color: #184397;" aria-hidden="true"></i></span>
-                <mat-form-field appearance="outline" class="form-width " style="padding-top: 19px;">
-                  <mat-label>Benutzer Nr.</mat-label>
-                  <input type="text" name="customerno" formControlName="customerno" matInput placeholder="CustomerNo"
-                    value="{{ customerNo }}" readonly="readonly" />
-                </mat-form-field>
-              </div>
+              
             </div>
 
 
