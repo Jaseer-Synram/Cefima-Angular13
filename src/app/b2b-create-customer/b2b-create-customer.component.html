@@ -8,8 +8,8 @@
       </div>
     </div>
 
-    <mat-horizontal-stepper linear #stepper style="background: bottom" class="stepnewclass "
-      ngClass="{{ 'last-edited-step-' + stepper.selectedIndex }}">
+    <mat-horizontal-stepper linear #stepper (selectionChange)="onStepChange($event)" style="background: bottom" class="stepnewclass "
+      ngClass="{{ 'last-edited-step-' + stepper.selectedIndex }}" >
 
       <ng-template matStepperIcon="edit">
         <mat-icon>check</mat-icon>
@@ -204,8 +204,8 @@
                   </mat-form-field>
 
                 </div>
-                <div class="col-md-4" style="text-align:center">
-                  <mat-form-field class="form-width" appearance="outline">
+                <div class="col-md-4 p-0 m-0" style="text-align:center">
+                  <mat-form-field class="form-width p-0 m-0" appearance="outline">
                     <mat-label>Anrede</mat-label>
                     <mat-select matNativeControl formControlName="usertitle">
                       <mat-option value="Frau">Frau</mat-option>
@@ -447,7 +447,7 @@
               <p style="text-align: left; margin-bottom: 15px ; font-size: 12px;">
                 Tragen Sie hier die persönlichen Daten des Inhabers und gesetzlichen Vertreters ein.
               </p>
-              <div class="col-md-4">
+              <div class="col-md-4 p-0 m-0">
                 <!-- <label style=" display: block; width: 100%; float: left; ">Anrede</label> -->
                 <!-- <mat-radio-group class="form-width" aria-label="Select an option" formControlName="title">
                   <mat-radio-button value="Frau" class="radioclass3">Frau
@@ -1311,12 +1311,12 @@
               </div>
 
               <div class="col-md-12 d-flex justify-content-between align-items-stretch flex-raw "
-                style="padding: 0px;height: 20%;">
+                style="padding: 0px;height: fit-content;">
                 <div class="col-md-4 m-0 p-0 ">
                   <mat-form-field class="form-width " appearance="outline">
                     <mat-label style="margin-left: 40px">Telefonnummer eingeben</mat-label>
-                    <input matInput id="phone" [maxlength]="20" name="phone_number" formControlName="phone_number"
-                      class="test" placeholder="Telefonnummer eingeben" type="tel" value="+49"
+                    <input type="tel" matInput placeholder="Telefonnummer eingeben" formControlName="phone_number" [maxlength]="20" name="phone_number"   
+                      class="test"  value="+49" id="phone"
                       oninput="this.value=this.value.replace(/[^0-9/+]/g,'')" />
                   </mat-form-field>
                 </div>

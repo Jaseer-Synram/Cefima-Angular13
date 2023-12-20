@@ -19,6 +19,9 @@ import { MatDialog } from "@angular/material/dialog";
 import * as $ from "jquery";
 import Swal from "sweetalert2";
 import { log } from "console";
+import {  } from '@angular/material/stepper';
+import { StepperSelectionEvent } from "@angular/cdk/stepper";
+
 
 @Component({
   selector: 'app-b2b-create-customer',
@@ -302,6 +305,12 @@ export class B2bCreateCustomerComponent implements OnInit,AfterViewInit {
   companytypevalue = false;
   registerDone = false;
   registraionError = false;
+
+  //for design of first step
+
+  isHoverUnternahman = false
+  isHoverHaushalt = false
+  itemToDisplayUnderKundenType = ''
   //DatePicker min and max date
   
   sharesvalue: number = 100;
@@ -346,19 +355,26 @@ export class B2bCreateCustomerComponent implements OnInit,AfterViewInit {
       });
     }
   }
-  isHoverUnternahman = false
-  isHoverHaushalt = false
-  itemToDisplayUnderKundenType = ''
-
+ 
   telInputObject(obj) {
     console.log(obj);
-    obj.setCountry("de");
+    obj.setCountry("DE");
   }
-  ngAfterViewInit() {
-    const input = document.querySelector("#phone");
+
+  onStepChange(event: StepperSelectionEvent){
+    console.log(event);
+    
+    if (event.selectedIndex === 3) {
+      console.log(event.selectedStep);
+      this.intlTelInputShow(); 
+    }
+  }
+
+  intlTelInputShow(){
+    const input = document.getElementById("phone");
     console.log("querySelector" + input);
     intlTelInput(input, {
-      initialCountry: "de",
+      initialCountry: "DE",
       geoIpLookup: function (callback) {
         $.get("http://ipinfo.io", function () {}, "jsonp").always(function (
           resp
@@ -369,6 +385,10 @@ export class B2bCreateCustomerComponent implements OnInit,AfterViewInit {
         });
       },
     });
+  }
+
+  ngAfterViewInit() {
+   
     // $('.firstlast').parent().css('overflow', 'none');
     // $(".firstlast").find('.mat-form-field-infix').css('width',"100%");
     $(".firstlast")
@@ -499,7 +519,7 @@ export class B2bCreateCustomerComponent implements OnInit,AfterViewInit {
 
     this.moreinfoFormGroup = this._formBuilder.group({
       password: ["", Validators.required],
-      phone_number: ["", Validators.required],
+      phone_number: ["+49", Validators.required],
       customerno: ["", Validators.required],
       email: [
         "",
