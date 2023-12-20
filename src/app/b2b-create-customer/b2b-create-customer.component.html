@@ -1098,12 +1098,12 @@
                           <mat-datepicker #picker format="dd\MM\yyyy"></mat-datepicker>
                         </mat-form-field>
                       </div>
-                      <p class="col-md-12" style="text-align: left; margin-bottom: 5px ;font-size: 12px;">
+                      <p style="text-align: left;;font-size: 12px;position: relative;bottom: 19px;left: 2vh;">
                         Bitte geben Sie den prozentualen Unternehmensanteil an.
                       </p>
 
-                      <div class="col-md-4" style="padding: 0px">
-                        <mat-form-field appearance="outline" style="width: 100%">
+                      <div class="col-md-4" style="padding: 0px;position: relative;right: 36vh;">
+                        <mat-form-field appearance="outline" class="form-width">
                           <mat-label>Unternehmensanteil in Prozent</mat-label>
                           <input matInput (ngModelChange)="calculateShares(); checkTotalShares()" [maxlength]=100
                             placeholder="Anteile" formControlName="shares" />
