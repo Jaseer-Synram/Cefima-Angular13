@@ -31,10 +31,17 @@
                     <img *ngIf="router.url != '/cefima/customer'" src="assets/kunden-icon.png">
                     <span class="full-width ml-2" *ngIf="isExpanded || isShowing" role="button">Kunden</span>
                 </mat-list-item>
-                <mat-list-item class="parent"
+                <!-- <mat-list-item class="parent"
                     [ngClass]="router.url == '/neoloop/mediacloud/All' ? 'active text-dark parent' : 'parent text-white'">
                     <img *ngIf="router.url == '/neoloop/mediacloud/All'" src="assets/upload-icon-active.png">
                     <img *ngIf="router.url != '/neoloop/mediacloud/All'" src="assets/upload-icon.png">
+                    <span class="full-width ml-2" *ngIf="isExpanded || isShowing" role="button">Dokumenten Upload</span>
+                </mat-list-item> -->
+                <mat-list-item class="parent"
+                    [ngClass]="router.url == '/cefima/upload-document' ? 'active text-dark parent' : 'parent text-white'"
+                    (click)="router.navigate(['cefima/upload-document'])">
+                    <img *ngIf="router.url == '/cefima/upload-document'" src="assets/upload-icon-active.png">
+                    <img *ngIf="router.url != '/cefima/upload-document'" src="assets/upload-icon.png">
                     <span class="full-width ml-2" *ngIf="isExpanded || isShowing" role="button">Dokumenten Upload</span>
                 </mat-list-item>
 

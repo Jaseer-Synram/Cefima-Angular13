@@ -328,7 +328,7 @@ button:disabled,
 button[disabled] {
     border: 1px solid #999999 !important;
     background: #8a8a8a !important;
-} 
+}
 
 .table-count {
     /* background: linear-gradient(310.12deg, #33a4df -11.74%, #587dba 66.6%); */
@@ -747,7 +747,7 @@ img {
 }
 
 .table-min-height {
-  min-height: calc(100vh - 28vh)
+    min-height: calc(100vh - 28vh)
 }
 
 .app-header {
@@ -877,6 +877,7 @@ img {
         min-height: calc(100vh - 20px);
     }
 }
+
 
 .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
     color: var(--defaultColor);
@@ -1255,6 +1256,7 @@ button.sparte {
     right: 0px ;
     top: -20px ; */
     color: transparent !important;
-  }
+}
+
 
 /* MY CSS END HERE */

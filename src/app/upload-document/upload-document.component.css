@@ -1,0 +1,82 @@
+.upload-theme {
+    background-image: linear-gradient(to right, #17459B, #02A9ED);
+    border: none;
+    box-shadow: none;
+}
+
+.upload-theme-bottom {
+    background-image: linear-gradient(to bottom, #17459B, #02A9ED);
+    border: none;
+    box-shadow: none;
+}
+
+div.mat-form-field-flex {
+    border-image: linear-gradient(to bottom, #17459B, #02A9ED);
+    border-width: 5px;
+    padding: 0;
+}
+
+/* documetn upload page */
+.mat-form-field-appearance-outline .mat-form-field-infix {
+    padding: 0px 0 8px 0 !important;
+    height: fit-content !important;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-outline {
+    border: 1px solid !important;
+    border-radius: 5px !important;
+    border-image: linear-gradient(to bottom, #17459B, #02A9ED) !important;
+}
+
+
+
+div.mat-form-field-wrapper {
+    border-image: linear-gradient(to bottom, #17459B, #02A9ED);
+    border-width: 5px;
+}
+
+.mat-option {
+    padding: 0 5px 0 5px;
+    margin: 0;
+}
+
+.mat-option:hover {
+    background-image: linear-gradient(to bottom, #17459B, #02A9ED);
+    color: white;
+}
+
+
+.second-text {
+    font-family: Titillium Web, sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 46px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.waiter {
+    background-color: #d8f4ff;
+    border: 2px solid #0986D0;
+    color: #0C78C5;
+    box-shadow: none;
+}
+
+.underKundenHead {
+    font-family: Open Sans;
+    font-size: 9px;
+    font-weight: 400;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #0094d8;
+    background-color: #dcecf8;
+    padding-left: 2px;
+}
+
+
+#uploadDocumentOne {
+    background-image: linear-gradient(to right, #000000, #02A9ED);
+    height: 81px;
+}
+
+

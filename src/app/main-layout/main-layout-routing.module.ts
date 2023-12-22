@@ -28,7 +28,14 @@ const routes: Routes = [
         loadChildren: () =>
           import('../b2b-create-customer/b2b-create-customer.module').then(
             (m) => m.B2bCreateCustomerModule),
-            canActivate: [AuthGuardService]
+        canActivate: [AuthGuardService]
+      },
+      {
+        path: 'upload-document',
+        loadChildren: () =>
+          import("../upload-document/upload-document.module").then(
+            (m) => m.UploadDocumentModule),
+        canActivate: [AuthGuardService]
       },
       {
         path: 'consulting',
@@ -74,4 +81,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class MainLayoutRoutingModule {}
+export class MainLayoutRoutingModule { }
