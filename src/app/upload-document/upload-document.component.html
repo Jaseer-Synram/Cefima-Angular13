@@ -12,17 +12,18 @@
                             <span class="card-text">Um ein Dokument hochzuladen, wählen Sie bitte einen Kunden aus
                                 oder
                                 legen Sie einen an.</span>
-                            <button type="button" style="padding-bottom: 2px;"  mat-raised-button (click)="OpenStpper()" class="btn upload-theme d-flex  flex-raw justify-content-enter align-items-center ">
-                                    <svg width="24" height="25" viewBox="0 0 24 25" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M12.0303 0.72168C5.437 0.72168 0.0859375 6.07274 0.0859375 12.666C0.0859375 19.2593 5.437 24.6104 12.0303 24.6104C18.6235 24.6104 23.9746 19.2593 23.9746 12.666C23.9746 6.07274 18.6235 0.72168 12.0303 0.72168ZM18.0024 13.8604H13.2247V18.6382H10.8358V13.8604H6.05811V11.4716H10.8358V6.69385H13.2247V11.4716H18.0024V13.8604Z"
-                                            fill="white" />
-                                    </svg>
-                                    <span class="text-white" style="text-decoration: none" >
-                                        Kunde anlegen
-                                    </span>
-                                    
+                            <button type="button" style="padding-bottom: 2px;" mat-raised-button (click)="OpenStpper()"
+                                class="btn upload-theme d-flex  flex-raw justify-content-enter align-items-center ">
+                                <svg width="24" height="25" viewBox="0 0 24 25" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M12.0303 0.72168C5.437 0.72168 0.0859375 6.07274 0.0859375 12.666C0.0859375 19.2593 5.437 24.6104 12.0303 24.6104C18.6235 24.6104 23.9746 19.2593 23.9746 12.666C23.9746 6.07274 18.6235 0.72168 12.0303 0.72168ZM18.0024 13.8604H13.2247V18.6382H10.8358V13.8604H6.05811V11.4716H10.8358V6.69385H13.2247V11.4716H18.0024V13.8604Z"
+                                        fill="white" />
+                                </svg>
+                                <span class="text-white" style="text-decoration: none">
+                                    Kunde anlegen
+                                </span>
+
                             </button>
                         </div>
                     </div>
@@ -56,14 +57,17 @@
                                                                     Sie es in
                                                                     der Suchleiste aus.</span>
                                                             </div>
-                                                            <div class="col-md-7 d-flex flex-raw align-items-start p-0 m-0 rounded-2 "
-                                                                id="uploadDocumentOne" >
-                                                                <mat-form-field style="color: white;background-color: white;"
+                                                            <div class="col-md-7 d-flex flex-raw align-items-start p-1 m-0  "
+                                                                id="uploadDocumentOne">
+                                                                <mat-form-field
+                                                                    style="color: white;background-color: white;"
                                                                     class="mat-form-field-remove-padding-bottom mat-form-field-remove-margin col-md-11 custom-mat-input p-0  m-0 example-full-width"
                                                                     appearance="outline">
                                                                     <!-- <mat-label class="p-0 m-0">Haushalt
                                                                                     / Firma auswählen</mat-label> -->
-                                                                    <input style="color: rgb(0, 0, 0);background-color: white; padding: 0px;;" class="  p-0 mb-2" type="text"
+                                                                    <input
+                                                                        style="color: rgb(0, 0, 0);background-color: white; padding: 0px;;"
+                                                                        class="  p-0 mb-2" type="text"
                                                                         placeholder="Haushalt / Firma auswählen"
                                                                         aria-label="Number" matInput
                                                                         [formControl]="myControl" (keyup.enter)="
@@ -80,10 +84,9 @@
                                                                         </mat-option>
                                                                     </mat-autocomplete>
                                                                 </mat-form-field>
-                                                                <span class="" style="height: 100%;"><svg
-                                                                        class=" p-2 " width="56" height="63"
-                                                                        viewBox="0 0 28 27" fill="none"
-                                                                        xmlns="http://www.w3.org/2000/svg">
+                                                                <span class="" style="height: 100%;"><svg class=" p-2 "
+                                                                        width="56" height="63" viewBox="0 0 28 27"
+                                                                        fill="none" xmlns="http://www.w3.org/2000/svg">
                                                                         <path
                                                                             d="M19.6498 17.0232H18.446L18.0193 16.6118C19.5127 14.8746 20.4118 12.6193 20.4118 10.1658C20.4118 4.69518 15.9773 0.260742 10.5067 0.260742C5.036 0.260742 0.601562 4.69518 0.601562 10.1658C0.601562 15.6365 5.036 20.0709 10.5067 20.0709C12.9601 20.0709 15.2154 19.1719 16.9526 17.6785L17.364 18.1052V19.309L24.9834 26.9131L27.2539 24.6425L19.6498 17.0232ZM10.5067 17.0232C6.71225 17.0232 3.64929 13.9603 3.64929 10.1658C3.64929 6.37143 6.71225 3.30847 10.5067 3.30847C14.3011 3.30847 17.364 6.37143 17.364 10.1658C17.364 13.9603 14.3011 17.0232 10.5067 17.0232Z"
                                                                             fill="white" />
@@ -161,8 +164,8 @@
 
                                                 </div>
                                             </div> -->
-                                           
-                                    
+
+
 
                                             <div class="row p-0">
 
@@ -190,46 +193,56 @@
                                 <span>Dokumenttyp</span>
                                 <div class="underKundenHead rounded-sm ">{{itemToDisplayUnderKundenType}}</div>
                             </ng-template>
-                            
+
                             <!-- // newly added *********************************************************************************-->
                             <div fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap="0px"
                                 style="margin-top: -15px">
 
-                                <div *ngIf="poa == 'false'" class="myDIV">
-
+                                <div *ngIf="poa == 'false'" class="col-md-4 myDIV">
                                     <mat-card class="links1" style="background-color: rgba(45, 45, 45, 0.5);">
-
-                                        <mat-card-title>
-                                            <img mat-card-image src="../assets/doc_transfer.png" />
+                                        <mat-card-title class="  d-flex flex-column align-items-center">
+                                            <img mat-card-image class="flex-item custom-margin" style="width: 40%;"
+                                                src="../assets/icons/document-second-first.svg" />
+                                            <span class="custom-heading flex-item">bestands <br>
+                                                Ubertragung</span>
                                         </mat-card-title>
                                     </mat-card>
                                 </div>
+
                                 <div class="popover-hide"> <span style="color: #184397;"><i class="fa fa-info-circle"
                                             aria-hidden="true"></i>
                                     </span> Um eine Bestandsübertragung durchzuführen muss der Kunde die Maklervollmacht
                                     signieren.</div>
-                                <div *ngIf="poa == 'true'" (click)="GoNext('bestandsübertragung')"
+                                <div class="col-md-4" *ngIf="poa == 'true'" (click)="GoNext2('bestandsübertragung')"
                                     routerLink="/upload-document/{{ user_id }}/bestandsübertragung">
-                                    <mat-card class="links">
-                                        <mat-card-title>
-                                            <img mat-card-image src="../assets/doc_transfer.png" />
+                                    <mat-card class="links1">
+                                        <mat-card-title class="  d-flex flex-column align-items-center">
+                                            <img mat-card-image class="flex-item custom-margin" style="width: 40%;"
+                                                src="../assets/icons/document-second-first.svg" />
+                                            <span class="custom-heading flex-item">bestands <br>
+                                                Ubertragung</span>
                                         </mat-card-title>
                                     </mat-card>
                                 </div>
 
-                                <div (click)="GoNext('fremdvertrag')"
+                                <div class="col-md-4" (click)="GoNext2('fremdvertrag')"
                                     routerLink="/upload-document/{{ user_id }}/fremdvertrag">
-                                    <mat-card class="links">
-                                        <mat-card-title>
-                                            <img mat-card-image src="../assets/third_party.png" />
+                                    <mat-card class="links1">
+                                        <mat-card-title class="  d-flex flex-column align-items-center">
+                                            <img mat-card-image class="flex-item custom-margin" style="width: 40%;"
+                                                src="../assets//icons/document-second-second.svg" />
+                                            <span class="custom-heading flex-item">fremdvertrag</span>
                                         </mat-card-title>
                                     </mat-card>
                                 </div>
-                                <div (click)="GoNext('Allgemeines Dokument')"
+
+                                <div class="col-md-4" (click)="GoNext2('Allgemeines Dokument')"
                                     routerLink="/upload-document/{{ user_id }}/allgemeines">
-                                    <mat-card class="links">
-                                        <mat-card-title>
-                                            <img mat-card-image src="../assets/all_dok.png" />
+                                    <mat-card class="links1">
+                                        <mat-card-title class="  d-flex flex-column align-items-center">
+                                            <img mat-card-image class="flex-item custom-margin" style="width: 40%;"
+                                                src="../assets//icons/document-second-third.svg" />
+                                            <span class="custom-heading flex-item">allgemeines <br> dokument</span>
                                         </mat-card-title>
                                     </mat-card>
                                 </div>
