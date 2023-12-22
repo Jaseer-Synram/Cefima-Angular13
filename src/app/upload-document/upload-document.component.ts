@@ -413,7 +413,7 @@ export class UploadDocumentComponent implements OnInit {
 
     let words = this.myControl.value.split(' ');
     words.pop();
-    this.itemToDisplayUnderKundenType = words.join()
+    this.itemToDisplayUnderKundenType = words.join(' ')
 
     console.log("patchnationalityValue" + this.myControl.value, this.id);
   }

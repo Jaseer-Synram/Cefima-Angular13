@@ -97,22 +97,21 @@ div.mat-form-field-wrapper {
 
 }
 
-.popover-hide {
-    display: none;
-    margin-top: 131px;
-    white-space: pre-wrap;
 
+.popover-hide {
+    display: block;
+    white-space: pre-wrap;
     word-break: initial;
-    position: absolute;
+    position: relative;
     max-width: 234px;
     padding: 0px;
     border-radius: 6px;
-
     background: whitesmoke;
     padding: 20px 20px;
     opacity: 1;
     color: #370b0b;
-    left: 410px;
+    left: 36px;
+    bottom: 65px;
     font-size: 13px;
 }
 

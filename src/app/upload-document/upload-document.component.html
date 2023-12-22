@@ -195,24 +195,26 @@
                             </ng-template>
 
                             <!-- // newly added *********************************************************************************-->
-                            <div fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap="0px"
+                            <div fxLayout="row wrap col-md-12 " fxLayoutAlign="center center" fxLayoutGap="0px"
                                 style="margin-top: -15px">
+                                <div class="col-md-4">
+                                    <div *ngIf="poa == 'false'" class="col-md-12 myDIV">
+                                        <mat-card class="links1" style="background-color: rgba(255, 255, 255, 0.5);">
+                                            <mat-card-title class="  d-flex flex-column align-items-center">
+                                                <img mat-card-image class="flex-item custom-margin" style="width: 40%;"
+                                                    src="../assets/icons/document-second-first.svg" />
+                                                <span class="custom-heading flex-item">bestands <br>
+                                                    Ubertragung</span>
+                                            </mat-card-title>
+                                        </mat-card>
+                                    </div>
 
-                                <div *ngIf="poa == 'false'" class="col-md-4 myDIV">
-                                    <mat-card class="links1" style="background-color: rgba(45, 45, 45, 0.5);">
-                                        <mat-card-title class="  d-flex flex-column align-items-center">
-                                            <img mat-card-image class="flex-item custom-margin" style="width: 40%;"
-                                                src="../assets/icons/document-second-first.svg" />
-                                            <span class="custom-heading flex-item">bestands <br>
-                                                Ubertragung</span>
-                                        </mat-card-title>
-                                    </mat-card>
+                                    <div class="popover-hide">
+                                        <span style="font-size: 13px;text-align: center;">Um eine Bestandsübertragung
+                                            durchzuführen muss der Kunde die Maklervollmacht signieren.</span> <img
+                                            style="height:  12px;" src="../assets/icons/info-icon.svg">
+                                    </div>
                                 </div>
-
-                                <div class="popover-hide"> <span style="color: #184397;"><i class="fa fa-info-circle"
-                                            aria-hidden="true"></i>
-                                    </span> Um eine Bestandsübertragung durchzuführen muss der Kunde die Maklervollmacht
-                                    signieren.</div>
                                 <div class="col-md-4" *ngIf="poa == 'true'" (click)="GoNext2('bestandsübertragung')"
                                     routerLink="/upload-document/{{ user_id }}/bestandsübertragung">
                                     <mat-card class="links1">
