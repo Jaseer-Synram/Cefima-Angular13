@@ -41,7 +41,7 @@
                             <div class="container">
                                 <ng-template matStepLabel>
                                     <span>Kunden</span>
-                                    <div class="underKundenHead rounded-sm ">{{itemToDisplayUnderKundenType}}</div>
+                                    <div class="underKundenHead rounded-sm ">{{itemToDisplayUnderKunden}}</div>
                                 </ng-template>
                                 <div class="row setup-content" id="step-1">
                                     <form style="width: 100%" (ngSubmit)="GoNext()">
@@ -57,8 +57,8 @@
                                                                     Sie es in
                                                                     der Suchleiste aus.</span>
                                                             </div>
-                                                            <div class="col-md-7 d-flex flex-raw align-items-start p-1 m-0  "
-                                                                id="uploadDocumentOne">
+                                                            <div
+                                                                class="uploadDocumentOne col-md-7 d-flex flex-raw align-items-start p-1 m-0  ">
                                                                 <mat-form-field
                                                                     style="color: white;background-color: white;"
                                                                     class="mat-form-field-remove-padding-bottom mat-form-field-remove-margin col-md-11 custom-mat-input p-0  m-0 example-full-width"
@@ -191,19 +191,21 @@
                         <mat-step *ngIf="kundetype=='Firma' && myControl.value else haushalt ">
                             <ng-template matStepLabel>
                                 <span>Dokumenttyp</span>
-                                <div class="underKundenHead rounded-sm ">{{itemToDisplayUnderKundenType}}</div>
+                                <div class="underKundenHead rounded-sm ">{{itemToDisplayUnderDokumenttyp}}</div>
                             </ng-template>
 
                             <!-- // newly added *********************************************************************************-->
-                            <div fxLayout="row wrap col-md-12 " fxLayoutAlign="center center" fxLayoutGap="0px"
-                                style="margin-top: -15px">
-                                <div class="col-md-4">
+                            <div fxLayout="row wrap col-md-12 " fxLayoutAlign="center center" style="margin-top: 60px">
+                                <div class="col-md-4 d-flex align-items-center   ">
                                     <div *ngIf="poa == 'false'" class="col-md-12 myDIV">
-                                        <mat-card class="links1" style="background-color: rgba(255, 255, 255, 0.5);">
-                                            <mat-card-title class="  d-flex flex-column align-items-center">
+                                        <mat-card class="links1"
+                                            style="background-color: rgba(255, 255, 255, 0.5);text-align: start;">
+                                            <mat-card-title
+                                                class="  d-flex flex-column align-items-center justify-content-center">
                                                 <img mat-card-image class="flex-item custom-margin" style="width: 40%;"
                                                     src="../assets/icons/document-second-first.svg" />
-                                                <span class="custom-heading flex-item">bestands <br>
+                                                <span style="text-align: center;"
+                                                    class="custom-heading flex-item ">bestands
                                                     Ubertragung</span>
                                             </mat-card-title>
                                         </mat-card>
@@ -217,11 +219,12 @@
                                 </div>
                                 <div class="col-md-4" *ngIf="poa == 'true'" (click)="GoNext2('bestandsübertragung')"
                                     routerLink="/upload-document/{{ user_id }}/bestandsübertragung">
-                                    <mat-card class="links1">
-                                        <mat-card-title class="  d-flex flex-column align-items-center">
+                                    <mat-card class="links1" style="text-align: start;">
+                                        <mat-card-title
+                                            class="  d-flex flex-column align-items-center justify-content-center">
                                             <img mat-card-image class="flex-item custom-margin" style="width: 40%;"
                                                 src="../assets/icons/document-second-first.svg" />
-                                            <span class="custom-heading flex-item">bestands <br>
+                                            <span style="text-align: center;" class="custom-heading flex-item">bestands
                                                 Ubertragung</span>
                                         </mat-card-title>
                                     </mat-card>
@@ -229,22 +232,26 @@
 
                                 <div class="col-md-4" (click)="GoNext2('fremdvertrag')"
                                     routerLink="/upload-document/{{ user_id }}/fremdvertrag">
-                                    <mat-card class="links1">
-                                        <mat-card-title class="  d-flex flex-column align-items-center">
+                                    <mat-card class="links1" style="text-align: center;">
+                                        <mat-card-title
+                                            class="  d-flex flex-column align-items-center justify-content-center">
                                             <img mat-card-image class="flex-item custom-margin" style="width: 40%;"
                                                 src="../assets//icons/document-second-second.svg" />
-                                            <span class="custom-heading flex-item">fremdvertrag</span>
+                                            <span style="margin-top: 10px;"
+                                                class="custom-heading flex-item">fremdvertrag</span>
                                         </mat-card-title>
                                     </mat-card>
                                 </div>
 
                                 <div class="col-md-4" (click)="GoNext2('Allgemeines Dokument')"
                                     routerLink="/upload-document/{{ user_id }}/allgemeines">
-                                    <mat-card class="links1">
-                                        <mat-card-title class="  d-flex flex-column align-items-center">
+                                    <mat-card class="links1" style="text-align: end;">
+                                        <mat-card-title
+                                            class="  d-flex flex-column align-items-center justify-content-center">
                                             <img mat-card-image class="flex-item custom-margin" style="width: 40%;"
                                                 src="../assets//icons/document-second-third.svg" />
-                                            <span class="custom-heading flex-item">allgemeines <br> dokument</span>
+                                            <span style="text-align: center;"
+                                                class="custom-heading flex-item">allgemeines dokument</span>
                                         </mat-card-title>
                                     </mat-card>
                                 </div>
@@ -271,7 +278,7 @@
                             <mat-step>
                                 <ng-template matStepLabel>
                                     <span>Produkttyp</span>
-                                    <div class="underKundenHead rounded-sm ">{{itemToDisplayUnderKundenType}}</div>
+                                    <div class="underKundenHead rounded-sm ">{{itemToDisplayUnderKunden}}</div>
                                 </ng-template>
                                 <div class="col-md-12 p-0">
                                     <div class="bottom-btn p-0 m-0 d-flex justify-content-between ">
@@ -291,7 +298,7 @@
                         <mat-step>
                             <ng-template matStepLabel>
                                 <span>Produktpartner</span>
-                                <div class="underKundenHead rounded-sm ">{{itemToDisplayUnderKundenType}}</div>
+                                <div class="underKundenHead rounded-sm ">{{itemToDisplayUnderKunden}}</div>
                             </ng-template>
                             <div class="col-md-12 p-0">
                                 <div class="bottom-btn p-0 m-0 d-flex justify-content-between ">
@@ -309,7 +316,7 @@
                         <mat-step>
                             <ng-template matStepLabel>
                                 <span>Dokument hochladen</span>
-                                <div class="underKundenHead rounded-sm ">{{itemToDisplayUnderKundenType}}</div>
+                                <div class="underKundenHead rounded-sm ">{{itemToDisplayUnderKunden}}</div>
                             </ng-template>
                             <div class="col-md-12 p-0">
                                 <div class="bottom-btn p-0 m-0 d-flex justify-content-between ">
@@ -327,7 +334,7 @@
                         <mat-step>
                             <ng-template matStepLabel>
                                 <span>Dokument hochladen</span>
-                                <div class="underKundenHead rounded-sm ">{{itemToDisplayUnderKundenType}}</div>
+                                <div class="underKundenHead rounded-sm ">{{itemToDisplayUnderKunden}}</div>
                             </ng-template>
                             <div class="col-md-12 p-0">
                                 <div class="bottom-btn p-0 m-0 d-flex justify-content-between ">
@@ -345,7 +352,7 @@
                         <mat-step>
                             <ng-template matStepLabel>
                                 <span>Dokument hochladen</span>
-                                <div class="underKundenHead rounded-sm ">{{itemToDisplayUnderKundenType}}</div>
+                                <div class="underKundenHead rounded-sm ">{{itemToDisplayUnderKunden}}</div>
                             </ng-template>
                             <div class="col-md-12 p-0">
                                 <div class="bottom-btn p-0 m-0 d-flex justify-content-between ">
@@ -363,7 +370,7 @@
                         <mat-step>
                             <ng-template matStepLabel>
                                 <span>Dokument hochladen</span>
-                                <div class="underKundenHead rounded-sm ">{{itemToDisplayUnderKundenType}}</div>
+                                <div class="underKundenHead rounded-sm ">{{itemToDisplayUnderKunden}}</div>
                             </ng-template>
                             <div class="col-md-12 p-0">
                                 <div class="bottom-btn p-0 m-0 d-flex justify-content-between ">
@@ -381,7 +388,7 @@
                         <mat-step>
                             <ng-template matStepLabel>
                                 <span>Dokument hochladen</span>
-                                <div class="underKundenHead rounded-sm ">{{itemToDisplayUnderKundenType}}</div>
+                                <div class="underKundenHead rounded-sm ">{{itemToDisplayUnderKunden}}</div>
                             </ng-template>
                             <div class="col-md-12 p-0">
                                 <div class="bottom-btn p-0 m-0 d-flex justify-content-between ">

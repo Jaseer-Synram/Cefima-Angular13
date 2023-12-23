@@ -71,7 +71,8 @@ export class UploadDocumentComponent implements OnInit {
   ).companytype;
 
   askquestion: FormGroup;
-  itemToDisplayUnderKundenType = ''
+  itemToDisplayUnderKunden = ''
+  itemToDisplayUnderDokumenttyp = ''
 
   //for step 2
   kundevalue = ''
@@ -413,7 +414,7 @@ export class UploadDocumentComponent implements OnInit {
 
     let words = this.myControl.value.split(' ');
     words.pop();
-    this.itemToDisplayUnderKundenType = words.join(' ')
+    this.itemToDisplayUnderKunden = words.join(' ')
 
     console.log("patchnationalityValue" + this.myControl.value, this.id);
   }
