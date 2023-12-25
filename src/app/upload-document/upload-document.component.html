@@ -28,7 +28,8 @@
                         </div>
                     </div>
 
-                    <mat-horizontal-stepper linear #stepper style="background: bottom" class="stepnewclass "
+                    <mat-horizontal-stepper linear #stepper (selectionChange)="onStepChange($event)"
+                        style="background: bottom" class="stepnewclass "
                         ngClass="{{ 'last-edited-step-' + stepper.selectedIndex }}">
 
                         <ng-template matStepperIcon="edit">
@@ -46,11 +47,12 @@
                                 <div class="row setup-content" id="step-1">
                                     <form style="width: 100%" (ngSubmit)="GoNext()">
                                         <div>
-                                            <div style="padding: 0px" class="col-md-12 card-center">
+                                            <div style="padding: 0px;margin-bottom: 30px;"
+                                                class="col-md-12 card-center">
                                                 <div class="formstep1">
                                                     <div class="row">
                                                         <div class="col-md-12 d-flex flex-column cusotmer-select p-0"
-                                                            style="margin-top: 40px;">
+                                                            style="margin-top: 40px;margin-bottom: 30vh;">
                                                             <div class="col-md-12 d-flex justify-content-start p-0 ">
                                                                 <span class="second-text"> Bitte suchen Sie
                                                                     einen Haushalt/Unternehmen und wählen
@@ -93,26 +95,7 @@
                                                                     </svg></span>
 
                                                             </div>
-                                                            <!-- <div class="col-md-12 d-flex flex-raw align-items-start  ">
-                                                                <mat-form-field class="col-md-6 p-0 example-full-width"
-                                                                    appearance="outline" *ngIf="showmembers">
-                                                                    <mat-label>Haushaltsmitglied auswählen</mat-label>
-                                                                    <input class="  p-0 m-0" type="text"
-                                                                        placeholder="Haushaltsmitglied auswählen"
-                                                                        aria-label="Number" matInput
-                                                                        [formControl]="myControlnew" (keyup.enter)="
-                                                                    patchmembervalue($event) "
-                                                                        (ngModelChange)=" patchmembervalue($event) "
-                                                                        [matAutocomplete]="auto1" />
-                                                                    <mat-autocomplete #auto1="matAutocomplete">
-                                                                        <mat-option *ngFor="
-                                                let employee of filteredOptionsmembers | async
-                                              " [value]="employee.name">
-                                                                            {{ employee.name }}
-                                                                        </mat-option>
-                                                                    </mat-autocomplete>
-                                                                </mat-form-field>
-                                                            </div> -->
+
                                                         </div>
                                                     </div>
                                                 </div>
@@ -195,11 +178,193 @@
                             </ng-template>
 
                             <!-- // newly added *********************************************************************************-->
-                            <div fxLayout="row wrap col-md-12 " fxLayoutAlign="center center" style="margin-top: 60px">
-                                <div class="col-md-4 d-flex align-items-center   ">
-                                    <div *ngIf="poa == 'false'" class="col-md-12 myDIV">
-                                        <mat-card class="links1"
+                            <div fxLayout="row wrap col-md-12 " fxLayoutAlign="center center"
+                                style="margin-top: 60px;margin-bottom: 11vh;">
+                                <!-- <div class="col-md-4 d-flex align-items-center   "> -->
+                                <!-- <div *ngIf="poa == 'false'" class="col-md-12 myDIV">
+                                        <mat-card class="links1 " 
+                                            matTooltip="Um eine Bestandsübertragung durchzuführen 
+                                            muss der Kunde die Maklervollmacht signieren."
+                                            matTooltipClass="upload mat-tooltip"
                                             style="background-color: rgba(255, 255, 255, 0.5);text-align: start;">
+                                            <mat-card-title
+                                                class="  d-flex flex-column align-items-center justify-content-center">
+                                                <img mat-card-image class="flex-item custom-margin" style="width: 40%;"
+                                                    src="../assets/icons/document-second-first.svg" />
+                                                <span style="text-align: center;"
+                                                    class="custom-heading flex-item ">BESTANDS
+                                                    UBERTRAGUNG</span>
+                                            </mat-card-title>
+                                        </mat-card>
+                                    </div> -->
+
+                                <!-- <div class="popover-hide">
+                                        <span style="font-size: 13px;text-align: center;">Um eine Bestandsübertragung
+                                            durchzuführen muss der Kunde die Maklervollmacht signieren.<img
+                                            style="height:  12px;" src="../assets/icons/info-icon.svg">
+                                    </div> -->
+                                <!-- </div> -->
+
+                                <!-- routerLink="/upload-document/{{ user_id }}/bestandsübertragung" -->
+                                <div class="col-md-4">
+                                    <mat-card (click)="GoNext2('bestandsübertragung')" class="links1"
+                                        style="text-align: start;">
+                                        <mat-card-title
+                                            class="  d-flex flex-column align-items-center justify-content-center">
+                                            <img mat-card-image class="flex-item custom-margin" style="width: 40%;"
+                                                src="../assets/icons/document-second-first.svg" />
+                                            <span style="text-align: center;" class="custom-heading flex-item">BESTANDS
+                                                UBERTRAGUNG</span>
+                                        </mat-card-title>
+                                    </mat-card>
+                                </div>
+                                <!-- routerLink="/upload-document/{{ user_id }}/fremdvertrag" -->
+                                <div class="col-md-4">
+                                    <mat-card (click)="GoNext2('fremdvertrag')" class="links1"
+                                        style="text-align: center;">
+                                        <mat-card-title
+                                            class="  d-flex flex-column align-items-center justify-content-center">
+                                            <img mat-card-image class="flex-item custom-margin" style="width: 40%;"
+                                                src="../assets//icons/document-second-second.svg" />
+                                            <span style="margin-top: 10px;"
+                                                class="custom-heading flex-item">FREMDVERTRAG</span>
+                                        </mat-card-title>
+                                    </mat-card>
+                                </div>
+                                <!-- routerLink="/upload-document/{{ user_id }}/allgemeines" -->
+                                <div class="col-md-4">
+                                    <mat-card (click)="GoNext2('Allgemeines Dokument')" class="links1"
+                                        style="text-align: end;">
+                                        <mat-card-title
+                                            class="  d-flex flex-column align-items-center justify-content-center">
+                                            <img mat-card-image class="flex-item custom-margin" style="width: 40%;"
+                                                src="../assets//icons/document-second-third.svg" />
+                                            <span style="text-align: center;"
+                                                class="custom-heading flex-item">ALLGEMEINES DOKUMENT</span>
+                                        </mat-card-title>
+                                    </mat-card>
+                                </div>
+                            </div>
+
+
+
+
+
+                            <div class="col-md-12 p-0">
+                                <div class="bottom-btn p-0 m-0 d-flex justify-content-between ">
+                                    <button mat-raised-button matStepperPrevious class="btn upload-theme-bottom">
+                                        Zurück</button>
+                                    <!--  -->
+                                    <button mat-raised-button matStepperNext [disabled]="!ShowButton" type="submit"
+                                        (click)="GoNext()"
+                                        [ngClass]="[!ShowButton? 'btn btn-secondary' : 'btn button-primary nextBtn' ]">
+                                        Weiter
+                                    </button>
+                                </div>
+                            </div>
+                            <button style="display: none;" mat-raised-button matStepperNext id="movetonextstep"
+                                type="submit" (click)="GoNext()">
+                                Weiter
+                            </button>
+                        </mat-step>
+                        <ng-template #haushalt>
+                            <mat-step>
+                                <ng-template matStepLabel>
+                                    <span>Haushaltsmitglied</span>
+                                    <div *ngIf="kundetype.includes('Haushalt') && myControlnew.value"
+                                        class="underKundenHead rounded-sm "> {{myControlnew.value.split('(')[0].trim()}}
+                                    </div>
+                                </ng-template>
+                                <div class="row setup-content" id="step-1">
+                                    <form style="width: 100%">
+                                        <div>
+                                            <div style="padding: 0px;margin-bottom: 30px;margin-bottom: 30vh;"
+                                                class="col-md-12 card-center">
+                                                <div class="formstep1">
+                                                    <div class="row">
+                                                        <div class="col-md-12 d-flex flex-column cusotmer-select p-0"
+                                                            style="margin-top: 40px;">
+                                                            <div class="col-md-12 d-flex justify-content-start p-0 ">
+                                                                <span class="second-text">Bitte suchen Sie einen
+                                                                    Haushalt Mitglied men und wählen Sie es in der
+                                                                    Suchleiste aus</span>
+                                                            </div>
+                                                            <div
+                                                                class="uploadDocumentOne col-md-7 d-flex flex-raw align-items-start p-1 m-0 ">
+                                                                <mat-form-field
+                                                                    style="color: white;background-color: white;"
+                                                                    class="mat-form-field-remove-padding-bottom mat-form-field-remove-margin col-md-11 custom-mat-input p-0  m-0 example-full-width"
+                                                                    appearance="outline" *ngIf="showmembers">
+                                                                    <input class="  p-0 mb-2" type="text"
+                                                                        style="color: black;"
+                                                                        placeholder="Haushaltsmitglied auswählen"
+                                                                        aria-label="Number" matInput
+                                                                        [formControl]="myControlnew"
+                                                                        (keyup.enter)="
+                                                                                                patchmembervalue($event) "
+                                                                        (ngModelChange)=" patchmembervalue($event) "
+                                                                        [matAutocomplete]="auto1" />
+
+                                                                    <mat-autocomplete #auto1="matAutocomplete">
+                                                                        <mat-option *ngFor="
+                                                                            let employee of filteredOptionsmembers | async
+                                                                          " [value]="employee.name">
+                                                                            {{ employee.name }}
+                                                                        </mat-option>
+                                                                    </mat-autocomplete>
+                                                                </mat-form-field>
+                                                                <span style="height: 100%;"><svg class=" p-2 "
+                                                                        width="56" height="63" viewBox="0 0 28 27"
+                                                                        fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                        <path
+                                                                            d="M19.6498 17.0232H18.446L18.0193 16.6118C19.5127 14.8746 20.4118 12.6193 20.4118 10.1658C20.4118 4.69518 15.9773 0.260742 10.5067 0.260742C5.036 0.260742 0.601562 4.69518 0.601562 10.1658C0.601562 15.6365 5.036 20.0709 10.5067 20.0709C12.9601 20.0709 15.2154 19.1719 16.9526 17.6785L17.364 18.1052V19.309L24.9834 26.9131L27.2539 24.6425L19.6498 17.0232ZM10.5067 17.0232C6.71225 17.0232 3.64929 13.9603 3.64929 10.1658C3.64929 6.37143 6.71225 3.30847 10.5067 3.30847C14.3011 3.30847 17.364 6.37143 17.364 10.1658C17.364 13.9603 14.3011 17.0232 10.5067 17.0232Z"
+                                                                            fill="white" />
+                                                                    </svg></span>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row p-0">
+                                                <div class="col-md-12 p-0">
+                                                    <div class="bottom-btn p-0 m-0 d-flex justify-content-between ">
+                                                        <button mat-raised-button matStepperPrevious
+                                                            class="btn upload-theme-bottom">
+                                                            Zurück</button>
+                                                        <!--  -->
+                                                        <button mat-raised-button matStepperNext
+                                                            [disabled]="ShowButtonTwo" type="button"
+                                                            [ngClass]="[ShowButtonTwo? 'btn btn-secondary' : 'btn button-primary nextBtn' ]">
+                                                            Weiter
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <!--  -->
+
+                            </mat-step>
+                        </ng-template>
+
+                        <mat-step *ngIf="!ShowButtonTwo ">
+                            <ng-template matStepLabel>
+                                <span>Dokumenttyp</span>
+                                <div class="underKundenHead rounded-sm ">{{itemToDisplayUnderDokumenttyp}}</div>
+                            </ng-template>
+
+                            <!-- // newly added *********************************************************************************-->
+                            <div fxLayout="row wrap col-md-12 " fxLayoutAlign="center center"
+                                style="margin-top: 60px;margin-bottom: 11vh;">
+                                <div class="col-md-4 d-flex align-items-center   ">
+                                    <div *ngIf="poa == 'false'" class="col-md-12 ">
+                                        <mat-card class="links1" aria-disabled="true" matTooltip="Um eine Bestandsübertragung durchzuführen 
+                                        muss der Kunde die Maklervollmacht signieren."
+                                            matTooltipClass="upload mat-tooltip"
+                                            style="background-color: rgba(173, 173, 173, 0.5);text-align: start;">
                                             <mat-card-title
                                                 class="  d-flex flex-column align-items-center justify-content-center">
                                                 <img mat-card-image class="flex-item custom-margin" style="width: 40%;"
@@ -210,16 +375,12 @@
                                             </mat-card-title>
                                         </mat-card>
                                     </div>
-
-                                    <div class="popover-hide">
-                                        <span style="font-size: 13px;text-align: center;">Um eine Bestandsübertragung
-                                            durchzuführen muss der Kunde die Maklervollmacht signieren.</span> <img
-                                            style="height:  12px;" src="../assets/icons/info-icon.svg">
-                                    </div>
                                 </div>
-                                <div class="col-md-4" *ngIf="poa == 'true'" (click)="GoNext2('bestandsübertragung')"
-                                    routerLink="/upload-document/{{ user_id }}/bestandsübertragung">
-                                    <mat-card class="links1" style="text-align: start;">
+
+                                <!-- routerLink="/upload-document/{{ user_id }}/bestandsübertragung" -->
+                                <!-- <div class="col-md-4" *ngIf="poa == 'true'">
+                                    <mat-card (click)="GoNext2('bestandsübertragung')" class="links1"
+                                        style="text-align: start;">
                                         <mat-card-title
                                             class="  d-flex flex-column align-items-center justify-content-center">
                                             <img mat-card-image class="flex-item custom-margin" style="width: 40%;"
@@ -228,11 +389,11 @@
                                                 Ubertragung</span>
                                         </mat-card-title>
                                     </mat-card>
-                                </div>
-
-                                <div class="col-md-4" (click)="GoNext2('fremdvertrag')"
-                                    routerLink="/upload-document/{{ user_id }}/fremdvertrag">
-                                    <mat-card class="links1" style="text-align: center;">
+                                </div> -->
+                                <!-- routerLink="/upload-document/{{ user_id }}/fremdvertrag" -->
+                                <div class="col-md-4">
+                                    <mat-card (click)="GoNext2('fremdvertrag')" class="links1"
+                                        style="text-align: center;">
                                         <mat-card-title
                                             class="  d-flex flex-column align-items-center justify-content-center">
                                             <img mat-card-image class="flex-item custom-margin" style="width: 40%;"
@@ -243,9 +404,10 @@
                                     </mat-card>
                                 </div>
 
-                                <div class="col-md-4" (click)="GoNext2('Allgemeines Dokument')"
-                                    routerLink="/upload-document/{{ user_id }}/allgemeines">
-                                    <mat-card class="links1" style="text-align: end;">
+                                <!-- routerLink="/upload-document/{{ user_id }}/allgemeines" -->
+                                <div class="col-md-4">
+                                    <mat-card (click)="GoNext2('Allgemeines Dokument')" class="links1"
+                                        style="text-align: end;">
                                         <mat-card-title
                                             class="  d-flex flex-column align-items-center justify-content-center">
                                             <img mat-card-image class="flex-item custom-margin" style="width: 40%;"
@@ -266,48 +428,218 @@
                                     <button mat-raised-button matStepperPrevious class="btn upload-theme-bottom">
                                         Zurück</button>
                                     <!--  -->
-                                    <button mat-raised-button matStepperNext [disabled]="ShowButton" type="submit"
-                                        (click)="GoNext()"
-                                        [ngClass]="[ShowButton? 'btn btn-secondary' : 'btn waiter nextBtn' ]">
+                                    <button mat-raised-button matStepperNext id="movetonextstep" [disabled]="ShowButton"
+                                        type="submit" (click)="GoNext()"
+                                        [ngClass]="[ShowButton? 'btn btn-secondary' : 'btn button-primary nextBtn' ]">
                                         Weiter
                                     </button>
                                 </div>
                             </div>
                         </mat-step>
-                        <ng-template #haushalt>
-                            <mat-step>
-                                <ng-template matStepLabel>
-                                    <span>Produkttyp</span>
-                                    <div class="underKundenHead rounded-sm ">{{itemToDisplayUnderKunden}}</div>
-                                </ng-template>
-                                <div class="col-md-12 p-0">
-                                    <div class="bottom-btn p-0 m-0 d-flex justify-content-between ">
-                                        <button mat-raised-button matStepperPrevious class="btn upload-theme-bottom">
-                                            Zurück</button>
-                                        <!--  -->
-                                        <button mat-raised-button matStepperNext [disabled]="ShowButton" type="submit"
-                                            (click)="GoNext()"
-                                            [ngClass]="[ShowButton? 'btn btn-secondary' : 'btn waiter nextBtn' ]">
-                                            Weiter
-                                        </button>
-                                    </div>
-                                </div>
-                            </mat-step>
-                        </ng-template>
+
 
                         <mat-step>
                             <ng-template matStepLabel>
+                                <span>Produkttyp</span>
+                                <div class="underKundenHead rounded-sm ">{{itemToDisplayUnderProdukttyp}}</div>
+                            </ng-template>
+
+                            <!-- from here -->
+                            <div class="col-md-12">
+
+                                <div class="container">
+                                    <div class="row setup-content" id="step-1">
+                                        <form style="width: 100%">
+                                            <div>
+                                                <div class="col-md-12 card-center">
+                                                    <div class="formstep1">
+                                                        <div class="row">
+                                                            <div class="col-md-12 d-flex flex-column cusotmer-select p-0"
+                                                                style="margin-top: 40px;margin-bottom: 28vh;">
+                                                                <div
+                                                                    class="col-md-12 d-flex justify-content-start p-0 ">
+                                                                    <span class="second-text">Bitte suchen Sie einen
+                                                                        Haushalt Mitglied men und wählen Sie es in der
+                                                                        Suchleiste aus</span>
+                                                                </div>
+                                                                <div class="uploadDocumentOne col-md-7 d-flex flex-raw align-items-start p-1 m-0 "
+                                                                    *ngIf=" document_type == 'Allgemeines Dokument' ">
+                                                                    <mat-form-field
+                                                                        style="color: white;background-color: white;"
+                                                                        class="mat-form-field-remove-padding-bottom mat-form-field-remove-margin col-md-11 custom-mat-input p-0  m-0 example-full-width"
+                                                                        appearance="outline">
+                                                                        <input type="text" aria-label="Number"
+                                                                            class="  p-0 mb-2" type="text"
+                                                                            style="color: black;"
+                                                                            placeholder="Allgemeines Dokument" matInput
+                                                                            [formControl]="ThirdTypeDoc"
+                                                                            (keyup.enter)="ThirdTypeDocValue()"
+                                                                            (ngModelChange)="ThirdTypeDocValue()"
+                                                                            [matAutocomplete]="auto" />
+                                                                        <mat-autocomplete #auto="matAutocomplete">
+                                                                            <mat-option
+                                                                                *ngFor="  let employee of ThirdTypeDocOptions | async   "
+                                                                                [value]="employee">
+                                                                                {{ employee }}
+                                                                            </mat-option>
+                                                                        </mat-autocomplete>
+                                                                    </mat-form-field>
+                                                                    <span class="" style="height: 100%;"><svg
+                                                                            class=" p-2 " width="56" height="63"
+                                                                            viewBox="0 0 28 27" fill="none"
+                                                                            xmlns="http://www.w3.org/2000/svg">
+                                                                            <path
+                                                                                d="M19.6498 17.0232H18.446L18.0193 16.6118C19.5127 14.8746 20.4118 12.6193 20.4118 10.1658C20.4118 4.69518 15.9773 0.260742 10.5067 0.260742C5.036 0.260742 0.601562 4.69518 0.601562 10.1658C0.601562 15.6365 5.036 20.0709 10.5067 20.0709C12.9601 20.0709 15.2154 19.1719 16.9526 17.6785L17.364 18.1052V19.309L24.9834 26.9131L27.2539 24.6425L19.6498 17.0232ZM10.5067 17.0232C6.71225 17.0232 3.64929 13.9603 3.64929 10.1658C3.64929 6.37143 6.71225 3.30847 10.5067 3.30847C14.3011 3.30847 17.364 6.37143 17.364 10.1658C17.364 13.9603 14.3011 17.0232 10.5067 17.0232Z"
+                                                                                fill="white" />
+                                                                        </svg></span>
+                                                                </div>
+
+                                                                <div class="uploadDocumentOne col-md-7 d-flex flex-raw align-items-start p-1 m-0 "
+                                                                    *ngIf=" document_type != 'Allgemeines Dokument' ">
+                                                                    <mat-form-field
+                                                                        style="color: white;background-color: white;"
+                                                                        class="mat-form-field-remove-padding-bottom mat-form-field-remove-margin col-md-11 custom-mat-input p-0  m-0 example-full-width"
+                                                                        appearance="outline">
+                                                                        <input type="text" aria-label="Number"
+                                                                            class="  p-0 mb-2" type="text"
+                                                                            style="color: black;"
+                                                                            placeholder="Produkttyp eingeben" matInput
+                                                                            [formControl]="ProductsTypeControl"
+                                                                            [matAutocomplete]="auto" />
+                                                                        <mat-autocomplete #auto="matAutocomplete"
+                                                                            (optionSelected)="patchProductTpyeValue($event)">
+                                                                            <mat-option
+                                                                                *ngFor="  let employee of filteredProductsTypeOptions | async "
+                                                                                [value]="employee">
+                                                                                {{ employee.name }}
+                                                                            </mat-option>
+                                                                        </mat-autocomplete>
+                                                                    </mat-form-field>
+                                                                    <span class="" style="height: 100%;"><svg
+                                                                            class=" p-2 " width="56" height="63"
+                                                                            viewBox="0 0 28 27" fill="none"
+                                                                            xmlns="http://www.w3.org/2000/svg">
+                                                                            <path
+                                                                                d="M19.6498 17.0232H18.446L18.0193 16.6118C19.5127 14.8746 20.4118 12.6193 20.4118 10.1658C20.4118 4.69518 15.9773 0.260742 10.5067 0.260742C5.036 0.260742 0.601562 4.69518 0.601562 10.1658C0.601562 15.6365 5.036 20.0709 10.5067 20.0709C12.9601 20.0709 15.2154 19.1719 16.9526 17.6785L17.364 18.1052V19.309L24.9834 26.9131L27.2539 24.6425L19.6498 17.0232ZM10.5067 17.0232C6.71225 17.0232 3.64929 13.9603 3.64929 10.1658C3.64929 6.37143 6.71225 3.30847 10.5067 3.30847C14.3011 3.30847 17.364 6.37143 17.364 10.1658C17.364 13.9603 14.3011 17.0232 10.5067 17.0232Z"
+                                                                                fill="white" />
+                                                                        </svg></span>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <br />
+                                </div>
+
+                            </div>
+
+                            <!-- to here -->
+                            <div class="col-md-12 p-0">
+                                <div class="bottom-btn p-0 m-0 d-flex justify-content-between ">
+                                    <button mat-raised-button matStepperPrevious class="btn upload-theme-bottom">
+                                        Zurück</button>
+
+
+                                    <button *ngIf=" document_type == 'Allgemeines Dokument' else notAllgemeines"
+                                        mat-raised-button matStepperNext [disabled]="ShowButtonStep3 " type="submit"
+                                        [ngClass]="[ ShowButtonStep3  ? 'btn btn-secondary' : 'btn button-primary nextBtn' ]">
+                                        Weiter
+                                    </button>
+                                    <ng-template #notAllgemeines>
+                                        <button mat-raised-button matStepperNext
+                                            [disabled]="! ShowProductsPartner && !(document_type != 'Allgemeines Dokument' ) "
+                                            type="submit"
+                                            [ngClass]="[ ShowProductsPartner && document_type != 'Allgemeines Dokument'  ? 'btn button-primary nextBtn' : 'btn btn-secondary' ]">
+                                            Weiter
+                                        </button>
+                                    </ng-template>
+                                </div>
+                            </div>
+                        </mat-step>
+                        <mat-step *ngIf=" document_type != 'Allgemeines Dokument'">
+                            <ng-template matStepLabel>
                                 <span>Produktpartner</span>
-                                <div class="underKundenHead rounded-sm ">{{itemToDisplayUnderKunden}}</div>
+                                <div class="underKundenHead rounded-sm ">{{itemToDisplayUnderProduktPartner}}</div>
                             </ng-template>
+
+                            <div class="col-md-12">
+
+                                <div class="container">
+                                    <div class="row setup-content" id="step-1">
+                                        <form style="width: 100%">
+                                            <div>
+                                                <div class="col-md-12 card-center">
+                                                    <div class="formstep1">
+                                                        <div class="row">
+                                                            <div class="col-md-12 d-flex flex-column cusotmer-select p-0"
+                                                                style="margin-top: 40px;margin-bottom: 28vh;">
+                                                                <div
+                                                                    class="col-md-12 d-flex justify-content-start p-0 ">
+                                                                    <span class="second-text">Bitte suchen Sie einen
+                                                                        Haushalt Mitglied men und wählen Sie es in
+                                                                        der
+                                                                        Suchleiste aus</span>
+                                                                </div>
+
+                                                                <div class="uploadDocumentOne col-md-7 d-flex flex-raw align-items-start p-1 m-0 "
+                                                                    *ngIf=" ShowProductsPartner && document_type != 'Allgemeines Dokument'  ">
+                                                                    <mat-form-field
+                                                                        style="color: white;background-color: white;"
+                                                                        class="mat-form-field-remove-padding-bottom mat-form-field-remove-margin col-md-11 custom-mat-input p-0  m-0 example-full-width"
+                                                                        appearance="outline">
+                                                                        <input type="text" aria-label="Number"
+                                                                            class="  p-0 mb-2" type="text"
+                                                                            style="color: black;"
+                                                                            placeholder="Produktpartner eingeben"
+                                                                            matInput [formControl]="ProductsControl"
+                                                                            [matAutocomplete]="auto" />
+                                                                        <mat-autocomplete #auto="matAutocomplete"
+                                                                            (optionSelected)="patchProductValue($event)">
+                                                                            <mat-option
+                                                                                *ngFor=" let employee of filteredProductsOptions | async  "
+                                                                                [value]="employee">
+                                                                                <img style=" height: 45px; max-width: 150px;
+                                                                                float: left; margin-right: 22px "
+                                                                                    src="{{ employee.url }}" />
+                                                                                {{ employee.name }}
+                                                                            </mat-option>
+                                                                        </mat-autocomplete>
+                                                                    </mat-form-field>
+                                                                    <span class="" style="height: 100%;"><svg
+                                                                            class=" p-2 " width="56" height="63"
+                                                                            viewBox="0 0 28 27" fill="none"
+                                                                            xmlns="http://www.w3.org/2000/svg">
+                                                                            <path
+                                                                                d="M19.6498 17.0232H18.446L18.0193 16.6118C19.5127 14.8746 20.4118 12.6193 20.4118 10.1658C20.4118 4.69518 15.9773 0.260742 10.5067 0.260742C5.036 0.260742 0.601562 4.69518 0.601562 10.1658C0.601562 15.6365 5.036 20.0709 10.5067 20.0709C12.9601 20.0709 15.2154 19.1719 16.9526 17.6785L17.364 18.1052V19.309L24.9834 26.9131L27.2539 24.6425L19.6498 17.0232ZM10.5067 17.0232C6.71225 17.0232 3.64929 13.9603 3.64929 10.1658C3.64929 6.37143 6.71225 3.30847 10.5067 3.30847C14.3011 3.30847 17.364 6.37143 17.364 10.1658C17.364 13.9603 14.3011 17.0232 10.5067 17.0232Z"
+                                                                                fill="white" />
+                                                                        </svg></span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <br />
+                                </div>
+
+                            </div>
+
+
+
                             <div class="col-md-12 p-0">
                                 <div class="bottom-btn p-0 m-0 d-flex justify-content-between ">
                                     <button mat-raised-button matStepperPrevious class="btn upload-theme-bottom">
                                         Zurück</button>
                                     <!--  -->
-                                    <button mat-raised-button matStepperNext [disabled]="ShowButton" type="submit"
-                                        (click)="GoNext()"
-                                        [ngClass]="[ShowButton? 'btn btn-secondary' : 'btn waiter nextBtn' ]">
+                                    <button mat-raised-button matStepperNext [disabled]="ShowButtonStep3" type="submit"
+                                        [ngClass]="[ShowButtonStep3? 'btn btn-secondary' : 'btn button-primary nextBtn' ]"
+                                        (click)="GoToUploadSingleDocument()">
                                         Weiter
                                     </button>
                                 </div>
@@ -316,93 +648,141 @@
                         <mat-step>
                             <ng-template matStepLabel>
                                 <span>Dokument hochladen</span>
-                                <div class="underKundenHead rounded-sm ">{{itemToDisplayUnderKunden}}</div>
+                                <!-- <div class="underKundenHead rounded-sm "></div> -->
                             </ng-template>
-                            <div class="col-md-12 p-0">
+
+                            <div class="container logo-sec-main p-0 m-0" fxLayout="row wrap" fxLayoutAlign="center"
+                                fxLayoutAlign.xs="center center" fxLayoutAlign.sm="center center"
+                                fxLayoutAlign.md="center center" fxLayoutAlign.lg="start center"
+                                fxLayoutAlign.xl="center center">
+                                <section class="main" style="width: 100%;margin-top: 2vh;">
+                                    <!-- {this.state.ShowPop?<PopUp/>:""} -->
+                                    <div class="container p-0 m-0">
+                                        <div class="row p-0 m-0">
+                                            <div class="col-md-12 p-0 m-0">
+
+                                                <div class="container p-0 m-0">
+
+                                                    <div class="row setup-content p-0 m-0" id="step-1">
+                                                        <div class="custom-overlay-wrapper w-100 p-0 m-0">
+                                                            <!-- <div *ngIf="showLoader" id="custom-overlay">
+          
+                          <div class="form-loading">
+                            <div class="sk-child sk-bounce1"></div>
+                            <div class="sk-child sk-bounce2"></div>
+                            <div class="sk-child sk-bounce3"></div>
+                        </div>
+                      
+                         
+                        </div> -->
+
+                                                            <form style="width: 100%" class="p-0 m-0">
+                                                                <div class="col-md-12 p-0 m-0 card-center">
+                                                                    <div>
+                                                                        <div id="Success"></div>
+
+                                                                        <h5 *ngIf="document_sub_type">
+                                                                            Dokumenten Upload für {{
+                                                                            document_sub_typename }}
+                                                                        </h5>
+                                                                        <h5 *ngIf="document_sub_type == ''">
+                                                                            Dokumenten Upload für {{
+                                                                            document_sub_typename }}
+                                                                        </h5>
+
+                                                                        <div style="cursor: pointer"
+                                                                            class=" upload-file bg-primary2 p-l-30 position-relative ">
+                                                                            <input style="height: 253px" #divone
+                                                                                type="file"
+                                                                                class="upload-files w-100 position-absolute"
+                                                                                id="organization_image" multiple
+                                                                                name="organization_image"
+                                                                                (change)="handleImageChange($event)" />
+                                                                            <div class="mt-3"
+                                                                                style="text-align: center">
+                                                                                <div class="icons-img">
+                                                                                    <i class="fas fa-file-pdf"></i>
+                                                                                </div>
+                                                                                <div class="icons-img">
+                                                                                    <i class="fas fa-file"></i>
+                                                                                </div>
+                                                                                <div class="icons-img">
+                                                                                    <i class="far fa-file-image"></i>
+                                                                                </div>
+                                                                                <div class="icons-img">
+                                                                                    <i class="fas fa-file-alt"></i>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <div style="display: block; margin: 0 auto">
+                                                                                <div class="up-file-wrap"
+                                                                                    style="text-align: center">
+                                                                                    <i style="font-size: 50px; padding: 0px 37px"
+                                                                                        class=" fas  fa-file-upload font-24  p-r-15 align-self-center "></i>
+                                                                                    <p style=" font-size: 30px;  font-weight: 600; text-align: center; "
+                                                                                        class="text-bodycolor font-18 m-b-0">
+                                                                                        Dokumente für Upload wählen oder
+                                                                                        einfach hierhin ziehen.
+                                                                                    </p>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                    <br />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div *ngIf="finalShowButton" class="container upload-file"
+                                        style="width: 86% !important">
+                                        <div class="row col-md-12" style="background-color: #eef7ff !important;">
+                                            <div class=" col-md-12  card-center">
+                                                <div class="col-md-12 d-flex flex-raw " style=" display: inline-block"
+                                                    id="result"></div>
+                                            </div>
+                                        </div>
+
+                                        <!-- <div  style="margin-bottom: 16px; float: right;" class="row">
+                                            <div class="col-md-12 top-section" style="margin-right: 12px">
+                                                <div *ngIf="finalShowButton">
+                                                     <button style="background-color: #184397; border-color: none"
+                                                        (click)="_handleImageUpload()"
+                                                        class="btn btn-primary nextBtn next-bt">
+                                                        Daten hochladen
+                                                    </button>
+                                                </div>
+
+                                                <div *ngIf="!finalShowButton">
+                                                    <button [disabled]="finalShowButton"
+                                                        style="background-color: gray; border-color: none"
+                                                        class="btn btn-primary nextBtn next-bt">
+                                                        Daten hochladen
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>  -->
+                                    </div>
+                                </section>
+                            </div>
+
+
+                            <div class="col-md-12 p-0" style="margin-top: 7vh;">
                                 <div class="bottom-btn p-0 m-0 d-flex justify-content-between ">
                                     <button mat-raised-button matStepperPrevious class="btn upload-theme-bottom">
                                         Zurück</button>
                                     <!--  -->
-                                    <button mat-raised-button matStepperNext [disabled]="ShowButton" type="submit"
-                                        (click)="GoNext()"
-                                        [ngClass]="[ShowButton? 'btn btn-secondary' : 'btn waiter nextBtn' ]">
-                                        Weiter
+                                    <button mat-raised-button matStepperNext [disabled]="!finalShowButton" type="submit"
+                                        [ngClass]="[!finalShowButton? 'btn btn-secondary' : 'btn button-primary nextBtn' ]">
+                                        Daten hochladen
                                     </button>
                                 </div>
                             </div>
                         </mat-step>
-                        <mat-step>
-                            <ng-template matStepLabel>
-                                <span>Dokument hochladen</span>
-                                <div class="underKundenHead rounded-sm ">{{itemToDisplayUnderKunden}}</div>
-                            </ng-template>
-                            <div class="col-md-12 p-0">
-                                <div class="bottom-btn p-0 m-0 d-flex justify-content-between ">
-                                    <button mat-raised-button matStepperPrevious class="btn upload-theme-bottom">
-                                        Zurück</button>
-                                    <!--  -->
-                                    <button mat-raised-button matStepperNext [disabled]="ShowButton" type="submit"
-                                        (click)="GoNext()"
-                                        [ngClass]="[ShowButton? 'btn btn-secondary' : 'btn waiter nextBtn' ]">
-                                        Weiter
-                                    </button>
-                                </div>
-                            </div>
-                        </mat-step>
-                        <mat-step>
-                            <ng-template matStepLabel>
-                                <span>Dokument hochladen</span>
-                                <div class="underKundenHead rounded-sm ">{{itemToDisplayUnderKunden}}</div>
-                            </ng-template>
-                            <div class="col-md-12 p-0">
-                                <div class="bottom-btn p-0 m-0 d-flex justify-content-between ">
-                                    <button mat-raised-button matStepperPrevious class="btn upload-theme-bottom">
-                                        Zurück</button>
-                                    <!--  -->
-                                    <button mat-raised-button matStepperNext [disabled]="ShowButton" type="submit"
-                                        (click)="GoNext()"
-                                        [ngClass]="[ShowButton? 'btn btn-secondary' : 'btn waiter nextBtn' ]">
-                                        Weiter
-                                    </button>
-                                </div>
-                            </div>
-                        </mat-step>
-                        <mat-step>
-                            <ng-template matStepLabel>
-                                <span>Dokument hochladen</span>
-                                <div class="underKundenHead rounded-sm ">{{itemToDisplayUnderKunden}}</div>
-                            </ng-template>
-                            <div class="col-md-12 p-0">
-                                <div class="bottom-btn p-0 m-0 d-flex justify-content-between ">
-                                    <button mat-raised-button matStepperPrevious class="btn upload-theme-bottom">
-                                        Zurück</button>
-                                    <!--  -->
-                                    <button mat-raised-button matStepperNext [disabled]="ShowButton" type="submit"
-                                        (click)="GoNext()"
-                                        [ngClass]="[ShowButton? 'btn btn-secondary' : 'btn waiter nextBtn' ]">
-                                        Weiter
-                                    </button>
-                                </div>
-                            </div>
-                        </mat-step>
-                        <mat-step>
-                            <ng-template matStepLabel>
-                                <span>Dokument hochladen</span>
-                                <div class="underKundenHead rounded-sm ">{{itemToDisplayUnderKunden}}</div>
-                            </ng-template>
-                            <div class="col-md-12 p-0">
-                                <div class="bottom-btn p-0 m-0 d-flex justify-content-between ">
-                                    <button mat-raised-button matStepperPrevious class="btn upload-theme-bottom">
-                                        Zurück</button>
-                                    <!--  -->
-                                    <button mat-raised-button matStepperNext [disabled]="ShowButton" type="submit"
-                                        (click)="GoNext()"
-                                        [ngClass]="[ShowButton? 'btn btn-secondary' : 'btn waiter nextBtn' ]">
-                                        Weiter
-                                    </button>
-                                </div>
-                            </div>
-                        </mat-step>
+
                     </mat-horizontal-stepper>
 
 
@@ -412,34 +792,41 @@
             <div *ngIf="StpperForm">
                 <app-create-customer [componentname]="componentname"></app-create-customer>
             </div>
-            <!-- <div fxFlex></div> -->
+        </div>
+    </div>
 
-            <!-- <div fxLayout="row wrap" fxLayoutAlign="center center" class="homedivhugh footer">
-            <ul>
-                <li>
-                    <p style="font-size: 15px">© {{year}} CEFIMA V 1.1.5&nbsp;|</p>
-                </li>
-                <li>
-                    <a class="footer-links monkss" [routerLink]="['/impressum']" target="blank">
-                        <p>Impressum</p>
-                    </a>&nbsp;|
-                </li>
-                <li>
-                    <a class="footer-links monkss" [routerLink]="['/datenschutzbestimmungen']" target="blank">
-                        <p>Datenschutzbestimmungen</p>
-                    </a>&nbsp;|
-                </li>
-                <li>
-                    <a class="footer-links monkss" [routerLink]="['/cookies']" target="blank">
-                        <p class="monkss">Cookies</p>
-                    </a>&nbsp;|
-                </li>
-                <li>
-                    <a class="footer-links monkss" [routerLink]="['/nutzungsbedingungen']" target="blank">
-                        <p>Nutzungsbedingungen</p>
-                    </a>
-                </li>
-            </ul>
-        </div> -->
+    <button id="openpreviewmodel" type="button" data-toggle="modal" style="display: none"
+        data-target="#exampleModalpreview">
+        ddd
+    </button>
+    <div id="exampleModalpreview_parent">
+
+        <div class="modal fade" data-backdrop="static" data-keyboard="false" id="exampleModalpreview" role="dialog"
+            aria-labelledby="exampleModalpreviewTitle" aria-hidden="true">
+            <div style="max-width: 1000px;max-height: 800px;" class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <span id="showpreviewtitle" style="font-size:15px;"></span>
+                        <button (click)="close_modal('exampleModalpreview','exampleModalpreview_parent')" type="button"
+                            class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <embed id="showpreviewpdf" style="width:100%;height:600px;display:none;" src="">
+                        <img id="showpreviewimg" style="width:100%;height:100%;display:none;" src="">
+
+                        <div class="col-md-12 p-0" style="text-align: right;margin-top: 11px; margin-bottom: -4px;">
+                            <a href="" id="showpreviewdownload" target="_blank" style="padding: 4px 14px;"
+                                class=" button-primary  " download >
+                                <!-- <i class="fa fa-download" aria-hidden="true" style="font-size:20px;"></i>  -->
+                                <span class=""><i class="fa fa-download "
+                                        aria-hidden="true"></i></span>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
         </div>
     </div>

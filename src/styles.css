@@ -847,6 +847,10 @@ img {
     transform: scale(1.04);
 }
 
+.links1[aria-disabled]:hover {
+    transform: scale(1.00) !important;
+}
+
 .hover-gray:hover {
     background: #eaeaea;
     cursor: pointer;
@@ -924,6 +928,19 @@ img {
     border: none !important;
     max-width: unset !important;
 }
+
+.upload.mat-tooltip {
+    font-size: 13px;
+    white-space: normal;
+    color: #fff !important;
+    background: linear-gradient(310.12deg,
+            #33a4df -11.74%,
+            #587dba 66.6%) !important;
+    border: none !important;
+    max-width: 200px !important;
+    text-align: start;
+}
+
 
 .mat-calendar-body-cell {
     font-size: 14px !important;
