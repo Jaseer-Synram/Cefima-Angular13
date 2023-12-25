@@ -68,8 +68,7 @@ export class UserService {
     var token = localStorage.getItem("token");
     if (token !== "") {
       headers["Authorization"] = token;
-    }
-
+    }    
     return this.http.post(`${this.API_URL}document/upload`, data);
     // .pipe(
     //   map((event) => this.getEventMessage(event, data)),

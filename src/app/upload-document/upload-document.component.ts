@@ -779,6 +779,7 @@ export class UploadDocumentComponent implements OnInit {
 
   private _filterThirdTypeDoc(value: string): string[] {
     console.log("_filter" + value);
+    this.document_sub_type = value
     const filterValue = value.toLowerCase();
     return this.ThirdTypeDocList.filter((option) =>
       option.toLowerCase().includes(filterValue)
@@ -787,6 +788,7 @@ export class UploadDocumentComponent implements OnInit {
 
   private _filterTypeProducts(value: string): string[] {
     this.itemToDisplayUnderProdukttyp = value
+    this.document_sub_type = value
     console.log("ProductsControl" + value);
     if (typeof value != 'object') {
       const filterValue = value.toLowerCase();
@@ -936,7 +938,7 @@ export class UploadDocumentComponent implements OnInit {
           this.UploadError = true;
           this.error = error;
 
-          console.log("Error", error["error"]);
+          console.log("Error", error);
         },
         () => {
           console.log(length, index);

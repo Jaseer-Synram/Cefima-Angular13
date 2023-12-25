@@ -255,11 +255,19 @@
                                     <button mat-raised-button matStepperPrevious class="btn upload-theme-bottom">
                                         Zurück</button>
                                     <!--  -->
-                                    <button mat-raised-button matStepperNext [disabled]="!ShowButton" type="submit"
-                                        (click)="GoNext()"
-                                        [ngClass]="[!ShowButton? 'btn btn-secondary' : 'btn button-primary nextBtn' ]">
+
+                                    <button *ngIf="itemToDisplayUnderDokumenttyp !== ''else waiternot "
+                                        mat-raised-button matStepperNext type="submit"
+                                        (click)="GoNext()" class='btn button-primary nextBtn'>
                                         Weiter
                                     </button>
+                                    <ng-template #waiternot>
+                                        <button mat-raised-button matStepperNext disabled="true" type="submit"
+                                            (click)="GoNext()" class='btn btn-secondary'>
+                                            Weiter
+                                        </button>
+                                    </ng-template>
+
                                 </div>
                             </div>
                             <button style="display: none;" mat-raised-button matStepperNext id="movetonextstep"
@@ -775,10 +783,17 @@
                                     <button mat-raised-button matStepperPrevious class="btn upload-theme-bottom">
                                         Zurück</button>
                                     <!--  -->
-                                    <button mat-raised-button matStepperNext [disabled]="!finalShowButton" type="submit"
-                                        [ngClass]="[!finalShowButton? 'btn btn-secondary' : 'btn button-primary nextBtn' ]">
+
+                                    <button *ngIf="finalShowButton else noupload" mat-raised-button matStepperNext type="submit"
+                                        class='btn button-primary nextBtn' (click)="_handleImageUpload()" >
                                         Daten hochladen
                                     </button>
+                                    <ng-template #noupload>
+                                        <button [disabled]="finalShowButton" disabled="true"
+                                        class="btn btn-secondary ">
+                                        Daten hochladen
+                                    </button>
+                                    </ng-template>
                                 </div>
                             </div>
                         </mat-step>
@@ -818,10 +833,9 @@
 
                         <div class="col-md-12 p-0" style="text-align: right;margin-top: 11px; margin-bottom: -4px;">
                             <a href="" id="showpreviewdownload" target="_blank" style="padding: 4px 14px;"
-                                class=" button-primary  " download >
+                                class=" button-primary  " download>
                                 <!-- <i class="fa fa-download" aria-hidden="true" style="font-size:20px;"></i>  -->
-                                <span class=""><i class="fa fa-download "
-                                        aria-hidden="true"></i></span>
+                                <span class=""><i class="fa fa-download " aria-hidden="true"></i></span>
                             </a>
                         </div>
 
