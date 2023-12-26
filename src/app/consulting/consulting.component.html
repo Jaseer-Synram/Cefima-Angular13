@@ -38,13 +38,17 @@
                                 </span>
                             </button>
                         </div>
-                        <mat-horizontal-stepper #linear
-                            #consultStepper>
+                        <mat-horizontal-stepper linear 
+                            #consultStepper  ngClass="{{ 'last-edited-step-' + consultStepper.selectedIndex }}" >
                             <ng-template matStepperIcon="edit">
                                 <mat-icon>check</mat-icon>
                             </ng-template>
-                            <mat-step label="Ausgewählter Kunde">
+                            <mat-step >
                                 <div class="w-75">
+                                    <ng-template matStepLabel>
+                                        <span>Kunden</span>
+                                        <div class="underKundenHead rounded-sm ">{{itemToDisplayUnderKunden}}</div>
+                                    </ng-template>
                                     <div class="mt-5 mb-4">
                                         <p class="m-0" style="color: #454c58; font-weight: 500; font-size: 20px">
                                             Bitte suchen und wählen Sie ein Unternehmen / Haushalt in
