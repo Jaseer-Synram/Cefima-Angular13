@@ -189,6 +189,11 @@ div.mat-form-field-wrapper {
     margin: 8px;
 }
 
+.gradient {
+    background: linear-gradient(#17459b, #02a9ed);
+    /* background: linear-gradient(90deg, #17459b 0%, #02a9ed 98.37%) !important; */
+  }
+  
 /* .removepreview {
     background: #184297;
    width: 5%;
