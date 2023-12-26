@@ -114,7 +114,7 @@ export class UploadDocumentComponent implements OnInit {
     private router: Router,
     private datePipe: DatePipe,
     private authService: AuthService,
-    private el: ElementRef, 
+    private el: ElementRef,
     private renderer: Renderer2
   ) {
     if (this.loginRole == "b2b") {
@@ -843,8 +843,10 @@ export class UploadDocumentComponent implements OnInit {
 
   patchProductTpyeValue(event: any) {
     this.ReadyProductsOptions = [];
-    console.log("ProductsTypeControl" + this.ProductsTypeControl.value);
+    console.log("ProductsTypeControl" + this.ProductsTypeControl.value.name);
     this.document_sub_typename = this.ProductsTypeControl.value.name
+    this.document_sub_type = this.ProductsTypeControl.value.name
+    this.itemToDisplayUnderProdukttyp = this.ProductsTypeControl.value.name
     if (this.ProductsTypeControl.value != "") {
       if (this.ProductsTypeControl.value) {
         this.ShowProductsPartner = true;
@@ -1281,66 +1283,66 @@ export class UploadDocumentComponent implements OnInit {
 
 
         $(
-// one s          
+          // one s          
           '<div class="pip col-md-12 p-0 " style="display: inline-block;margin-top: 8px;" "id=\'pipremove' +
           newsize +
           "'>" +
-  // 2 s        
+          // 2 s        
           '<div class="col-md-12 p-0 d-flex flex-raw">' +
-  
-    //  3 s    image
+
+          //  3 s    image
           '<div class="col-md-2">' +
           '<img class="imageThumb" style="width: 65px;height:30px;margin-top: 20px;" src="' + ImageName + '" title="' + f.name + '"/>' +
-    //  3 f    
+          //  3 f    
           '</div>' +
-    // 4 s    details
+          // 4 s    details
           '<div class="col-md-6" style="font-size:12px;">' +
-      //  5  s $ f  
+          //  5  s $ f  
           "<div> <b class='limitword' title='" + f.name + "'>Dokumentenname: " + f.name + "</b> </div>" +
-      //  6  s $ f  
+          //  6  s $ f  
           "<div> <b>Dateigröße: " + Size + "</b>  </div>" +
-      //  7  s $ f  
+          //  7  s $ f  
           "<div> <b class='limitword'>Dateityp: " + typeofimage + "</b> </div>" +
-      //  8  s $ f  
+          //  8  s $ f  
           "<div> <b>Datum des Dokuments: " + date + "</b> </div>" +
-    // 4 f    
+          // 4 f    
           "</div>" +
 
 
-    
+
           '<div class="col-md-4 text-right d-flex flex-raw justify-content-end align-items-center ">' +
-    // 11 s    remove (X) 
+          // 11 s    remove (X) 
           '<div class=" p-0 ">' +
-        // 12 s $ f  
+          // 12 s $ f  
           '<div class="removepreview btn btn-danger  links " id="removepreviewid' + newsize + '" style="cursor: pointer;" ><i class="fas fa-times"  aria-hidden="true"></i> <span class="removeandpreviewword" >Entfernen</span></div>' +
-    // 11 f    
+          // 11 f    
           '</div>' +
 
-    // 9 s  preview (eye)
+          // 9 s  preview (eye)
           "<div class=' p-0 ms-2'>" +
-        // 10 s & f
+          // 10 s & f
           '<div class="previewdoc btn button-primary links  " data-doc_name="' + f.name + '" data-preview_source="' + (e.target as any).result + '" id="previewdoc' + newsize + '" style="cursor: pointer;"><i class="fa fa-eye" aria-hidden="true"></i> ' +
           '<span class="removeandpreviewword" >Vorschau</span>  </div>' +
-    // 9 f
+          // 9 f
           "</div>" +
           '</div>' +
 
-  // 2 f
+          // 2 f
           "</div>" +
 
-  //  13 s progress bar (upload)
+          //  13 s progress bar (upload)
           "<div class='col-md-12 mt-2'>" +
-    // 14 s 
+          // 14 s 
           '<div class="progress form-group " id="progressnew' + newsize + i + '" style="background-color: grey;width: 100%;"> ' +
-      // 15 s & f
+          // 15 s & f
           '<div class="percentageclass' + newsize + i + ' progress-bar progress-bar-striped bg-success" role="progressbar" id="percentage' + newsize + i + '" [style.width.%]=""> </div>' +
-    // 14 f
+          // 14 f
           ' </div>' +
-  // 13 f
+          // 13 f
           "</div>" +
- 
-         
-// 1 f
+
+
+          // 1 f
           "</div>"
         ).insertAfter("#result");
 
@@ -1399,12 +1401,12 @@ export class UploadDocumentComponent implements OnInit {
     console.log(this.filearraynew);
   }
 
-  open_modal(modal_id:any){
-    $('#'+modal_id).appendTo("body");
+  open_modal(modal_id: any) {
+    $('#' + modal_id).appendTo("body");
   }
-  close_modal(modal_id:any,append_to:any){
-    $('#'+modal_id).appendTo("#"+append_to);
+  close_modal(modal_id: any, append_to: any) {
+    $('#' + modal_id).appendTo("#" + append_to);
   }
 
- 
+
 }
