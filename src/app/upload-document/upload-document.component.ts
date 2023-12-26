@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostListener, Input, OnInit, Renderer2 } from "@angular/core";
+import { Component, ElementRef, HostListener, Input, OnInit, Renderer2, ViewChild } from "@angular/core";
 import {
   FormBuilder,
   FormControl,
@@ -16,6 +16,7 @@ import { log } from "console";
 import Swal from "sweetalert2";
 import jsPDF from "jspdf";
 import { HttpEvent, HttpEventType } from "@angular/common/http";
+import { MatStepper } from "@angular/material/stepper";
 
 //final step
 type unit = "bytes" | "KB" | "MB" | "GB" | "TB" | "PB";
@@ -51,7 +52,7 @@ export class UploadDocumentComponent implements OnInit {
   localdata = JSON.parse(localStorage.getItem("currentUser"));
 
   // no use found
-  // firstname = this.userService.getDecodedAccessToken(localStorage.getItem('token')).firstname;
+  firstname = this.userService.getDecodedAccessToken(localStorage.getItem('token')).firstname;
   COMPANYNAME = this.userService.getDecodedAccessToken(
     localStorage.getItem("token")
   ).companyname;
@@ -181,6 +182,10 @@ export class UploadDocumentComponent implements OnInit {
       console.log("documentupload" + JSON.stringify(success));
       this.onGetTaxList(success);
     });
+    this.route.queryParams.subscribe(params => {
+      const user_id = params['user_id']
+      console.log(user_id);
+    })
   }
 
 
@@ -894,18 +899,43 @@ export class UploadDocumentComponent implements OnInit {
   ln: string = "";
   pdffile: any;
 
-  // from oninit 
-  // this.userService
-  // .getEditUser(this.user_id)
-  // .pipe(first())
-  // .subscribe((userData) => {
-  //   console.log(userData);
-  //   this.fn = userData.firstname;
-  //   this.ln = userData.lastname;
-  // });
+
+  @ViewChild('stepper') stepper: MatStepper;
+
+  addMoreDocument() {
+    if (this.kundetype != 'Firma'  && this.myControl.value) {
+      this.stepper.selectedIndex = 2
+    } else {
+      this.stepper.selectedIndex = 1
+    }
+  }
+
+  goToFirstStep(){
+    this.stepper.selectedIndex = 0;
+    this.itemToDisplayUnderProduktPartner = ''
+    this.itemToDisplayUnderProdukttyp = ''
+    this.itemToDisplayUnderDokumenttyp = ''
+    this.itemToDisplayUnderDokumenttyp = ''
+    // this.itemToDisplayUnderKunden = ''
+  }
+
 
   uploadDocument(values: any, index: any) {
+
+    this.userService
+      .getEditUser(this.id)
+      .pipe(first())
+      .subscribe((userData) => {
+        console.log(userData);
+        this.fn = userData.firstname;
+        this.ln = userData.lastname;
+      });
+
+
+
+
     let length = this.filearray.length;
+    if (length) this.finalShowButton = false;
     $("#loaderouterid").css("display", "block");
     const formData = new FormData();
     formData.append("document_type", values.document_type);
@@ -927,11 +957,11 @@ export class UploadDocumentComponent implements OnInit {
       .pipe(first())
       .subscribe(
         (data) => {
-          $("#Success").html(`<div class="alert alert-success" role="alert">
-          Erfolgreich hochgeladen
-        </div>`);
-          $("#Success").css("text-align", "center");
-          $("#Success").css("font-size", "30px");
+          //   $("#Success").html(`<div class="alert alert-success" role="alert">
+          //   Erfolgreich hochgeladen
+          // </div>`);
+          //   $("#Success").css("text-align", "center");
+          //   $("#Success").css("font-size", "30px");
           console.log("POST Request is successful ", data["_id"]);
           this.UploadDone = true;
         },
@@ -947,9 +977,10 @@ export class UploadDocumentComponent implements OnInit {
           if (length == index + 1) {
             $("#loaderouterid").css("display", "none");
             Swal.fire({
+              icon: "success",
               title: ` Möchten Sie für den ausgewählten Kunden  ${this.fn} ${this.ln} weitere Dokumente hochladen?`,
               html: `<div style="width:100%">
-                <button id="buttonOne"type="button" style="background: #184397" class="btn btn-primary">Ja</button>
+                <button id="buttonOne"type="button" style="background: #184397" class="btn button-primary">Ja</button>
                 <button id="buttonTwo"type="button" class="btn btn-success">Nein</button>
                 <button id="buttonThree"type="button" class="btn btn-dark">Neuer Kunde</button>
                 </div>`,
@@ -983,18 +1014,27 @@ export class UploadDocumentComponent implements OnInit {
             );
             const removepreview = (e) => {
               if (e == "one") {
-                this.router.navigate([`/upload-document/${this.id}`], {
-                  queryParams: { user_id: this.id },
-                });
+                console.log(e);
 
+                // this.router.navigate([`./cefima/upload-document`], {
+                //   queryParams: { user_id: this.id },
+                // });
+
+                this.addMoreDocument()
                 Swal.close();
+                this.finalShowButton = false;
               } else if (e == "two") {
-                this.router.navigate(["/b2b-home"]);
+                console.log(e);
+                // this.router.navigate(["./cefima/upload-document"]);
+                this.goToFirstStep()
                 Swal.close();
+                this.finalShowButton = false;
               } else {
-                this.router.navigate(["/upload-document"]);
+                console.log(e);
+                this.router.navigate(["./cefima/new-user/"]);
 
                 Swal.close();
+                this.finalShowButton = false;
               }
             };
           }
@@ -1124,6 +1164,8 @@ export class UploadDocumentComponent implements OnInit {
         }
         $(".pip").remove();
 
+        // this.finalShowButton = false;
+
         this.filearraynew = [];
       });
   };
@@ -1151,7 +1193,6 @@ export class UploadDocumentComponent implements OnInit {
 
   handleImageChange(event: any) {
     $("#result").html("");
-    this.finalShowButton = true;
     event.preventDefault();
 
 
@@ -1185,6 +1226,8 @@ export class UploadDocumentComponent implements OnInit {
 
 
     const removeData = (j) => {
+      console.log(j);
+
       console.log("dsfsfdsf" + j);
       console.log(this.filearraynew.length);
       console.log(this.filearraynew);
@@ -1198,6 +1241,7 @@ export class UploadDocumentComponent implements OnInit {
         return true;
       });
       if (newfilearray.length > 0) {
+        // this.finalShowButton = true;
       } else {
         this.finalShowButton = false;
       }
@@ -1208,6 +1252,10 @@ export class UploadDocumentComponent implements OnInit {
     var files = event.target.files; //FileList object
 
     var filesLength = files.length;
+
+    if (filesLength) {
+      this.finalShowButton = true;
+    }
 
     for (let i = 0; i < filesLength; i++) {
       let f = files[i];
