@@ -281,8 +281,8 @@
   background: linear-gradient(#17459b, #02a9ed);
 }
 
-.backdropBackground {
-  /* your css needs */
-  /* background: linear-gradient(#17459b, #02a9ed); */
-  /* opacity: 0 !important; */
-}
+/* .backdropBackground {
+  your css needs 
+  background: linear-gradient(#17459b, #02a9ed);
+   opacity: 0 !important;
+} */

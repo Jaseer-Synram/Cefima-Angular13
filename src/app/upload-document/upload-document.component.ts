@@ -903,14 +903,14 @@ export class UploadDocumentComponent implements OnInit {
   @ViewChild('stepper') stepper: MatStepper;
 
   addMoreDocument() {
-    if (this.kundetype != 'Firma'  && this.myControl.value) {
+    if (this.kundetype != 'Firma' && this.myControl.value) {
       this.stepper.selectedIndex = 2
     } else {
       this.stepper.selectedIndex = 1
     }
   }
 
-  goToFirstStep(){
+  goToFirstStep() {
     this.stepper.selectedIndex = 0;
     this.itemToDisplayUnderProduktPartner = ''
     this.itemToDisplayUnderProdukttyp = ''
@@ -1330,21 +1330,85 @@ export class UploadDocumentComponent implements OnInit {
 
 
 
+        // $(
+        //   // one s          
+        //   '<div class="pip col-md-12 p-0 " style="display: inline-block;margin-top: 8px;" "id=\'pipremove' +
+        //   newsize +
+        //   "'>" +
+        //   // 2 s        
+        //   '<div class="col-md-12 p-0 d-flex flex-raw">' +
+
+        //   //  3 s    image
+        //   '<div class="col-md-2">' +
+        //   '<img class="imageThumb" style="width: 65px;height:30px;margin-top: 20px;" src="' + ImageName + '" title="' + f.name + '"/>' +
+        //   //  3 f    
+        //   '</div>' +
+        //   // 4 s    details
+        //   '<div class="col-md-6" style="font-size:12px;">' +
+        //   //  5  s $ f  
+        //   "<div> <b class='limitword' title='" + f.name + "'>Dokumentenname: " + f.name + "</b> </div>" +
+        //   //  6  s $ f  
+        //   "<div> <b>Dateigröße: " + Size + "</b>  </div>" +
+        //   //  7  s $ f  
+        //   "<div> <b class='limitword'>Dateityp: " + typeofimage + "</b> </div>" +
+        //   //  8  s $ f  
+        //   "<div> <b>Datum des Dokuments: " + date + "</b> </div>" +
+        //   // 4 f    
+        //   "</div>" +
+
+
+
+        //   '<div class="col-md-4 text-right d-flex flex-raw justify-content-end align-items-center ">' +
+        //   // 11 s    remove (X) 
+        //   '<div class=" p-0 ">' +
+        //   // 12 s $ f  
+        //   '<div class="removepreview btn btn-danger  links " id="removepreviewid' + newsize + '" style="cursor: pointer;" ><i class="fas fa-times"  aria-hidden="true"></i> <span class="removeandpreviewword" >Entfernen</span></div>' +
+        //   // 11 f    
+        //   '</div>' +
+
+        //   // 9 s  preview (eye)
+        //   "<div class=' p-0 ms-2'>" +
+        //   // 10 s & f
+        //   '<div class="previewdoc btn button-primary links  " data-doc_name="' + f.name + '" data-preview_source="' + (e.target as any).result + '" id="previewdoc' + newsize + '" style="cursor: pointer;"><i class="fa fa-eye" aria-hidden="true"></i> ' +
+        //   '<span class="removeandpreviewword" >Vorschau</span>  </div>' +
+        //   // 9 f
+        //   "</div>" +
+        //   '</div>' +
+
+        //   // 2 f
+        //   "</div>" +
+
+        //   //  13 s progress bar (upload)
+        //   "<div class='col-md-12 mt-2'>" +
+        //   // 14 s 
+        //   '<div class="progress form-group " id="progressnew' + newsize + i + '" style="background-color: grey;width: 100%;"> ' +
+        //   // 15 s & f
+        //   '<div class="percentageclass' + newsize + i + ' progress-bar progress-bar-striped bg-success" role="progressbar" id="percentage' + newsize + i + '" [style.width.%]=""> </div>' +
+        //   // 14 f
+        //   ' </div>' +
+        //   // 13 f
+        //   "</div>" +
+
+
+        //   // 1 f
+        //   "</div>"
+        // ).insertAfter("#result");
+
         $(
           // one s          
-          '<div class="pip col-md-12 p-0 " style="display: inline-block;margin-top: 8px;" "id=\'pipremove' +
+          '<div class="pip col-md-4 p-0  " style="display: inline-block;" "id=\'pipremove' +
           newsize +
           "'>" +
           // 2 s        
-          '<div class="col-md-12 p-0 d-flex flex-raw">' +
+          '<div class="col-md-11 p-0 d-flex m-1 flex-raw" style="border: 1px solid #cdcdcd;border-radius:9px;">' +
 
           //  3 s    image
-          '<div class="col-md-2">' +
-          '<img class="imageThumb" style="width: 65px;height:30px;margin-top: 20px;" src="' + ImageName + '" title="' + f.name + '"/>' +
+          '<div class="col-md-2 py-0 px-2 d-flex align-items-center justify-content-center ">' +
+          '<img class="imageThumb" style="width: 50px;height:30px;" src="' + ImageName + '" title="' + f.name + '"/>' +
           //  3 f    
           '</div>' +
           // 4 s    details
-          '<div class="col-md-6" style="font-size:12px;">' +
+          '<div class="col-md-8 p-0" style="font-size:11px; padding:1px">' +
           //  5  s $ f  
           "<div> <b class='limitword' title='" + f.name + "'>Dokumentenname: " + f.name + "</b> </div>" +
           //  6  s $ f  
@@ -1357,29 +1421,30 @@ export class UploadDocumentComponent implements OnInit {
           "</div>" +
 
 
-
-          '<div class="col-md-4 text-right d-flex flex-raw justify-content-end align-items-center ">' +
+          // div for buttons s
+          '<div class="col-md-2 text-right d-flex flex-column p-0 align-items-center justify-content-center ">' +
           // 11 s    remove (X) 
           '<div class=" p-0 ">' +
           // 12 s $ f  
-          '<div class="removepreview btn btn-danger  links " id="removepreviewid' + newsize + '" style="cursor: pointer;" ><i class="fas fa-times"  aria-hidden="true"></i> <span class="removeandpreviewword" >Entfernen</span></div>' +
+          '<div class="removepreview btn bg-danger links " id="removepreviewid' + newsize + '" style="cursor: pointer;padding:1px 4px" ><i class="fas fa-times text-white "  aria-hidden="true"></i></div>' +
           // 11 f    
           '</div>' +
 
           // 9 s  preview (eye)
-          "<div class=' p-0 ms-2'>" +
+          "<div class=' p-0 mt-1'>" +
           // 10 s & f
-          '<div class="previewdoc btn button-primary links  " data-doc_name="' + f.name + '" data-preview_source="' + (e.target as any).result + '" id="previewdoc' + newsize + '" style="cursor: pointer;"><i class="fa fa-eye" aria-hidden="true"></i> ' +
-          '<span class="removeandpreviewword" >Vorschau</span>  </div>' +
+          '<div class="previewdoc btn links  " data-doc_name="' + f.name + '" data-preview_source="' + (e.target as any).result + '" id="previewdoc' + newsize + '" style="cursor: pointer; background: linear-gradient(#17459b, #02a9ed);padding:1px "><i class="fa fa-eye  text-white" aria-hidden="true"></i> ' +
+          ' </div>' +
           // 9 f
           "</div>" +
+          // div for buttons f
           '</div>' +
 
           // 2 f
           "</div>" +
 
           //  13 s progress bar (upload)
-          "<div class='col-md-12 mt-2'>" +
+          "<div class='col-md-12 p-0 mt-2'>" +
           // 14 s 
           '<div class="progress form-group " id="progressnew' + newsize + i + '" style="background-color: grey;width: 100%;"> ' +
           // 15 s & f
