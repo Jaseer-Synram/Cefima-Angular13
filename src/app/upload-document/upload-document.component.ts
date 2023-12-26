@@ -1298,7 +1298,7 @@ export class UploadDocumentComponent implements OnInit {
       //  5  s $ f  
           "<div> <b class='limitword' title='" + f.name + "'>Dokumentenname: " + f.name + "</b> </div>" +
       //  6  s $ f  
-          "<div> <b>Dateigröße: " + Size + "</b> KB </div>" +
+          "<div> <b>Dateigröße: " + Size + "</b>  </div>" +
       //  7  s $ f  
           "<div> <b class='limitword'>Dateityp: " + typeofimage + "</b> </div>" +
       //  8  s $ f  
@@ -1312,7 +1312,7 @@ export class UploadDocumentComponent implements OnInit {
     // 11 s    remove (X) 
           '<div class=" p-0 ">' +
         // 12 s $ f  
-          '<div class="removepreview btn button-primary  links " id="removepreviewid' + newsize + '" style="cursor: pointer;" ><i class="fas fa-times"  aria-hidden="true"></i> <span class="removeandpreviewword" >Entfernen</span></div>' +
+          '<div class="removepreview btn btn-danger  links " id="removepreviewid' + newsize + '" style="cursor: pointer;" ><i class="fas fa-times"  aria-hidden="true"></i> <span class="removeandpreviewword" >Entfernen</span></div>' +
     // 11 f    
           '</div>' +
 
@@ -1320,7 +1320,7 @@ export class UploadDocumentComponent implements OnInit {
           "<div class=' p-0 ms-2'>" +
         // 10 s & f
           '<div class="previewdoc btn button-primary links  " data-doc_name="' + f.name + '" data-preview_source="' + (e.target as any).result + '" id="previewdoc' + newsize + '" style="cursor: pointer;"><i class="fa fa-eye" aria-hidden="true"></i> ' +
-          '<span class="removeandpreviewword" >Sicht</span>  </div>' +
+          '<span class="removeandpreviewword" >Vorschau</span>  </div>' +
     // 9 f
           "</div>" +
           '</div>' +
