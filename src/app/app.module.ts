@@ -37,8 +37,6 @@ import { HomeComponent } from "./home/home.component";
 import { PagerService } from "./_services/index";
 import { CompanySelectDialogComponent } from "./company-select-dialog/company-select-dialog.component";
 import { DataPolicyComponent } from './data-policy/data-policy.component';
-import { B2bCreateCustomerComponent } from './b2b-create-customer/b2b-create-customer.component';
-import { UploadDocumentComponent } from './upload-document/upload-document.component';
 
 export const MY_FORMATS = {
   parse: {
@@ -77,8 +75,6 @@ export function tokenGetter() {
     CallInfoDialogComponents,
     CompanySelectDialogComponent,
     DataPolicyComponent,
-    B2bCreateCustomerComponent,
-    UploadDocumentComponent,
   ],
   imports: [
     BrowserModule,

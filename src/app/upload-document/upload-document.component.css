@@ -45,6 +45,11 @@ div.mat-form-field-wrapper {
     color: white;
 }
 
+.mat-option.mat-selected:hover {
+    background-image: linear-gradient(to bottom, #17459B, #02A9ED);
+    color: white;
+}
+
 
 .second-text {
     font-family: Titillium Web, sans-serif;
