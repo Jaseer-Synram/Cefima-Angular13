@@ -11,6 +11,7 @@ import {
   MAT_DIALOG_DATA,
   MatDialogRef,
 } from "@angular/material/dialog";
+// import { PdfViewerModule } from "ng2-pdf-viewer";
 
 @NgModule({
   declarations: [ConsultingComponent, SelectConsultingComponent],

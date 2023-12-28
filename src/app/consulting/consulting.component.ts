@@ -28,6 +28,7 @@ import {
   MAT_DIALOG_DATA,
 } from "@angular/material/dialog";
 import { SelectConsultingComponent } from "./select-consulting/select-consulting.component";
+// import { setTimeout } from "timers";
 type unit = "bytes" | "KB" | "MB" | "GB" | "TB" | "PB";
 type unitPrecisionMap = {
   [u in unit]: number;
@@ -197,6 +198,11 @@ export class ConsultingComponent implements OnInit {
 
   // Bhupendra
   modifiedTab: any = [];
+
+  itemToDisplayUnderKunden = ''
+
+  hoverOnKunden = false
+  hoverOnproduktberatung = false
 
   constructor(
     private _formBuilder: FormBuilder,
@@ -596,30 +602,34 @@ export class ConsultingComponent implements OnInit {
     this.openDialog();
   }
   openDialog() {
-    const dialogRef = this.dialog.open(SelectConsultingComponent, {
-      data: {
-        // message: 'Are you sure want to delete?',
-        // buttonText: {
-        //   ok: 'Save',
-        //   cancel: 'No'
-        // }
-      },
-      // backdropClass: 'backdropBackground'
-    });
-    dialogRef.afterClosed().subscribe((data) => {
-      if (data.event) {
-        this.setContractType(data.data);
-        this.consultStepper.next();
-      } else {
-        this.consultStepper.previous();
-      }
-    });
+
+    // const dialogRef = this.dialog.open(SelectConsultingComponent, {
+    //   data: {
+    //     // message: 'Are you sure want to delete?',
+    //     // buttonText: {
+    //     //   ok: 'Save',
+    //     //   cancel: 'No'
+    //     // }
+    //   },
+    //   // backdropClass: 'backdropBackground'
+    // });
+    // dialogRef.afterClosed().subscribe((data) => {
+    //   if (data.event) {
+    //     this.setContractType(data.data);
+    //     this.consultStepper.next();
+    //   } else {
+    //     this.consultStepper.previous();
+    //   }
+    // });
   }
   patchnationalityValue(event: any) {
     this.myControlnew.reset();
     console.log("my control value", this.myControl.value);
     if (this.myControl.value != "") {
       this.currentCustomer = this.myControl.value;
+      let words = this.myControl.value.split(' ');
+      words.pop();
+      this.itemToDisplayUnderKunden = words.join(' ')
       this.resetMemberList();
       this.resetContractType();
       this.resetTabsList();
@@ -754,6 +764,8 @@ export class ConsultingComponent implements OnInit {
     this.currentTabType = tabType;
     this.userService.getTabsByType(tabType).subscribe((results: any) => {
       this.tabsList = results;
+      console.log(results);
+
       // this.filteredTabsList = results;
       results.forEach((element: any) => {
         if (element.question_id.length >= 1) {
@@ -774,6 +786,8 @@ export class ConsultingComponent implements OnInit {
   }
 
   setContractType(type: any) {
+    console.log(type);
+    this.goForward(this.consultStepper)
     this.contractType = type;
     if (type === "privatkunde") {
       this.getAllTabs();
@@ -839,6 +853,8 @@ export class ConsultingComponent implements OnInit {
       this.QAStepper.reset();
     }
   }
+
+
 
   getQuestionsForTabs() {
     let that = this;
@@ -1139,32 +1155,45 @@ export class ConsultingComponent implements OnInit {
     );
   }
 
+  pdfUrl = ''
+
   async handleDocumentUpload(
     event: any,
     option_index: any = "",
-    answer_index: any
+    answer_index: any = ''
   ) {
+
     event.preventDefault();
     let userIndex = this.currentQuestionObject.userIndex;
     let tabIndex = this.currentQuestionObject.tabIndex;
     let questionIndex = this.currentQuestionObject.questionIndex;
 
     const previewData = (source: any, modaltitle: any) => {
+
       $("#openpreviewmodel").trigger("click");
+      this.open_modal('exampleModalpreview')
 
       $("#showpreviewtitle").html("<b>Dokumentenname: </b>" + modaltitle);
 
       $("#showpreviewdownload").attr("href", source);
 
       if (source.indexOf("data:application/pdf;") != -1) {
+        console.log('if');
+
+        this.pdfUrl = source
+
+
         $("#showpreviewimg").attr("src", "");
         $("#showpreviewimg").css("display", "none");
 
-        $("#showpreviewpdf").attr("src", "");
+        // $("#showpreviewpdf").attr("src", "");
         $("#showpreviewpdf").css("display", "block");
-        //  $('#showpreviewvideo').attr('src',source);
-        $("#showpreviewpdf").attr("src", source);
+        // $("#showpreviewpdf").attr("src", source);
+
+        
       } else {
+        console.log('else');
+
         $("#showpreviewpdf").attr("src", "");
         $("#showpreviewpdf").css("display", "none");
 
@@ -1224,6 +1253,7 @@ export class ConsultingComponent implements OnInit {
         let ImageName = (e.target as any).result;
 
         let extension = f.name.substr(f.name.lastIndexOf(".") + 1);
+        console.log(extension, f);
 
         if (typeofimage.indexOf("pdf") != -1) {
           ImageName = "../assets/PDF.svg";
@@ -1231,123 +1261,155 @@ export class ConsultingComponent implements OnInit {
           ImageName = (e.target as any).result;
         }
 
+        console.log(option_index, ':anser', answer_index, ':size1', Size1, ':newsize', newsize, ':imagename', ImageName, ':fname', f.name, ':size', Size, ':type', typeofimage);
+
         if (option_index == "") {
-          $("#resultt" + answer_index).append(
-            '<div class="pip col-md-4" style="display: inline-block;" "id=\'pipremove' +
-              +i +
-              Size1 +
-              "'>" +
-              '<div class="row">' +
-              '<div class="col-md-12">' +
-              '<div class="removepreview links" id="removepreviewid' +
-              newsize +
-              '" style="margin-bottom:-25px;background: #184297;border-radius: 3px;width:25px;height:25px;font-size: 14px; text-align: center; padding: 1px;color: white;margin-left: 260px;margin-top: 2px;margin-right: 0 !important;cursor: pointer;">X</div>' +
-              "</div>" +
-              '<div class="col-md-2">' +
-              '<img class="imageThumb" style="width: 170%;height:30px;margin-top: 20px;" src="' +
-              ImageName +
-              '" title="' +
-              f.name +
-              '"/>' +
-              "</div>" +
-              '<div class="col-md-9" style="font-size:12px;">' +
-              "<div> <b class='limitword' title='" +
-              f.name +
-              "'>Dokumentenname: " +
-              f.name +
-              "</b> </div>" +
-              "<div> <b>Dateigröße: " +
-              Size +
-              "</b></div>" +
-              "<div> <b>Dateityp: " +
-              typeofimage +
-              "</b> </div>" +
-              //"<div> <b>Datum des Dokuments: " +date +"</b> </div>"+
-              "</div>" +
-              "<div class='col-md-12'>" +
-              '<div class="previewdoc links" data-doc_name="' +
-              f.name +
-              '" data-preview_source="' +
-              (e.target as any).result +
-              '" id="previewdoc' +
-              i +
-              Size1 +
-              '" style="background: #184297;border-radius: 3px;width:25px;height:25px;font-size: 14px; text-align: center; padding: 1px;color: white;margin-left: 260px;margin-top: -25px;margin-right: 0 !important;cursor: pointer;"><i class="fa fa-eye" aria-hidden="true"></i></div>' +
-              "</div>" +
-              "<div class='col-md-12 mt-2'>" +
-              '<div class="progress form-group " id="progressnew' +
-              i +
-              Size1 +
-              '" style="background-color: grey;width: 100%;"> <div class="percentageclass' +
-              i +
-              Size1 +
-              ' progress-bar progress-bar-striped bg-success" role="progressbar" id="percentage' +
-              i +
-              Size1 +
-              '" [style.width.%]=""> </div> </div>' +
-              "</div>" +
-              "</div>" +
-              "</div>"
-          );
+          console.log(":", option_index);
+
+          // ("#resultt" + answer_index).append
+          $(
+            // 1 s
+            '<div class="pip col-md-4 mb-2" style="display: inline-block;" "id=\'pipremove' +
+            +i +
+            Size1 +
+            "'>" +
+            // 2 s
+            '<div class="row col-md-12 p-0  "style="border: 1px solid #cdcdcd;border-radius:9px;"  >  ' +
+            // 3s
+            '<div class="col-md-2">' +
+            '<img class="imageThumb" style="width: 200%;height:30px;margin-top: 20px;" src="' +
+            ImageName +
+            '" title="' +
+            f.name +
+            '"/>' +
+            //  3f
+            "</div>" +
+            // 4s
+            '<div class="col-md-8 pr-0 mt-1" style="font-size:12px;">' +
+            // 5s
+            "<div> <b class='limitword' title='" +
+            f.name +
+            "'>Dokumentenname: " +
+            f.name +
+            // 5f
+            "</b> </div>" +
+            // 6s
+            "<div> <b>Dateigröße: " +
+            Size +
+            // 6f
+            "</b></div>" +
+            // 7s
+            "<div> <b>Dateityp: " +
+            typeofimage +
+            // 7f
+            "</b> </div>" +
+            //"<div> <b>Datum des Dokuments: " +date +"</b> </div>"+
+            // 4f
+            "</div>" +
+            // 8s
+            "<div class='col-md-2 d-flex flex-column mt-1 justify-content-between'>" +
+
+            // 10s
+            '<div class="removepreview btn-danger links" id="removepreviewid' +
+            newsize +
+            // 10 f
+            '" style="border-radius: 3px;width:25px;height:25px;font-size: 14px; text-align: center; padding: 1px;color: white;cursor: pointer;">X</div>' +
+            // 9s
+            '<div class="previewdoc links" data-doc_name="' +
+            f.name +
+            '" data-preview_source="' +
+            (e.target as any).result +
+            '" id="previewdoc' +
+            i +
+            Size1 +
+            // 9f
+            '" style="background:  linear-gradient(#17459b, #02a9ed);border-radius: 3px;width:25px;height:25px;font-size: 14px; text-align: center; padding: 1px;color: white;cursor: pointer;"><i class="fa fa-eye" aria-hidden="true"></i></div>' +
+            // 2f
+            "</div>" +
+            // 11 s
+            "<div class='col-md-12 mt-2'>" +
+            // 12 s
+            '<div class="progress form-group " id="progressnew' +
+            i +
+            Size1 +
+            '" style="background-color: grey;width: 100%;"> <div class="percentageclass' +
+            i +
+            Size1 +
+            ' progress-bar progress-bar-striped bg-success" role="progressbar" id="percentage' +
+            i +
+            Size1 +
+            '" [style.width.%]=""> </div> </div>' +
+            // 11 f
+            "</div>" +
+            // 12 f
+            "</div>" +
+            // 1 f
+            "</div>"
+          ).insertAfter("#resultt" + answer_index);
         } else {
-          $("#result" + option_index).append(
-            '<div class="pip col-md-4" style="display: inline-block;" "id=\'pipremove' +
-              +i +
-              Size1 +
-              "'>" +
-              '<div class="row">' +
-              '<div class="col-md-12">' +
-              '<div class="removepreview links" id="removepreviewid' +
-              newsize +
-              '" style="margin-bottom:-25px;background: #184297;border-radius: 3px;width:25px;height:25px;font-size: 14px; text-align: center; padding: 1px;color: white;margin-left: 260px;margin-top: 2px;margin-right: 0 !important;cursor: pointer;">X</div>' +
-              "</div>" +
-              '<div class="col-md-2">' +
-              '<img class="imageThumb" style="width: 170%;height:30px;margin-top: 20px;" src="' +
-              ImageName +
-              '" title="' +
-              f.name +
-              '"/>' +
-              "</div>" +
-              '<div class="col-md-9" style="font-size:12px;">' +
-              "<div> <b class='limitword' title='" +
-              f.name +
-              "'>Dokumentenname: " +
-              f.name +
-              "</b> </div>" +
-              "<div> <b>Dateigröße: " +
-              Size +
-              "</b></div>" +
-              "<div> <b>Dateityp: " +
-              typeofimage +
-              "</b> </div>" +
-              // "<div> <b>Datum des Dokuments: " +date +"</b> </div>"+
-              "</div>" +
-              "<div class='col-md-12'>" +
-              '<div class="previewdoc links" data-doc_name="' +
-              f.name +
-              '" data-preview_source="' +
-              (e.target as any).result +
-              '" id="previewdoc' +
-              i +
-              Size1 +
-              '" style="background: #184297;border-radius: 3px;width:25px;height:25px;font-size: 14px; text-align: center; padding: 1px;color: white;margin-left: 260px;margin-top: -25px;margin-right: 0 !important;cursor: pointer;"><i class="fa fa-eye" aria-hidden="true"></i></div>' +
-              "</div>" +
-              "<div class='col-md-12 mt-2'>" +
-              '<div class="progress form-group " id="progressnew' +
-              i +
-              Size1 +
-              '" style="background-color: grey;width: 100%;"> <div class="percentageclass' +
-              i +
-              Size1 +
-              ' progress-bar progress-bar-striped bg-success" role="progressbar" id="percentage' +
-              i +
-              Size1 +
-              '" [style.width.%]=""> </div> </div>' +
-              "</div>" +
-              "</div>" +
-              "</div>"
-          );
-          //).insertAfter("#result"+option_index);
+          console.log(":", option_index);
+          $(
+            // "#result" + option_index).append(
+            '<div class="pip col-md-4" style="display: inline-block;border: 1px solid #cdcdcd;border-radius:9px;" "id=\'pipremove' +
+            +i +
+            Size1 +
+            "'>" +
+            '<div class="row"  > ' +
+            // new size s
+            '<div class="col-md-12">' +
+            '<div class="removepreview links" id="removepreviewid' +
+            newsize +
+            '" style="margin-bottom:-25px;background: #184297;border-radius: 3px;width:25px;height:25px;font-size: 14px; text-align: center; padding: 1px;color: white;margin-left: 260px;margin-top: 2px;margin-right: 0 !important;cursor: pointer;">X</div>' +
+            // new size f
+            "</div>" +
+            // img area s
+            '<div class="col-md-2">' +
+            '<img class="imageThumb" style="width: 170%;height:30px;margin-top: 20px;" src="' +
+            ImageName +
+            '" title="' +
+            f.name +
+            '"/>' +
+            // img area f
+            "</div>" +
+            '<div class="col-md-9" style="font-size:12px;">' +
+            "<div> <b class='limitword' title='" +
+            f.name +
+            "'>Dokumentenname: " +
+            f.name +
+            "</b> </div>" +
+            "<div> <b>Dateigröße: " +
+            Size +
+            "</b></div>" +
+            "<div> <b>Dateityp: " +
+            typeofimage +
+            "</b> </div>" +
+            // "<div> <b>Datum des Dokuments: " +date +"</b> </div>"+
+            "</div>" +
+            "<div class='col-md-12'>" +
+            '<div class="previewdoc links" data-doc_name="' +
+            f.name +
+            '" data-preview_source="' +
+            (e.target as any).result +
+            '" id="previewdoc' +
+            i +
+            Size1 +
+            '" style="background: #184297;border-radius: 3px;width:25px;height:25px;font-size: 14px; text-align: center; padding: 1px;color: white;margin-left: 260px;margin-top: -25px;margin-right: 0 !important;cursor: pointer;"><i class="fa fa-eye" aria-hidden="true"></i></div>' +
+            "</div>" +
+            "<div class='col-md-12 mt-2'>" +
+            '<div class="progress form-group " id="progressnew' +
+            i +
+            Size1 +
+            '" style="background-color: grey;width: 100%;"> <div class="percentageclass' +
+            i +
+            Size1 +
+            ' progress-bar progress-bar-striped bg-success" role="progressbar" id="percentage' +
+            i +
+            Size1 +
+            '" [style.width.%]=""> </div> </div>' +
+            "</div>" +
+            "</div>" +
+            "</div>"
+          ).insertAfter("#result" + option_index);
         }
 
         $(".previewdoc").click(function (event) {
@@ -1379,6 +1441,8 @@ export class ConsultingComponent implements OnInit {
 
               break;
             case HttpEventType.ResponseHeader:
+              console.log(event.status);
+
               console.log("Response header has been received!");
               break;
             case HttpEventType.UploadProgress:
@@ -1395,6 +1459,7 @@ export class ConsultingComponent implements OnInit {
               //console.log(`Uploaded! ${this.progress}%`);
               break;
             case HttpEventType.Response:
+              console.log(event.status);
               $("#result" + option_index)
                 .find(".pip")
                 .remove();
@@ -1429,6 +1494,8 @@ export class ConsultingComponent implements OnInit {
                   questionIndex
                 ].answerKey.documents
               ) {
+                console.log('1454');
+
                 this.questionList[userIndex].tempList[tabIndex].list[
                   questionIndex
                 ].answerKey.documents = [];
@@ -1436,6 +1503,10 @@ export class ConsultingComponent implements OnInit {
               this.questionList[userIndex].tempList[tabIndex].list[
                 questionIndex
               ].answerKey.documents.push(data);
+              console.log('data:', this.questionList[userIndex].tempList[tabIndex].list[
+                questionIndex
+              ].answerKey.documents);
+
               $("#progressnew" + i + Size1).css("display", "none");
           }
         });
@@ -1467,10 +1538,14 @@ export class ConsultingComponent implements OnInit {
   }
 
   preview_uploaded_document(filename: any, url: any, datatype: any) {
+    console.log(filename, ':', url, ':', datatype);
+
     $("#openpreviewmodel").trigger("click");
     $("#exampleModalpreview").appendTo("body");
     $("#showpreviewtitle").html("<b>Dokumentenname: </b>" + filename);
     if (datatype.indexOf("application/pdf") != -1) {
+      console.log('if');
+
       $("#showpreviewimg").attr("src", "");
       $("#showpreviewimg").css("display", "none");
       $("#showpreviewpdf").attr("src", "");
@@ -1478,6 +1553,7 @@ export class ConsultingComponent implements OnInit {
       //  $('#showpreviewvideo').attr('src',source);
       $("#showpreviewpdf").attr("src", url);
     } else {
+      console.log('else');
       $("#showpreviewpdf").attr("src", "");
       $("#showpreviewpdf").css("display", "none");
       $("#showpreviewimg").attr("src", "");
@@ -1872,7 +1948,7 @@ export class ConsultingComponent implements OnInit {
             let context: any = canvas.getContext("2d");
             context.drawImage(image, 0, 0);
             await generateFooter(canvas.toDataURL("image/png").split(",")[1]);
-            pdfnew.save("Test.pdf");
+            await pdfnew.save("Test.pdf");
             that.pdfArray.push(pdfnew.output("blob"));
             that.questionList[nextk].tempList[nextj].pdfSaved = true;
             $("#questionPdf" + nextk + nextj).css("display", "none");
@@ -1905,8 +1981,10 @@ export class ConsultingComponent implements OnInit {
             }
             // pdfnew.save("Test.pdf");
             if (counter === count) {
+              console.log('here');
+              // $("#loaderouterid").css("display", "none");
               // return;
-              // that.handlePdfUpload();
+              that.handlePdfUpload();
             }
           };
         },
@@ -1986,6 +2064,8 @@ export class ConsultingComponent implements OnInit {
     this.userService
       .addMultipleQuestionAnswer(this.tabDataArray)
       .subscribe((result) => {
+        console.log(result);
+
         $("#loaderouterid").css("display", "none");
         $(".showSignature").attr("src", "");
         this.currentSignature = "";
@@ -2349,4 +2429,6 @@ export class ConsultingComponent implements OnInit {
     }
     this.currentQuestionObject.qno = count;
   }
+
+
 }
