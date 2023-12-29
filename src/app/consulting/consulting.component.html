@@ -38,12 +38,12 @@
                                 </span>
                             </button>
                         </div>
-                        <mat-horizontal-stepper linear 
-                            #consultStepper  ngClass="{{ 'last-edited-step-' + consultStepper.selectedIndex }}" >
+                        <mat-horizontal-stepper linear #consultStepper
+                            ngClass="{{ 'last-edited-step-' + consultStepper.selectedIndex }}">
                             <ng-template matStepperIcon="edit">
                                 <mat-icon>check</mat-icon>
                             </ng-template>
-                            <mat-step >
+                            <mat-step>
                                 <div class="w-75">
                                     <ng-template matStepLabel>
                                         <span>Kunden</span>
@@ -59,7 +59,8 @@
                                         style="border-radius: 10px">
                                         <mat-form-field
                                             class="mat-form-field-remove-padding-bottom mat-form-field-remove-margin input-border-gradient my-mat-field"
-                                            appearance="outline" style=" width: 100%;background: white;border-radius: 10px;">
+                                            appearance="outline"
+                                            style=" width: 100%;background: white;border-radius: 10px;">
                                             <!-- <mat-label>Haushalt / Firma
                                         auswählen
                                     </mat-label> -->
@@ -100,15 +101,27 @@
                                 </div> -->
                             </mat-step>
                             <!-- 2ND STEP START -->
-                            <mat-step label="Ausgewählter Mitglied">
+                            <mat-step>
                                 <div class="w-75">
+                                    <ng-template matStepLabel>
+                                        <span>Ausgewählter Mitglied</span>
+                                        <ng-container *ngIf="selectedBranchList.length > 0 else haushalt">
+                                            <div class="underKundenHead rounded-sm "
+                                                *ngFor="let member of selectedBranchList">
+                                                {{ member.name }}
+                                            </div>
+                                        </ng-container>
+                                        <ng-template #haushalt>
+                                            <div class="underKundenHead rounded-sm ">
+                                                <ng-container *ngFor="  let member of selectedMemberList">
+                                                    {{ member.name }}
+                                                </ng-container>
+                                            </div>
+                                        </ng-template>
+                                    </ng-template>
                                     <div *ngIf="kundetype !== 'Firma'">
                                         <div class="mt-5 mb-4">
-                                            <p class="m-0" style="
-                          color: #454c58;
-                          font-weight: 500;
-                          font-size: 20px;
-                        ">
+                                            <p class="m-0" style="color: #454c58; font-weight: 500; font-size: 20px; ">
                                                 Bitte wählen Sie ein Haushaltsmitglied in der Suchleiste
                                                 aus
                                             </p>
@@ -140,15 +153,13 @@
                                             <mat-icon class="ml-2" style="color: white">search
                                             </mat-icon>
                                         </div>
-                                        <div *ngIf="selectedMemberList.length > 0" class="list-box text-center p-1">
-                                            <p class="mt-2">Members List</p>
+                                        <div *ngIf="selectedMemberList.length > 0" class="list-box text-start p-1 pt-2">
+                                            <span class="ms-3" style="font-weight: 500;">Members List</span>
                                             <div
-                                                class="d-flex flex-wrap justify-content-center align-items-center py-1 px-2 mt-2">
+                                                class="d-flex flex-wrap justify-content-start align-items-center py-1 px-2 ">
                                                 <div class="d-flex justify-content-between align-items-center py-1 px-2 gradient mt-2 ml-2"
-                                                    style="border-radius: 10px; color: white" *ngFor="
-                            let member of selectedMemberList;
-                            let i = index
-                          ">
+                                                    style="border-radius: 10px; color: white"
+                                                    *ngFor="  let member of selectedMemberList;  let i = index ">
                                                     <p class="m-0">
                                                         {{ member.name }}
                                                     </p>
@@ -161,11 +172,8 @@
                                     </div>
                                     <div *ngIf="kundetype == 'Firma'">
                                         <div class="mt-5 mb-4">
-                                            <p class="m-0" style="
-                          color: #454c58;
-                          font-weight: 500;
-                          font-size: 20px;
-                        ">
+                                            <p class="m-0"
+                                                style=" color: #454c58;  font-weight: 500;  font-size: 20px;  ">
                                                 Bitte wählen Sie ein Firma in der Suchleiste aus
                                             </p>
                                         </div>
@@ -173,11 +181,8 @@
                                             style="border-radius: 10px">
                                             <mat-form-field
                                                 class="mat-form-field-remove-padding-bottom mat-form-field-remove-margin input-border-gradient"
-                                                appearance="outline" style="
-                          width: 100%;
-                          background: white;
-                          border-radius: 10px;
-                        ">
+                                                appearance="outline"
+                                                style=" width: 100%; background: white; border-radius: 10px; ">
                                                 <input type="text" placeholder="Firma auswählen" aria-label="Number"
                                                     matInput [formControl]="currentBranch"
                                                     [matAutocomplete]="branchAuto" />
@@ -191,11 +196,11 @@
                                             <mat-icon class="ml-2" style="color: white">search
                                             </mat-icon>
                                         </div>
-                                        <div *ngIf="selectedBranchList.length > 0" class="list-box text-center p-1">
-                                            <p class="mt-2">Branches List</p>
+                                        <div *ngIf="selectedBranchList.length > 0" class="list-box text-start p-1 pt-2">
+                                            <span class="ms-3" style="font-weight: 500;">Branches List</span>
                                             <div
-                                                class="d-flex flex-wrap justify-content-center align-items-center py-1 px-2 mt-2">
-                                                <div class="d-flex justify-content-between align-items-center py-1 px-2 gradient mt-2 ml-2"
+                                                class="d-flex flex-wrap justify-content-start align-items-center py-1 px-2 mt-2">
+                                                <div class="d-flex justify-content-center     align-items-center py-1 px-2 gradient mt-2 ml-2"
                                                     style="border-radius: 10px; color: white" *ngFor="
                             let member of selectedBranchList;
                             let i = index
@@ -226,41 +231,48 @@
                             </mat-step>
                             <!-- STEP - 2 END HERE -->
                             <!-- STEP - 3 START HERE -->
-                            <mat-step label="Auswahlberatung">
+                            <mat-step>
                                 <!-- <app-select-consulting (data)="'hi'" (contractType)="contractType"></app-select-consulting> -->
-
-                                <!-- <mat-step label="Auswahlberatung">
+                                <ng-template matStepLabel>
+                                    <span>Auswahlberatung</span>
+                                    <div class="underKundenHead rounded-sm ">{{itemToDisplayUnderAuswahlberatung}}</div>
+                                </ng-template>
+                                <!-- <mat-step label="Auswahlberatung"> -->
                                 <div class="text-center mt-5 w-50 mx-auto" style="color: gray;">
-                                    <p class="m-0" style="color: #454C58;font-weight: 700;font-size: 18px;">Bitte wählen
+                                    <p class="m-0" class="m-0"
+                                        style="color: #454c58; font-weight: 500; font-size: 20px">Bitte wählen
                                         Sie aus,welchen
                                         Vorgang Sie für Ihren Kunden starten möchten</p>
                                 </div>
                                 <div class="d-flex justify-content-center align-items-center w-100 m-auto mt-5 p-3">
-                                    <div role="button" (click)="setContractType('privatkunde')"
+                                    <div role="button" (mouseover)="hoverOnKunden = true"
+                                        (mouseleave)=" hoverOnKunden = false" (click)="setContractType('privatkunde')"
                                         class="d-flex flex-column align-items-center justify-content-center mr-2"
-                                        style="width:250px;height:250px;border-radius:6px;border:1px solid gray;"
-                                        [ngClass]="{'gradient':contractType==='privatkunde'}">
-                                        <img *ngIf="contractType!=='privatkunde'" src="assets/kundendaten.png">
-                                        <img *ngIf="contractType==='privatkunde'" src="assets/kundendaten-active.png">
+                                        style="width:250px;height:250px;border-radius:6px;border:1px solid #02a8ec;"
+                                        [ngClass]="{'gradient':hoverOnKunden}">
+                                        <img *ngIf="!hoverOnKunden" src="assets/kundendaten.svg">
+                                        <img *ngIf="hoverOnKunden" src="assets/kundendaten-active.png">
                                         <p class="m-0 mt-3 w-50 text-center"
-                                            [ngStyle]="{'color':contractType==='privatkunde' ? 'white' : 'gray' }">
+                                            [ngStyle]="{'color':hoverOnKunden? 'white' : '#02a8ec' }">
                                             KUNDENDATEN
                                             AKTUALISIEREN</p>
                                     </div>
 
+
                                     <div role="button" (click)="setContractType('firmakunde')"
+                                        (mouseover)="hoverOnproduktberatung = true"
+                                        (mouseleave)=" hoverOnproduktberatung = false"
                                         class="d-flex flex-column align-items-center justify-content-center ml-2"
-                                        style="width:250px;height:250px;border-radius:6px;border:1px solid gray;"
-                                        [ngClass]="{'gradient':contractType==='firmakunde'}">
-                                        <img *ngIf="contractType!=='firmakunde'" src="assets/produktberatung.png">
-                                        <img *ngIf="contractType==='firmakunde'"
-                                            src="assets/produktberatung-active.png">
+                                        style="width:250px;height:250px;border-radius:6px;border:1px solid #02a8ec;"
+                                        [ngClass]="{'gradient':hoverOnproduktberatung }">
+                                        <img *ngIf="!hoverOnproduktberatung" src="assets/produktberatung.svg">
+                                        <img *ngIf="hoverOnproduktberatung" src="assets/produktberatung-active.png">
                                         <p class="m-0 mt-3 w-50 text-center"
-                                            [ngStyle]="{'color':contractType==='firmakunde' ? 'white' : 'gray' }">
+                                            [ngStyle]="{'color':hoverOnproduktberatung ? 'white' : '#02a8ec' }">
                                             PRODUKTBERATUNG
                                             STARTEN</p>
                                     </div>
-                                </div> -->
+                                </div>
                                 <!-- <div class="d-flex justify-content-between align-items-center mt-5">
                                     <button matStepperPrevious type="button"
                                         class="btn btn-primary primary-btn gradient">
@@ -275,7 +287,12 @@
                             </mat-step>
                             <!-- STEP - 3 END HERE -->
                             <!-- 4TH STEP START -->
-                            <mat-step label="Fragetyp">
+                            <mat-step>
+                                <ng-template matStepLabel>
+                                    <span>Fragetyp</span>
+                                    <div class="underKundenHead rounded-sm "
+                                        *ngFor="let product of selectedProductTypeList;">{{product.name}}</div>
+                                </ng-template>
                                 <div *ngIf="contractType === 'firmakunde'" class="w-75">
                                     <div class="mt-5 mb-4" style="color: #454c58; font-weight: 500; font-size: 20px">
                                         <p class="m-0">
@@ -291,10 +308,12 @@
                                                 width: 100%;
                                                 background: white;
                                                 border-radius: 10px;
+                                                color: black;
                                             ">
                                             <!-- <mat-label> Produkttyp eingeben </mat-label> -->
                                             <input type="text" aria-label="Number" matInput
-                                                (keyup)="filterProductType($event)" [matAutocomplete]="filterProduct"
+                                                placeholder="Produkttyp eingeben" (keyup)="filterProductType($event)"
+                                                [matAutocomplete]="filterProduct"
                                                 [formControl]="currentSelectedProduct" />
                                             <mat-autocomplete #filterProduct="matAutocomplete"
                                                 (optionSelected)="patchProductTpyeValue($event)">
@@ -307,10 +326,11 @@
                                         <mat-icon class="ml-2" style="color: white">search
                                         </mat-icon>
                                     </div>
-                                    <div *ngIf="selectedProductTypeList.length > 0" class="list-box text-center p-1">
-                                        <p class="mt-2">Produkts List</p>
+                                    <div *ngIf="selectedProductTypeList.length > 0"
+                                        class="list-box text-start p-1 pt-2">
+                                        <span class="ms-3" style="font-weight: 500;">Produkts List</span>
                                         <div
-                                            class="d-flex flex-wrap justify-content-center align-items-center py-1 px-2 mt-2">
+                                            class="d-flex flex-wrap justify-content-start align-items-center py-1 px-2 mt-2">
                                             <div class="d-flex justify-content-between align-items-center py-1 px-2 gradient mt-2 ml-2"
                                                 style="border-radius: 10px; color: white" *ngFor="
                           let product of selectedProductTypeList;
@@ -353,10 +373,10 @@
                                         <mat-icon class="ml-2" style="color: white">search
                                         </mat-icon>
                                     </div>
-                                    <div *ngIf="selectedTabList.length > 0" class="list-box text-center p-1">
-                                        <p class="mt-2">Tabs List</p>
+                                    <div *ngIf="selectedTabList.length > 0" class="list-box text-start p-1 pt-2">
+                                        <span class="ms-3" style="font-weight: 500;">Tabs List</span>
                                         <div
-                                            class="d-flex flex-wrap justify-content-center align-items-center py-1 px-2 mt-2">
+                                            class="d-flex flex-wrap justify-content-start align-items-center py-1 px-2 mt-2">
                                             <div class="d-flex justify-content-between align-items-center py-1 px-2 gradient mt-2 ml-2"
                                                 style="border-radius: 10px; color: white"
                                                 *ngFor="let tab of selectedTabList; let i = index">
@@ -401,30 +421,33 @@
                         <button type="button" (click)="goForward(consultStepper)"
                             [disabled]="nextDisabled(consultStepper)" [ngClass]="[
                 nextDisabled(consultStepper)
-                  ? 'btn disabled-btn ml-auto'
+                  ? 'btn btn-secondary  ml-auto'
                   : 'btn btn-primary primary-btn gradient ml-auto'
               ]" [hidden]="hiddenNextButton(consultStepper)">
-                            Weiter&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i>
+                            Weiter&nbsp;
+                            <i class="fa fa-arrow-right" aria-hidden="true"></i>
                         </button>
                         <!-- *ngIf="contractType!=='privatkunde'" -->
                         <button *ngIf="contractType === 'privatkunde'" data-toggle="modal"
                             data-target="#questionAnswerModal" type="button" [ngClass]="[
                 selectedTabList.length === 0
-                  ? 'btn disabled-btn'
+                  ? 'btn btn-secondary '
                   : 'btn btn-primary primary-btn gradient'
               ]" (click)="open_modal('questionAnswerModal'); getQuestionsForTabs()"
                             [disabled]="selectedTabList.length === 0" [hidden]="hiddenLastButton(consultStepper)">
-                            Weiter&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i>
+                            Weiter&nbsp;
+                            <i class="fa fa-arrow-right" aria-hidden="true"></i>
                         </button>
                         <button *ngIf="contractType === 'firmakunde'" data-toggle="modal"
                             data-target="#questionAnswerModal" type="button" [ngClass]="[
                 selectedProductTypeList.length === 0
-                  ? 'btn disabled-btn'
+                  ? 'btn btn-secondary '
                   : 'btn btn-primary primary-btn gradient'
               ]" (click)="
                 open_modal('questionAnswerModal'); getQuestionsForProductType()
               " [disabled]="selectedProductTypeList.length === 0" [hidden]="hiddenLastButton(consultStepper)">
-                            Weiter&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i>
+                            Weiter&nbsp;
+                            <i class="fa fa-arrow-right" aria-hidden="true"></i>
                         </button>
                     </div>
                 </section>
@@ -734,7 +757,8 @@
                                     <hr />
                                     <div class="text-right">
                                         <button class="btn btn-primary primary-btn gradient" matStepperNext>
-                                            Weiter&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i>
+                                            Weiter&nbsp;
+                                            <i class="fa fa-arrow-right" aria-hidden="true"></i>
                                         </button>
                                     </div>
                                 </div>
@@ -761,16 +785,11 @@
                                                     *ngFor="let member of questionList; let i = index"
                                                     [expanded]="userIndex === i">
                                                     <mat-expansion-panel-header (click)="
-                              currentUser = member.userId;
-                              userIndex = i;
-                              tabIndex = null;
-                              questionIndex = null
-                            ">
+                                                    currentUser = member.userId; userIndex = i; tabIndex = null;
+                                                    questionIndex = null  ">
                                                         <mat-panel-title [ngClass]="
-                                member.userId === currentUser
-                                  ? 'text-white m-0'
-                                  : 'gray-col m-0'
-                              ">
+                                                    member.userId === currentUser ? 'text-white m-0'
+                                                    : 'gray-col m-0' ">
                                                             {{ member.name }}
                                                         </mat-panel-title>
                                                     </mat-expansion-panel-header>
@@ -1203,11 +1222,11 @@
                                                                                     </p>
                                                                                 </div>
                                                                             </div>
-                                                                            <div class="text-center">
+                                                                            <!-- <div class="text-center">
                                                                                 <button class="upload-button">
                                                                                     Or Select File To Upload
                                                                                 </button>
-                                                                            </div>
+                                                                            </div> -->
                                                                         </div>
                                                                     </div>
 
@@ -1567,48 +1586,37 @@
                                                         <div style="display: block; margin: 0 auto">
                                                             <div class="up-file-wrap" style="text-align: center">
                                                                 <p style="
-                                    font-size: 22px;
-                                    text-align: center;
-                                    color: #454c58;
-                                    font-weight: 300;
-                                  " class="font-18 mb-0">
+                                                                    font-size: 22px; text-align: center; color: #454c58; font-weight: 300; "
+                                                                    class="font-18 mb-0">
                                                                     Dokumente für Upload wählen oder einfach
                                                                     hierhin ziehen.
                                                                     <span style="color: red" *ngIf="
-                                      currentQuestionObject.question
-                                        .option[1] == 'Erforderlich'
-                                    ">Upload erfoderlich</span><span style="color: red" *ngIf="
-                                      currentQuestionObject.question
-                                        .option[1] == 'Nicht erforderlich'
-                                    ">Upload optional</span>
+                                                    currentQuestionObject.question.option[1] == 'Erforderlich'
+                                                    ">Upload erfoderlich</span><span style="color: red"
+                                                                        *ngIf="
+                                                    currentQuestionObject.question.option[1] == 'Nicht erforderlich'  ">Upload optional</span>
                                                                 </p>
                                                             </div>
                                                         </div>
-                                                        <div class="text-center">
+                                                        <!-- <div class="text-center">
                                                             <button class="upload-button">
                                                                 Or Select File To Upload
                                                             </button>
-                                                        </div>
+                                                        </div> -->
                                                     </div>
                                                 </div>
-                                                <div class="row mt-2 result{{ i }}" id="resultt{{ i }}">
-                                                    <ng-container *ngIf="
-                              currentQuestionObject.question.answerKey
-                                .documents &&
-                              currentQuestionObject.question.answerKey.documents
-                                .length > 0
-                            ">
-                                                        <div class="col-md-4" style="display: inline-block" *ngFor="
-                                let file of currentQuestionObject.question
-                                  .answerKey.documents
-                              ">
-                                                            <div class="row">
-                                                                <div class="col-md-12">
-                                                                    <div class="removepreview links" (click)="
-                                      remove_uploaded_document(
-                                        i,
-                                        file.document_unique_id
-                                      )
+                                                <div class="row ms-3 ">
+                                                    <div class="row mt-2 result{{ i }}" id="resultt{{ i }}">
+                                                        <ng-container *ngIf="
+                                            currentQuestionObject.question.answerKey.documents &&
+                                            currentQuestionObject.question.answerKey.documents.length > 0 ">
+                                                            <div class="col-md-4" style="display: inline-block" *ngFor="
+                                                    let file of currentQuestionObject.question.answerKey.documents ">
+                                                                <div class="row">
+                                                                    <div class="col-md-12">
+                                                                        <div class="removepreview links" (click)="
+                                      remove_uploaded_document( i,
+                                        file.document_unique_id )
                                     " style="
                                       margin-bottom: -25px;
                                       background: #184297;
@@ -1624,12 +1632,12 @@
                                       margin-right: 0 !important;
                                       cursor: pointer;
                                     ">
-                                                                        X
+                                                                            X
+                                                                        </div>
                                                                     </div>
-                                                                </div>
 
-                                                                <div class="col-md-2">
-                                                                    <img class="imageThumb" *ngIf="
+                                                                    <div class="col-md-2">
+                                                                        <img class="imageThumb" *ngIf="
                                       file.document_unique_id.indexOf('.pdf') ==
                                         -1 &&
                                       file.document_unique_id.indexOf('.mp4') ==
@@ -1639,7 +1647,7 @@
                                       height: 30px;
                                       margin-top: 20px;
                                     " src="{{ file.url }}" />
-                                                                    <img class="imageThumb" *ngIf="
+                                                                        <img class="imageThumb" *ngIf="
                                       file.document_unique_id.indexOf('.pdf') !=
                                       -1
                                     " style="
@@ -1647,7 +1655,7 @@
                                       height: 30px;
                                       margin-top: 20px;
                                     " src="../assets/PDF.svg" />
-                                                                    <img class="imageThumb" *ngIf="
+                                                                        <img class="imageThumb" *ngIf="
                                       file.document_unique_id.indexOf('.mp4') !=
                                       -1
                                     " style="
@@ -1655,24 +1663,24 @@
                                       height: 30px;
                                       margin-top: 20px;
                                     " src="../assets/video-button.png" />
-                                                                </div>
-                                                                <div class="col-md-9" style="font-size: 12px">
-                                                                    <div>
-                                                                        <b class="limitword">Dokumentenname: {{
-                                                                            file.file_name }}</b>
                                                                     </div>
-                                                                    <div>
-                                                                        <b>Dateigröße:
-                                                                            {{ file.tags.split(",")[0] }}</b>
+                                                                    <div class="col-md-9" style="font-size: 12px">
+                                                                        <div>
+                                                                            <b class="limitword">Dokumentenname: {{
+                                                                                file.file_name }}</b>
+                                                                        </div>
+                                                                        <div>
+                                                                            <b>Dateigröße:
+                                                                                {{ file.tags.split(",")[0] }}</b>
+                                                                        </div>
+                                                                        <div>
+                                                                            <b>Dateityp:
+                                                                                {{ file.tags.split(",")[1] }}</b>
+                                                                        </div>
                                                                     </div>
-                                                                    <div>
-                                                                        <b>Dateityp:
-                                                                            {{ file.tags.split(",")[1] }}</b>
-                                                                    </div>
-                                                                </div>
 
-                                                                <div class="col-md-12">
-                                                                    <div class="previewdoc links" (click)="
+                                                                    <div class="col-md-12">
+                                                                        <div class="previewdoc links" (click)="
                                       preview_uploaded_document(
                                         file.file_name,
                                         file.url,
@@ -1692,12 +1700,13 @@
                                       margin-right: 0 !important;
                                       cursor: pointer;
                                     ">
-                                                                        <i class="fa fa-eye" aria-hidden="true"></i>
+                                                                            <i class="fa fa-eye" aria-hidden="true"></i>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                    </ng-container>
+                                                        </ng-container>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -1735,7 +1744,8 @@
                         " [disabled]="
                           !check_nextbutton_validation(currentQuestionObject)
                         ">
-                                                Weiter&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i>
+                                                Weiter&nbsp;
+                                                <i class="fa fa-arrow-right" aria-hidden="true"></i>
                                             </button>
                                         </div>
                                     </div>
@@ -1748,7 +1758,8 @@
                                     </button>
                                     <button *ngIf="questionList.length > 0" matStepperNext type="button"
                                         class="btn btn-primary primary-btn gradient" [disabled]="submitValidation()">
-                                        Weiter&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i>
+                                        Weiter&nbsp;
+                                        <i class="fa fa-arrow-right" aria-hidden="true"></i>
                                     </button>
                                 </div>
                                 <!-- <div class="row mt-3">
@@ -2792,32 +2803,33 @@
     data-target="#exampleModalpreview">
     ddd
 </button>
-<div class="modal fade" id="exampleModalpreview" tabindex="-1" role="dialog" aria-labelledby="exampleModalpreviewTitle"
-    aria-hidden="true">
-    <div style="max-width: 1000px; max-height: 800px" class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <span id="showpreviewtitle" style="font-size: 15px"></span>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <embed id="showpreviewpdf" style="width: 100%; height: 600px; display: none" src="" />
-                <img id="showpreviewimg" style="width: 100%; height: 100%; display: none" src="" />
-
-                <div class="col-md-12" style="text-align: end; margin-top: 5px">
-                    <a href="" id="showpreviewdownload" target="_blank" style="color: #184297; margin-right: -20px"
-                        class="btn" download>
-                        <!-- <i class="fa fa-download" aria-hidden="true" style="font-size:20px;"></i>  -->
-                        <span class="side-icons"><i class="fa fa-download links2" style="
-                  background-color: #184297;
-                  position: relative;
-                  float: right;
-                  padding: 7px 7px 0px 7px;
-                  margin: 2px 0px 8px 2px;
-                " aria-hidden="true"></i></span>
-                    </a>
+<div id="exampleModalpreview_parent">
+    <div class="modal fade" id="exampleModalpreview" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalpreviewTitle" aria-hidden="true">
+        <div style="max-width: 1000px; max-height: 800px" class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span id="showpreviewtitle" style="font-size: 15px"></span>
+                    <button type="button" class="close"
+                        (click)="close_modal('exampleModalpreview','exampleModalpreview_parent')" data-dismiss="modal"
+                        aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!-- <embed id="showpreviewpdf" type="application/pdf" style="width: 100%; height: 600px; display: none"  src="" /> -->
+                    <img id="showpreviewimg" style="width: 100%; height: 100%; display: none" src="" />
+                    <div class="col-md-12" style="text-align: end; margin-top: 5px">
+                        <a href="" id="showpreviewdownload" target="_blank" style="margin-right: -20px"
+                            class="button-primary " download>
+                            <!-- <i class="fa fa-download" aria-hidden="true" style="font-size:20px;"></i>  -->
+                            <span class=""><i class="fa fa-download links2" style="
+                        position: relative;
+                        float: right;
+                        padding: 7px 7px 0px 7px;
+                        background: linear-gradient(#17459b, #02a9ed);" aria-hidden="true"></i></span>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>

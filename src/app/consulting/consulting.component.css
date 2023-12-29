@@ -33,12 +33,21 @@
 
 .gradient {
   background: linear-gradient(#17459b, #02a9ed);
+  box-shadow: 0 8px 6px -6px #888888;
   /* background: linear-gradient(90deg, #17459b 0%, #02a9ed 98.37%) !important; */
 }
 
 /* ::ng-deep .mat-form-field-appearance-outline.mat-form-field-disabled,
 ::ng-deep .mat-form-field-outline {
   opacity: 0;
+} */
+
+/* :host ::ng-deep .last-edited-step-1 .mat-horizontal-stepper-header .mat-stepper-horizontal-line:nth-child(2):before {
+  position: relative !important;
+  left: 99% !important;
+  top: -12px;
+  color: #049FE5 !important;
+  font-weight: bolder !important;
 } */
 
 :host ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline-thick {
@@ -85,18 +94,20 @@
 
 .list-box {
   background-color: rgba(60, 158, 214, 0.2);
-  border-radius: 6px;
+  border-radius: 0 0 6px 6px;
+  position: relative;
+  top: -6px;
 }
 
-::ng-deep .mat-step-header .mat-step-icon-selected {
+/* ::ng-deep .mat-step-header .mat-step-icon-selected {
   background: linear-gradient(#17459b, #02a9ed) !important;
-  /* background-color: #32cd32 !important; */
-}
+  background-color: #32cd32 !important;
+} */
 
-::ng-deep .mat-step-icon-state-edit.mat-step-icon {
+/* ::ng-deep .mat-step-icon-state-edit.mat-step-icon {
   background: linear-gradient(#17459b, #02a9ed) !important;
-  /* background-color: green !important; */
-}
+  background-color: green !important;
+}  */
 
 .gray-col {
   color: #ffffffb0 !important;
@@ -204,14 +215,14 @@
   bottom: 440px !important;
 } */
 
-:host ::ng-deep .mat-step-text-label {
+/* :host ::ng-deep .mat-step-text-label {
   padding: 5px;
   border: 0.2px solid #0c7bc7;
   border-radius: 10px;
   color: #0b7dc9;
   font-weight: 300;
   background: #3c9ed617;
-}
+} */
 
 .disabled-btn {
   border: 1px solid #0986d0 !important;
@@ -261,15 +272,15 @@
   background: linear-gradient(180deg, #f6f7f8 0%, #e6e6e6 100%);
 }
 
-:host::ng-deep .mat-horizontal-stepper-header-container {
+/* :host::ng-deep .mat-horizontal-stepper-header-container {
   position: relative;
   bottom: -300px;
-}
+} */
 
-:host::ng-deep .mat-horizontal-content-container {
+/* :host::ng-deep .mat-horizontal-content-container {
   position: relative;
   top: -120px;
-}
+} */
 
 :host::ng-deep .cdk-overlay-backdrop {
   /* opacity: 0.1; */
@@ -286,3 +297,35 @@
   background: linear-gradient(#17459b, #02a9ed);
    opacity: 0 !important;
 } */
+
+.underKundenHead {
+  font-family: Open Sans;
+  font-size: 9px;
+  font-weight: 400;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #0094d8;
+  background-color: #dcecf8;
+  padding-left: 2px;
+}
+
+
+.custom-heading {
+  font-family: Open Sans !important;
+  font-size: 20px !important;
+  font-weight: 700 !important;
+  line-height: 33px;
+  letter-spacing: 0em;
+  text-align: center;
+}
+
+.links1 {
+  padding: 35px;
+  width: 250px;
+  height: 200px;
+  background-color: white;
+  border: 1px solid #02a8ec;
+  cursor: pointer;
+  margin: 10px 10px 30px 10px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}

@@ -108,6 +108,8 @@ export class UploadDocumentComponent implements OnInit {
   slectedUserFirstname = "";
   slectedUserLastname = "";
 
+  pdfUrl = ''
+
   constructor(
     private _formBuilder: FormBuilder,
     private userService: UserService,
@@ -1199,22 +1201,37 @@ export class UploadDocumentComponent implements OnInit {
     const previewData = (source, modaltitle) => {
       console.log("previewData" + source);
 
-      $('#openpreviewmodel').trigger('click');
-      this.open_modal('exampleModalpreview')
+      // $('#openpreviewmodel').trigger('click');
+      // this.open_modal('exampleModalpreview')
       //$('#showpreviewpdf').attr('src',this.previewidandsrc[j]);
 
       $('#showpreviewtitle').html("<b>Dokumentenname: </b>" + modaltitle);
-
       $('#showpreviewdownload').attr('href', source);
 
       if (source.indexOf('data:application/pdf;') != -1) {
-        $('#showpreviewimg').attr('src', '');
-        $('#showpreviewimg').css('display', 'none');
+        const base64 = source.replace(/^data:.+;base64,/, "");
 
-        $('#showpreviewpdf').attr('src', '');
-        $('#showpreviewpdf').css('display', 'block');
-        $('#showpreviewpdf').attr('src', source);
+        const blob = base64ToBlob(base64, 'application/pdf');
+        const url = URL.createObjectURL(blob);
+        const pdfWindow = window.open("");
+        pdfWindow.document.write("<iframe width='100%' height='100%' src='" + url + "'></iframe>");
+
+        function base64ToBlob(base64, type = "application/octet-stream") {
+          console.log(base64);
+          const binStr = atob(base64 as string);
+          const len = binStr.length;
+          const arr = new Uint8Array(len);
+          for (let i = 0; i < len; i++) {
+            arr[i] = binStr.charCodeAt(i);
+          }
+          return new Blob([arr], { type: type });
+        }
+
       } else {
+
+        $('#openpreviewmodel').trigger('click');
+        this.open_modal('exampleModalpreview')
+
         $('#showpreviewpdf').attr('src', '');
         $('#showpreviewpdf').css('display', 'none');
 

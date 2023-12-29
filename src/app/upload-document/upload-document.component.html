@@ -215,19 +215,20 @@
                                     </div>
                                 </div>
                                 <ng-template #firma>
-                                <div class="col-md-4">
-                                    <mat-card (click)="GoNext2('bestandsübertragung')" class="links1"
-                                        style="text-align: start;">
-                                        <mat-card-title
-                                            class="  d-flex flex-column align-items-center justify-content-center">
-                                            <img mat-card-image class="flex-item custom-margin" style="width: 40%;"
-                                                src="../assets/icons/document-second-first.svg" />
-                                            <span style="text-align: center;" class="custom-heading flex-item">BESTANDS
-                                                UBERTRAGUNG</span>
-                                        </mat-card-title>
-                                    </mat-card>
-                                </div>
-                            </ng-template>
+                                    <div class="col-md-4">
+                                        <mat-card (click)="GoNext2('bestandsübertragung')" class="links1"
+                                            style="text-align: start;">
+                                            <mat-card-title
+                                                class="  d-flex flex-column align-items-center justify-content-center">
+                                                <img mat-card-image class="flex-item custom-margin" style="width: 40%;"
+                                                    src="../assets/icons/document-second-first.svg" />
+                                                <span style="text-align: center;"
+                                                    class="custom-heading flex-item">BESTANDS
+                                                    UBERTRAGUNG</span>
+                                            </mat-card-title>
+                                        </mat-card>
+                                    </div>
+                                </ng-template>
                                 <!-- routerLink="/upload-document/{{ user_id }}/fremdvertrag" -->
                                 <div class="col-md-4">
                                     <mat-card (click)="GoNext2('fremdvertrag')" class="links1"
@@ -568,11 +569,13 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div *ngIf="finalShowButton" class="container  d-flex flex-wrap justify-content-center align-items-center   ">
-                                        <div class="row col-md-12 px-4  d-flex flex-wrap justify-content-center align-items-center ">
+                                    <div *ngIf="finalShowButton"
+                                        class="container  d-flex flex-wrap justify-content-center align-items-center   ">
+                                        <div
+                                            class="row col-md-12 px-4  d-flex flex-wrap justify-content-center align-items-center ">
                                             <div class=" col-md-12  p-0" style="margin-right:-15px">
-                                                <div class="col-md-12 p-0 d-flex flex-raw " style=" display: inline-block"
-                                                    id="result"></div>
+                                                <div class="col-md-12 p-0 d-flex flex-raw "
+                                                    style=" display: inline-block" id="result"></div>
                                             </div>
                                         </div>
 
@@ -649,7 +652,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <embed id="showpreviewpdf" style="width:100%;height:600px;display:none;" src="">
+                        <!-- <embed id="showpreviewpdf" style="width:100%;height:600px;display:none;" src=""> -->
                         <img id="showpreviewimg" style="width:100%;height:100%;display:none;" src="">
 
                         <div class="col-md-12 p-0" style="text-align: right;margin-top: 11px; margin-bottom: -4px;">
