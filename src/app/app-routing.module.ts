@@ -122,6 +122,12 @@ const routes: Routes = [
   //       (m) => m.AddProductModule
   //     ),
   // },
+  {
+    path: 'produktwelt',
+    loadChildren: () =>
+      import('./add-product/add-product.module')
+        .then((m) => m.AddProductModule)
+  },
   // {
   //   path: 'forgot-password',
   //   loadChildren: () =>
