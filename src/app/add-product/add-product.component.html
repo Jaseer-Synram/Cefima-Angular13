@@ -64,31 +64,7 @@
                                 </div>
                                 <div class=" mt-3" *ngIf="partners1.length>0">
 
-                                    <!-- <ng-container > -->
 
-                                    <!-- <div class="col-md-4 text-center" *ngIf="partners1.length <=3 ">
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                    <img class="d-flex align-items-center product-partner-images"
-                                                        src="{{item.logo}}" alt="Produktpartner">
-                                                </div>
-                                                <div class="col-md-12">
-                                                    <p style="color:white;font-size: 14px;">{{item.name}}</p>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-3 text-center" *ngIf="i < 3 && partners1.length > 3 ">
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                    <img class="d-flex align-items-center product-partner-images"
-                                                        src="{{item.logo}}" alt="Produktpartner">
-                                                </div>
-                                                <div class="col-md-12">
-                                                    <p style="color:white;font-size: 14px;">{{item.name}}</p>
-                                                </div>
-                                            </div>
-                                        </div> -->
                                     <carousel>
                                         <slide class=" col-md-12 text-center "
                                             *ngFor="let item of partners1; let i = index">
@@ -96,22 +72,14 @@
                                                 <img class="d-flex align-items-center product-partner-images  "
                                                     src="{{item.logo}}" alt="first slide" style="display: block;">
                                                 <div class="  ms-1  d-none d-md-block ">
-                                                    <span [ngStyle]="{'color': 'white', 'font-size': item.length < 10 ? '35px' : '25px'}"> {{item.length}} {{ item.name }}</span>
+                                                    <span
+                                                        [ngStyle]="{'color': 'white', 'font-size': item.length < 10 ? '35px' : '25px'}">
+                                                        {{item.length}} {{ item.name }}</span>
                                                 </div>
                                             </div>
 
                                         </slide>
                                     </carousel>
-                                    <!-- </ng-container> -->
-
-                                    <!-- <div class="col-md-3 p-0" *ngIf="partners1.length > 3">
-                                        <button role="button" data-slide="next" (click)="partner_type(1)"
-                                            style="margin: 0px 7px 10px" type="button" class="view-more"
-                                            data-toggle="modal" data-target="#extra_partners">
-                                            <span>Mehr Anzeigen <i aria-hidden="true"
-                                                    class="fa fa-angle-right"></i></span>
-                                        </button>
-                                    </div> -->
 
                                 </div>
                                 <div class=" mt-3" *ngIf="partners1.length<=0">
@@ -124,13 +92,13 @@
 
 
 
-                        <!-- <div class=" mt-3" style="border: 1px solid skyblue;border-radius: 10px;"> -->
                         <div class=" mt-3">
                             <div class="col-md-12 p-0">
-                                <span class="heads" style="color: #ffffff;"><!--<i class="fa fa-hand-holding-usd"></i>-->
+                                <span class="heads"
+                                    style="color: #ffffff;"><!--<i class="fa fa-hand-holding-usd"></i>-->
                                     Geldanlagen</span>
                             </div>
-                            <div class="col-md-12 pl-0 pr-0 partners-list" >
+                            <div class="col-md-12 pl-0 pr-0 partners-list">
                                 <div class="buttons-grp d-flex flex-wrap justify-content-around  ">
                                     <div class="col-md-6 " style="padding: 3px;">
                                         <span class="sparte_span2" id="Investment"
@@ -144,32 +112,6 @@
                                     </div>
                                 </div>
                                 <div class=" mt-3" *ngIf="partners2.length>0">
-                                    <!-- <ng-container *ngFor="let item of partners2; let i = index">
-                                        <div class="col-md-4 text-center" *ngIf="partners2.length <=3 ">
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                    <img class="d-flex align-items-center product-partner-images"
-                                                        src="{{item.logo}}" alt="Produktpartner">
-                                                </div>
-                                                <div class="col-md-12">
-                                                    <p style="color:white;font-size: 14px;">{{item.name}}</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        
-
-                                        <div class="col-md-3 text-center" *ngIf="i < 3 && partners2.length > 3 ">
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                    <img class="d-flex align-items-center product-partner-images"
-                                                        src="{{item.logo}}" alt="Produktpartner">
-                                                </div>
-                                                <div class="col-md-12">
-                                                    <p style="color:white;font-size: 14px;">{{item.name}}</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </ng-container> -->
 
                                     <carousel>
                                         <slide class=" col-md-12 text-center "
@@ -178,22 +120,13 @@
                                                 <img class="d-flex align-items-center product-partner-images  "
                                                     src="{{item.logo}}" alt="first slide" style="display: block;">
                                                 <div class="  ms-1  d-none d-md-block ">
-                                                    
+
                                                     <span style="color:white;font-size: 35px;">{{ item.name }}</span>
                                                 </div>
                                             </div>
                                         </slide>
                                     </carousel>
-                                    
 
-                                    <!-- <div class="col-md-3 p-0" *ngIf="partners2.length > 3">
-                                        <button role="button" data-slide="next" (click)="partner_type(2)"
-                                            style="margin: 0px 7px 10px" type="button" class="view-more"
-                                            data-toggle="modal" data-target="#extra_partners">
-                                            <span>Mehr Anzeigen <i aria-hidden="true"
-                                                    class="fa fa-angle-right"></i></span>
-                                        </button>
-                                    </div> -->
 
                                 </div>
 
@@ -208,10 +141,10 @@
                         </div>
 
 
-                        <!-- <div class="row mt-3" style="border: 1px solid skyblue;border-radius: 10px;"> -->
                         <div class=" mt-3">
                             <div class="col-md-12 p-0">
-                                <span class="heads" style="color: #ffffff"><!--<i class="fa fa-university"></i>--> Banken
+                                <span class="heads" style="color: #ffffff"><!--<i class="fa fa-university"></i>-->
+                                    Banken
                                 </span>
                             </div>
                             <div class="col-md-12 pl-0 pr-0 partners-list ">
@@ -238,40 +171,6 @@
                                     </div>
                                 </div>
                                 <div class=" mt-3" *ngIf="partners3.length>0">
-                                    <!-- <ng-container *ngFor="let item of partners3; let i = index">
-                                        <div class="col-md-4 text-center" *ngIf="partners3.length <=3 ">
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                    <img class="d-flex align-items-center product-partner-images"
-                                                        src="{{item.logo}}" alt="Produktpartner">
-                                                </div>
-                                                <div class="col-md-12">
-                                                    <p style="color:white;font-size: 14px;">{{item.name}}</p>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-3 text-center" *ngIf="i < 3 && partners3.length > 3 ">
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                    <img class="d-flex align-items-center product-partner-images"
-                                                        src="{{item.logo}}" alt="Produktpartner">
-                                                </div>
-                                                <div class="col-md-12">
-                                                    <p style="color:white;font-size: 14px;">{{item.name}}</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </ng-container> -->
-
-                                    <!-- <div class="col-md-3 p-0" *ngIf="partners3.length > 3">
-                                        <button role="button" data-slide="next" (click)="partner_type(3)"
-                                            style="margin: 0px 7px 10px" type="button" class="view-more"
-                                            data-toggle="modal" data-target="#extra_partners">
-                                            <span>Mehr Anzeigen <i aria-hidden="true"
-                                                    class="fa fa-angle-right"></i></span>
-                                        </button>
-                                    </div> -->
 
                                     <carousel>
                                         <slide class=" col-md-12 text-center "
@@ -301,9 +200,8 @@
                         </div>
                     </div>
                 </div>
-                <div class=" glass col-md-5">
 
-
+                <div class=" glass-second col-md-5">
                     <mat-horizontal-stepper linear #addProduct
                         style=" background-color: transparent !important;width: 100% !important; overflow: auto !important"
                         class="stepnewclass ">
@@ -339,7 +237,7 @@
                                               </mat-radio-group> -->
 
                                                             <div class="row">
-                                                                <div class="col-md-2">
+                                                                <div class="col-md-1 mr-2">
                                                                     <mat-checkbox class="checkboxStyle checkboxStyle2"
                                                                         color='primary'
                                                                         (change)="radioValueCheck($event)"
@@ -354,7 +252,7 @@
                                                             </div>
 
                                                             <div class="row mt-3">
-                                                                <div class="col-md-2">
+                                                                <div class="col-md-1 mr-2">
                                                                     <mat-checkbox class="checkboxStyle checkboxStyle2"
                                                                         color='primary'
                                                                         (change)="radioValueCheck($event)"
@@ -409,10 +307,11 @@
                                             </div>
                                             <!-- <div class="col-md-3" style="display: inline-block"></div> -->
                                             <div class="col-md-6 p-0" style="display: inline-block">
-                                                <mat-form-field appearance="outline" style="width: 100%">
+                                                <mat-form-field class=" mat-form-field-remove-margin"
+                                                    appearance="outline" style="width: 100%">
                                                     <mat-label style="color: #fff">Art</mat-label>
-                                                    <mat-select matNativeControl formControlName="art"
-                                                        (selectionChange)="patchsparte()">
+                                                    <mat-select placeholder="Art" class="" matNativeControl
+                                                        formControlName="art" (selectionChange)="patchsparte()">
                                                         <mat-option
                                                             value="Versicherungsgesellschaft">Versicherungsgesellschaft</mat-option>
                                                         <mat-option value="Geldanlagen">Geldanlagen</mat-option>
@@ -440,31 +339,35 @@
 
                                             <div class="row">
                                                 <div class="col-md-12" style="padding-left:12px;">
-                                                    <h6 style="color:white;">Bitte wählen Sie die zutreffenden Sparten
-                                                        aus:</h6>
+                                                    <span class="col-md-12 p-0 " style="color:white;">Bitte wählen Sie
+                                                        die zutreffenden Sparten
+                                                        aus:</span>
 
                                                     <ng-container *ngFor="let sparte of spartes;let i = index">
+                                                        <!-- <i  click function was in button (click)="choose_sparte(sparte.replaceAll(' ','_'))"
+                                                            class="fa fa-square sparte-square {{sparte.replaceAll(' ','_')}}-square"></i><i
+                                                            class="fa fa-check-square sparte-square-check {{sparte.replaceAll(' ','_')}}-square-check"
+                                                            style="display:none;"></i> -->
                                                         <button *ngIf="i==0"
-                                                            class="btn btn-info {{sparte.replaceAll(' ','_')}}1 sparte-btnclass1 mr-2 mt-2"
-                                                            (click)="choose_sparte(sparte.replaceAll(' ','_'))"
-                                                            style="box-shadow: 1px 1px 1px 0px black;"><i
-                                                                class="fa fa-square sparte-square {{sparte.replaceAll(' ','_')}}-square"></i><i
-                                                                class="fa fa-check-square sparte-square-check {{sparte.replaceAll(' ','_')}}-square-check"
-                                                                style="display:none;"></i> {{sparte}}</button>
+                                                            class="btn btn-step2 {{sparte.replaceAll(' ','_')}}1 sparte-btnclass1 mr-2 mt-2"
+                                                            style="box-shadow: 1px 1px 1px 0px black;">
+                                                            {{sparte}}
+                                                        </button>
+                                                        <!-- <i click function was in button (click)="choose_sparte(sparte.replaceAll(' ','_'))"
+                                                            class="fa fa-square sparte-square {{sparte.replaceAll(' ','_')}}-square"></i><i
+                                                            class="fa fa-check-square sparte-square-check {{sparte.replaceAll(' ','_')}}-square-check"
+                                                            style="display:none;"></i> -->
                                                         <button *ngIf="i!=0 && sparte != 'Renten/Leben'"
-                                                            class="btn btn-info {{sparte.replaceAll(' ','_')}}1 sparte-btnclass1 mr-2 mt-2"
-                                                            (click)="choose_sparte(sparte.replaceAll(' ','_'))"
-                                                            style="box-shadow: 1px 1px 1px 0px black;"><i
-                                                                class="fa fa-square sparte-square {{sparte.replaceAll(' ','_')}}-square"></i><i
-                                                                class="fa fa-check-square sparte-square-check {{sparte.replaceAll(' ','_')}}-square-check"
-                                                                style="display:none;"></i> {{sparte}}</button>
-                                                        <button *ngIf="sparte == 'Renten/Leben'"
-                                                            class="btn btn-info renten1 sparte-btnclass1 mr-2 mt-2"
-                                                            (click)="choose_sparte('renten')"
-                                                            style="box-shadow: 1px 1px 1px 0px black;"><i
+                                                            class="btn btn-step2 {{sparte.replaceAll(' ','_')}}1 sparte-btnclass1 mr-2 mt-2"
+                                                            style="box-shadow: 1px 1px 1px 0px black;">{{sparte}}</button>
+                                                        <!-- <i (click)="choose_sparte('renten')"
                                                                 class="fa fa-square sparte-square renten-square"></i><i
                                                                 class="fa fa-check-square sparte-square-check renten-square-check"
-                                                                style="display:none;"></i> {{sparte}}</button>
+                                                                style="display:none;"></i> -->
+                                                        <button *ngIf="sparte == 'Renten/Leben'"
+                                                            class="btn btn-step2 renten1 sparte-btnclass1 mr-2 mt-2"
+                                                            style="box-shadow: 1px 1px 1px 0px black;">
+                                                            {{sparte}}</button>
                                                     </ng-container>
 
                                                 </div>
@@ -474,15 +377,17 @@
                                         </div>
                                     </div>
 
-                                    <div class="row">
+                                    <div class="row" style="margin-top: 22vh;">
                                         <div class="text-right">
                                             <div fxLayoutAlign="end end">
-                                                <button type="button" class="button-primary transitionanimation" mat-raised-button
-                                                    matStepperPrevious style="margin-right: 10px">Zurück</button>
-                                                <button id="btn" type="button" class="button-primary transitionanimation"
-                                                    [disabled]="!artsparte.form.valid || !(addedsparte.length > 0)"
-                                                    mat-raised-button matStepperNext>Weiter <i
-                                                        class="fas fa-arrow-right"></i></button>
+                                                <button type="button" class="button-primary transitionanimation"
+                                                    mat-raised-button matStepperPrevious style="margin-right: 10px"> <i
+                                                        class="fas fa-arrow-left"></i>Zurück</button>
+                                                <!-- || !(addedsparte.length > 0) -->
+                                                <button id="btn" type="button"
+                                                    class="button-primary transitionanimation"
+                                                    [disabled]="!artsparte.form.valid" mat-raised-button
+                                                    matStepperNext>Weiter <i class="fas fa-arrow-right"></i></button>
                                             </div>
                                         </div>
                                     </div>
@@ -565,14 +470,12 @@
                         <mat-step>
                             <div>
                                 <ng-template matStepLabel>Partnerinformationen</ng-template>
-                                <form [formGroup]="personalInfoFormGroup" #fsp="ngForm" class="Official-residence-form">
+                                <form [formGroup]="personalInfoFormGroup" #fsp="ngForm" id="forSwal" class="Official-residence-form">
 
-                                    <div class="row" style="width: 100%; margin: 0px">
-                                        <div class="col-md-12"><br /></div>
+                                    <div class="" style="width: 100%; margin-top: 5vh">
                                         <div class="col-md-12 p-0">
-                                            <div class="row">
+                                            <div class="">
                                                 <div class="col-md-12 p-0">
-
                                                     <div class="col-md-6" style="display: inline-block">
                                                         <mat-form-field appearance="outline" style="width: 100%">
                                                             <mat-label style="color: #fff">Unternehmensname</mat-label>
@@ -643,11 +546,12 @@
 
                                                         <div class="col-md-6" style="display: inline-block">
                                                             <mat-form-field appearance="outline" style="width: 100%">
-                                                                <mat-label style="color: #fff">Telefon</mat-label>
-                                                                <input matInput id="brokeradvisor_telefonn" ngModel
-                                                                    [maxlength]="20" name="partnerOfNumber"
-                                                                    formControlName="partnerOfNumber" class="test"
-                                                                    placeholder="Telefon" type="tel" value="+49"
+                                                                <mat-label
+                                                                    style="margin-left: 40px">Telefon</mat-label>
+                                                                <input type="tel" matInput placeholder="Telefon" 
+                                                                    formControlName="partnerOfNumber" [maxlength]="20"
+                                                                    name="partnerOfNumber" class="test" value="+49"
+                                                                    id="brokeradvisor_telefonn"
                                                                     oninput="this.value=this.value.replace(/[^0-9/+]/g,'')" />
                                                             </mat-form-field>
                                                         </div>
@@ -658,7 +562,7 @@
                                                 </div>
 
                                                 <div class="col-md-12 p-0">
-                                                    <div class="col-md-6" style="display: inline-block"></div>
+                                                    <div class="col-md-5" style="display: inline-block"></div>
                                                     <div class="col-md-6 text-right" style="display: inline-block">
                                                         <!-- <div id="recaptcha1"> -->
                                                         <re-captcha class="g-recaptchanew1"
@@ -701,7 +605,7 @@
 
                 </div>
             </div>
-            <div class=" bg-img " >
+            <div class=" bg-img ">
                 <img width="100%" style="opacity: 0.5;" src="../../assets/produktwelt/img-bg-on-two.png" alt="">
             </div>
         </div>

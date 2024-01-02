@@ -1,38 +1,4 @@
-/* .img-bottom {
-    width: 100%;
-    position: relative;
-    left: -46vb;
-    height: 73.9vh;
-    z-index: -1;
-    top: -1.6vh;
-} */
-
-/* @media only screen and (max-width: 767px) {
-    .img-bottom {
-        left: -6vb;
-    }
-}
-
-@media only screen and (min-width: 768px) {
-    .img-bottom {
-        left: -26vb;
-    }
-}
-
-@media only screen and (min-width: 1200px) {
-    .img-bottom {
-        left: -61.6vb;
-    }
-}
-
-@media only screen and (min-width: 1600px) {
-    .img-bottom {
-        left: -38vb;
-    }
-} */
-
 .head-rectangle {
-    /* background: linear-gradient(to right, rgb(26 72 105), rgb(67 101 124), rgb(83 122 150), rgb(27 50 67 / 50%), rgba(26, 72, 105, 0.0)); */
     height: 72.3vh;
     background-image: url('../../assets/produktwelt/Banner.png');
     background-size: cover;
@@ -63,6 +29,52 @@
     border: 1px solid;
     background-color: rgba(36, 36, 36, 0.4);
     backdrop-filter: blur(10px);
+    z-index: 1;
+}
+
+.glass-second {
+    border-radius: 10px;
+    border: 1px solid;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.54) 17%, rgba(36, 36, 36, 0.4) 17%);
+    z-index: 1;
+}
+
+.btn-step2 {
+    background: #2090D4;
+    color: #fff !important;
+    border-radius: 5px;
+    transition: 0.3s;
+    box-shadow: none !important;
+}
+
+
+.btn-step2:hover {
+    background: #2090D4;
+    color: #fff !important;
+    border-radius: 5px;
+    transition: 0.3s;
+    border: 1px solid #41C8FF;
+    box-shadow: none !important;
+}
+
+#forSwal .swal-height {
+    position: absolute !important;
+    height: 720px !important;
+    width: 780px !important;
+    margin-left: 1100px !important;
+    margin-top: 280px !important;
+}
+
+
+#custom-target-for-swal {
+    position: relative;
+    width: 300px;
+    height: 200px;
+    border-style: solid;
+}
+
+.position-absolute {
+    position: absolute !important;
 }
 
 .innerglass {
@@ -88,7 +100,7 @@
     padding-bottom: 2vh;
 }
 
-.heads{
+.heads {
     font-size: 20px;
     font-weight: 400;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -123,28 +135,43 @@
     white-space: normal;
     display: flex;
     align-items: center;
-    background-color: #495e6d;
-    margin-top: 5px;
+    background: #495e6d !important;
+    color: white;
+    margin-top: 2vh;
     border-radius: 50px;
     height: 7vh !important;
 }
 
 :host ::ng-deep .mat-stepper-horizontal-line {
     color: transparent;
-    background-color: transparent;
+    background-color: rgb(59, 59, 59);
     border: 0px !important;
     border-top-style: none
 }
 
 :host ::ng-deep .mat-stepper-horizontal-line::before {
-    content: "\f105" !important;
-    font: normal normal normal 36px/1 FontAwesome !important;
+    content: "\e5e1" !important;
+    font-weight: 400 !important;
+    font-family: Material Symbols Outlined !important;
+    font-style: normal;
+    font-size: 24px !important;
     position: relative !important;
-    color: white !important;
+    bottom: 1.5vh;
+    color: #291F18 !important;
+}
+
+
+:host ::ng-deep .mat-step-header .mat-step-icon {
+    background: transparent !important;
+    color: white;
+    border: 1px solid;
+    border-color: white;
 }
 
 :host ::ng-deep .mat-step-icon .mat-step-icon-state-number .mat-step-icon-selected {
     background: rgb(255, 255, 255) !important;
+    color: #17459b;
+    border-color: linear-gradient(#17459b, #02a9ed);
     background-image: none !important;
 }
 
@@ -157,13 +184,18 @@
 
 
 .mat-horizontal-stepper-header .mat-step-icon-selected {
-    background-color: white;
-    border: none !important;
-    color: black;
+    background: white;
+    border: 1px solid #000a9d !important;
+    color: rgb(0, 19, 93);
 }
 
-:host ::ng-deep .mat-step-label .mat-step-label-active .mat-step-label-selected {
-    color: rgba(15, 191, 126, 0) !important;
+
+:host ::ng-deep .mat-step-header .mat-step-label {
+    color: #b7b7b7 !important;
+}
+
+:host ::ng-deep .mat-step-header .mat-step-label-active {
+    color: white !important;
 }
 
 /* from old  */
@@ -236,9 +268,8 @@
 }
 
 
-.mat-step-header .mat-step-label {
-    color: #ae2424
-}
+
+
 
 :host ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
     color: #fff !important;
@@ -5566,11 +5597,13 @@ sidea2 li a:hover {
 
 
 :host ::ng-deep .mat-step-icon-state-edit.mat-step-icon {
-    background: rgb(255, 255, 255);
+    background: linear-gradient(#17459b, #02a9ed) !important;
+    color: white !important;
+    border: none !important;
 }
 
 :host ::ng-deep .mat-horizontal-stepper-header .mat-step-icon-selected {
-    background : rgb(255, 255, 255) !important;
+    background: rgb(255, 255, 255) !important;
     color: #000 !important;
 }
 

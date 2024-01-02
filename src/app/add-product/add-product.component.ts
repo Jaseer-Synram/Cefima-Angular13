@@ -879,10 +879,14 @@ export class AddProductComponent implements OnInit {
 
       Swal.fire({
         icon: "success",
+        target:'#forSwal',
         title: "Produktpartner erfolgreich hinzugefügt",
         html: "Ihre Vorgangsnmummer ist: " + response['case_no'],
         allowOutsideClick: false,
         confirmButtonText: "Ok",
+        customClass: {          
+          container: 'position-absolute'
+        },
       }).then(result => {
         if (result.value) {
           this.router.navigate(['/']);
@@ -1026,7 +1030,7 @@ export class AddProductComponent implements OnInit {
       postCode: ["", Validators.required],
       city: ["", Validators.required],
       countryOfResidence: ["", Validators.required],
-      partnerOfNumber: ["", Validators.required],
+      partnerOfNumber: ["+49", Validators.required],
 
       partnerOfEmail: [
         "",
@@ -1043,7 +1047,7 @@ export class AddProductComponent implements OnInit {
     });
 
     this.phoneGroup = this._formBuilder.group({
-      partnerOfNumber: ["", Validators.required],
+      partnerOfNumber: ["+49", Validators.required],
       otp: ["", Validators.required],
     });
 
@@ -1139,7 +1143,8 @@ export class AddProductComponent implements OnInit {
     //   },
     // });
 
-    intlTelInput(document.querySelector("#brokeradvisor_telefonn"), {
+    intlTelInput(
+      document.querySelector("#brokeradvisor_telefonn"), {
       initialCountry: "de",
       geoIpLookup: function (callback) {
         $.get("http://ipinfo.io", function () { }, "jsonp").always(function (
