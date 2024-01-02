@@ -5570,7 +5570,7 @@ sidea2 li a:hover {
 }
 
 :host ::ng-deep .mat-horizontal-stepper-header .mat-step-icon-selected {
-    background-color: rgb(255, 255, 255) !important;
+    background : rgb(255, 255, 255) !important;
     color: #000 !important;
 }
 
