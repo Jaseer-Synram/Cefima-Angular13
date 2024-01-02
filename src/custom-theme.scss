@@ -444,7 +444,7 @@ $Frontend-theme: mat-light-theme($Frontend-primary, $Frontend-accent, $Frontend-
   .mat-horizontal-stepper-header {
     &+.mat-stepper-horizontal-line:nth-child(#{$index}) {
       height: 2px;
-      background-image: linear-gradient(to right, #154FA3, #049FE5);
+      background: linear-gradient(to right, #154FA3, #049FE5);
       content: "\f105" !important;
       font: normal bolder normal 22px/1 FontAwesome !important;
 
@@ -455,6 +455,7 @@ $Frontend-theme: mat-light-theme($Frontend-primary, $Frontend-accent, $Frontend-
         color: #049FE5 !important;
         font-weight: bolder !important;
       }
+
       border: none !important;
     }
   }
@@ -517,35 +518,48 @@ $Frontend-theme: mat-light-theme($Frontend-primary, $Frontend-accent, $Frontend-
   display: none;
 }
 
-.mat-step-header.cdk-keyboard-focused,
+#customerregisteration .mat-step-header.cdk-keyboard-focused,
 .mat-step-header.cdk-program-focused,
 .mat-step-header:hover {
   background-color: #fff;
 }
 
-.mat-stepper-label-position-bottom .mat-horizontal-stepper-header {
+#customerregisteration .mat-stepper-label-position-bottom .mat-horizontal-stepper-header {
   padding: 8px 0 8px 0 !important;
   width: 35px !important;
 }
 
-.mat-stepper-label-position-bottom .mat-stepper-horizontal-line {
+#customerregisteration .mat-stepper-label-position-bottom .mat-stepper-horizontal-line {
   top: 20px !important;
 }
 
 
-.mat-horizontal-stepper-header .mat-step-icon-selected {
-  background-image: linear-gradient(to right, #154FA3, #049FE5);
+#customerregisteration .mat-horizontal-stepper-header .mat-step-icon-selected {
+  background: linear-gradient(to right, #154FA3, #049FE5) !important;
   border: none !important;
 }
 
-.mat-horizontal-stepper-header :not(.mat-step-icon-selected).mat-step-icon {
-  background-color: transparent;
+
+#customerregisteration .mat-horizontal-stepper-header :not(.mat-step-icon-selected).mat-step-icon {
+  background: transparent;
   color: #a2a2a2;
   border: 1px solid #a2a2a2;
 }
 
 
-.mat-step-header .mat-step-label:not(.mat-step-label-active) {
+#customerregisteration .mat-step-header .mat-step-label:not(.mat-step-label-active) {
   display: none;
 }
 
+
+#QAStepper .mat-step-header .mat-step-icon-selected, .mat-step-header .mat-step-icon-state-done, .mat-step-header .mat-step-icon-state-edit {
+  background: #d1ecfe !important;
+  border: 1px solid  !important;
+  border-color: #b0daf9  !important;
+  color: #049FE5  !important;
+}
+
+#QAStepper .mat-step-header .mat-step-icon-selected, .mat-step-header .mat-step-icon-state-done, .mat-horizontal-stepper-header .mat-step-icon-selected{
+  background: linear-gradient(to right, #154FA3, #049FE5) !important;
+  border: none !important;
+}

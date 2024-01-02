@@ -251,7 +251,7 @@
                                         style="width:250px;height:250px;border-radius:6px;border:1px solid #02a8ec;"
                                         [ngClass]="{'gradient':hoverOnKunden}">
                                         <img *ngIf="!hoverOnKunden" src="assets/kundendaten.svg">
-                                        <img *ngIf="hoverOnKunden" src="assets/kundendaten-active.png">
+                                        <img *ngIf="hoverOnKunden" src="assets/kundendaten-active.svg">
                                         <p class="m-0 mt-3 w-50 text-center"
                                             [ngStyle]="{'color':hoverOnKunden? 'white' : '#02a8ec' }">
                                             KUNDENDATEN
@@ -266,7 +266,7 @@
                                         style="width:250px;height:250px;border-radius:6px;border:1px solid #02a8ec;"
                                         [ngClass]="{'gradient':hoverOnproduktberatung }">
                                         <img *ngIf="!hoverOnproduktberatung" src="assets/produktberatung.svg">
-                                        <img *ngIf="hoverOnproduktberatung" src="assets/produktberatung-active.png">
+                                        <img *ngIf="hoverOnproduktberatung" src="assets/produktberatung-active.svg">
                                         <p class="m-0 mt-3 w-50 text-center"
                                             [ngStyle]="{'color':hoverOnproduktberatung ? 'white' : '#02a8ec' }">
                                             PRODUKTBERATUNG
@@ -522,8 +522,11 @@
                         <ng-template matStepperIcon="edit">
                             <mat-icon>check</mat-icon>
                         </ng-template>
-                        <mat-step label="Persönliche Daten" style="height: 100%">
+                        <mat-step style="height: 100%">
                             <div class="container-fluid d-flex flex-column justify-content-between">
+                                <ng-template matStepLabel>
+                                    <span>Persönliche Daten</span>
+                                </ng-template>
                                 <div class="row">
                                     <div class="col-md-4">
                                         <div *ngIf="kundetype != 'Firma'"
@@ -764,8 +767,11 @@
                                 </div>
                             </div>
                         </mat-step>
-                        <mat-step label="Frage" style="height: 100%">
+                        <mat-step style="height: 100%">
                             <div class="container-fluid d-flex flex-column justify-content-between">
+                                <ng-template matStepLabel>
+                                    <span>Frage</span>
+                                </ng-template>
                                 <div class="row">
                                     <div class="col-md-4">
                                         <div class="p-2 h-100 d-flex flex-column justify-content-start" style="
@@ -937,7 +943,7 @@
                                         .option_fields[j].option3 ==
                                       'Kurze Antwort'
                                     " class="col-md-12 p-0" style="display: inline-block">
-                                                                        <p class="text-center"
+                                                                        <p class="text-start"
                                                                             style="font-weight: 500; color: #454c58">
                                                                             <span>Antwort Eingeben</span>&nbsp;<span
                                                                                 *ngIf="
@@ -975,7 +981,7 @@
                                         .option_fields[j].option3 ==
                                       'Lange Antwort'
                                     " class="col-md-12 p-0" style="display: inline-block">
-                                                                        <p class="text-center"
+                                                                        <p class="text-start"
                                                                             style="font-weight: 500; color: #454c58">
                                                                             <span>Antwort Eingeben</span>&nbsp;<span
                                                                                 *ngIf="
@@ -1363,7 +1369,7 @@
                             currentQuestionObject.question.option3 ==
                             'Kurze Antwort'
                           " class="col-md-12 p-0" style="display: inline-block">
-                                                    <p class="text-center" style="font-weight: 500; color: #454c58">
+                                                    <p class="text-start" style="font-weight: 500; color: #454c58">
                                                         <span>Antwort Eingeben</span>&nbsp;<span *ngIf="
                                 currentQuestionObject.question.option[0] ==
                                 'Erforderlich'
@@ -1393,7 +1399,7 @@
                             currentQuestionObject.question.option3 ==
                             'Lange Antwort'
                           " class="col-md-12 p-0" style="display: inline-block">
-                                                    <p class="text-center" style="font-weight: 500; color: #454c58">
+                                                    <p class="text-start" style="font-weight: 500; color: #454c58">
                                                         <span>Antwort Eingeben</span>&nbsp;<span *ngIf="
                                 currentQuestionObject.question.option[0] ==
                                 'Erforderlich'
@@ -1772,7 +1778,10 @@
                             </div> -->
                             </div>
                         </mat-step>
-                        <mat-step label="Antworten anzeigen" class="bg-primary" style="height: 100%">
+                        <mat-step  class="bg-primary" style="height: 100%">
+                            <ng-template matStepLabel>
+                                <span>Antworten anzeigen</span>
+                            </ng-template>
                             <div *ngFor="let member of questionList; let k = index">
                                 <div *ngFor="let tab of member.tempList; let j = index">
                                     <div *ngIf="tab.list.length > 0">

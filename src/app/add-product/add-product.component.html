@@ -32,72 +32,41 @@
                     in wenigen Schritten anstoßen.</span>
             </div>
             <div class="col-md-12 d-flex flex-raw justify-content-around align-items-center mt-3 pb-5 ">
-                <div class=" glass col-md-5 p-5 ">
-                    <div class="">
-                        <div class="row">
-                            <div class="col-md-12" style="padding: 5px;background: skyblue;border-radius: 6px;">
-                                <h6 style="color: #18459a;"><!--<i class="fa fa-house-damage"></i>-->
-                                    &nbsp;&nbsp;Versicherungsgesellschaften </h6>
+                <div class=" glass col-md-5 p-3 ">
+                    <div>
+                        <div class="" style="border: 1px #3D3C3C;">
+                            <div class="col-md-12 p-0 ">
+                                <span class="heads" style="color: #ffffff;"><!--<i class="fa fa-house-damage"></i>-->
+                                    Versicherungsgesellschaften </span>
                             </div>
-                            <div class="col-md-12">
-                                <div class="row mt-2">
-                                    <div class="col-md-3 pl-0 pr-0">
-                                        <span class="sparte_span" id="Sach"
+                            <div class="col-md-12 pl-0 pr-0 partners-list">
+                                <div class="buttons-grp d-flex flex-wrap   ">
+                                    <div class="col-md-3 " style="padding: 3px;">
+                                        <span class="sparte_span text-produktwalt" id="Sach"
                                             (click)="show_spartewise_partners('Sach','partners1','Sach')"
-                                            style="cursor:pointer;background: skyblue;color: #18489c;font-weight: bold;">Sach</span>
+                                            style="cursor:pointer;background: rgb(255, 255, 255);color: #3D3C3C;font-weight: 400px;">Sach</span>
                                     </div>
-                                    <div class="col-md-3 pl-0 pr-0">
+                                    <div class="col-md-3 pl-0 pr-0" style="padding: 3px;">
                                         <span class="sparte_span" id="Renten"
                                             (click)="show_spartewise_partners('Renten/Leben','partners1','Renten')"
                                             style="cursor:pointer;">Renten/Leben</span>
                                     </div>
-                                    <div class="col-md-3 pl-0 pr-0">
+                                    <div class="col-md-3 pl-0 pr-0" style="padding: 3px;">
                                         <span class="sparte_span" id="Kranken"
                                             (click)="show_spartewise_partners('Kranken','partners1','Kranken')"
                                             style="cursor:pointer;">Kranken</span>
                                     </div>
-                                    <div class="col-md-3 pl-0 pr-0">
+                                    <div class="col-md-3 pl-0 pr-0" style="padding: 3px;">
                                         <span class="sparte_span" id="Gewerbesach"
                                             (click)="show_spartewise_partners('Gewerbesach','partners1','Gewerbesach')"
                                             style="cursor:pointer;">Gewerbesach</span>
                                     </div>
                                 </div>
-                                <div class="row mt-3" *ngIf="partners1.length>0">
-                                    
-                                    <ng-container *ngFor="let item of partners1; let i = index">
+                                <div class=" mt-3" *ngIf="partners1.length>0">
 
-                                        <ngb-carousel>
-                                            <ng-template  *ngIf="partners1.length <=3 " ngbSlide>
-                                                <div class="picsum-img-wrapper">
-                                                    <img src="{{item.logo}}" alt="Random second slide" />
-                                                </div>
-                                                <div class="carousel-caption">
-                                                    <h3>{{item.name}}</h3>
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                                </div>
-                                            </ng-template>
-                                            <ng-template *ngIf="i < 3 && partners1.length > 3 " ngbSlide>
-                                                <div class="picsum-img-wrapper d-flex align-items-center product-partner-images">
-                                                    <img src="{{item.logo}}" alt="Random second slide" />
-                                                </div>
-                                                <div class="carousel-caption">
-                                                    <h3>{{item.name}}</h3>
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                                </div>
-                                            </ng-template>
-                                            <ng-template ngbSlide>
-                                                <div class="picsum-img-wrapper d-flex align-items-center product-partner-images">
-                                                    <img src="{{item.logo}}" alt="Random second slide" />
-                                                </div>
-                                                <div class="carousel-caption">
-                                                    <h3>{{item.name}}</h3>
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                                </div>
-                                            </ng-template>
-                                        </ngb-carousel>
+                                    <!-- <ng-container > -->
 
-
-                                        <div class="col-md-4 text-center" *ngIf="partners1.length <=3 ">
+                                    <!-- <div class="col-md-4 text-center" *ngIf="partners1.length <=3 ">
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <img class="d-flex align-items-center product-partner-images"
@@ -119,21 +88,34 @@
                                                     <p style="color:white;font-size: 14px;">{{item.name}}</p>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </ng-container>
+                                        </div> -->
+                                    <carousel>
+                                        <slide class=" col-md-12 text-center "
+                                            *ngFor="let item of partners1; let i = index">
+                                            <div class="slide p-0">
+                                                <img class="d-flex align-items-center product-partner-images  "
+                                                    src="{{item.logo}}" alt="first slide" style="display: block;">
+                                                <div class="  ms-1  d-none d-md-block ">
+                                                    <span [ngStyle]="{'color': 'white', 'font-size': item.length < 10 ? '35px' : '25px'}"> {{item.length}} {{ item.name }}</span>
+                                                </div>
+                                            </div>
 
-                                    <div class="col-md-3 p-0" *ngIf="partners1.length > 3">
+                                        </slide>
+                                    </carousel>
+                                    <!-- </ng-container> -->
+
+                                    <!-- <div class="col-md-3 p-0" *ngIf="partners1.length > 3">
                                         <button role="button" data-slide="next" (click)="partner_type(1)"
                                             style="margin: 0px 7px 10px" type="button" class="view-more"
                                             data-toggle="modal" data-target="#extra_partners">
                                             <span>Mehr Anzeigen <i aria-hidden="true"
                                                     class="fa fa-angle-right"></i></span>
                                         </button>
-                                    </div>
+                                    </div> -->
 
                                 </div>
-                                <div class="row mt-3" *ngIf="partners1.length<=0">
-                                    <div class="col-md-12 text-center" style="color:white;">
+                                <div class=" mt-3" *ngIf="partners1.length<=0">
+                                    <div class="col-md-12 text-center" style="color:white;font-size: 30px;">
                                         No Produktpartner found.
                                     </div>
                                 </div>
@@ -142,29 +124,27 @@
 
 
 
-                        <!-- <div class="row mt-3" style="border: 1px solid skyblue;border-radius: 10px;"> -->
-                        <div class="row mt-3">
-                            <div class="col-md-12" style="padding: 5px;background: skyblue;border-radius: 6px;">
-                                <h6 style="color: #18459a;"><!--<i class="fa fa-hand-holding-usd"></i>-->
-                                    &nbsp;&nbsp;Geldanlagen</h6>
+                        <!-- <div class=" mt-3" style="border: 1px solid skyblue;border-radius: 10px;"> -->
+                        <div class=" mt-3">
+                            <div class="col-md-12 p-0">
+                                <span class="heads" style="color: #ffffff;"><!--<i class="fa fa-hand-holding-usd"></i>-->
+                                    Geldanlagen</span>
                             </div>
-                            <div class="col-md-12">
-                                <div class="row mt-2">
-                                    <div class="col-md-3 pl-0 pr-0">
+                            <div class="col-md-12 pl-0 pr-0 partners-list" >
+                                <div class="buttons-grp d-flex flex-wrap justify-content-around  ">
+                                    <div class="col-md-6 " style="padding: 3px;">
                                         <span class="sparte_span2" id="Investment"
                                             (click)="show_spartewise_partners('Investment','partners2','Investment')"
-                                            style="cursor:pointer;background: skyblue;color: #18489c;font-weight: bold;">Investment</span>
+                                            style="cursor:pointer;background: rgb(255, 255, 255);color: #3D3C3C;font-weight: 400px;">Investment</span>
                                     </div>
-                                    <div class="col-md-3 pl-0 pr-0">
+                                    <div class="col-md-6 pl-0 pr-0" style="padding: 3px;">
                                         <span class="sparte_span2" id="Sachwerte"
                                             (click)="show_spartewise_partners('Sachwerte','partners2','Sachwerte')"
                                             style="cursor:pointer;">Sachwerte</span>
                                     </div>
-                                    <div class="col-md-3"></div>
-                                    <div class="col-md-3"></div>
                                 </div>
-                                <div class="row mt-3" *ngIf="partners2.length>0">
-                                    <ng-container *ngFor="let item of partners2; let i = index">
+                                <div class=" mt-3" *ngIf="partners2.length>0">
+                                    <!-- <ng-container *ngFor="let item of partners2; let i = index">
                                         <div class="col-md-4 text-center" *ngIf="partners2.length <=3 ">
                                             <div class="row">
                                                 <div class="col-md-12">
@@ -176,6 +156,7 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        
 
                                         <div class="col-md-3 text-center" *ngIf="i < 3 && partners2.length > 3 ">
                                             <div class="row">
@@ -188,21 +169,36 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </ng-container>
+                                    </ng-container> -->
 
-                                    <div class="col-md-3 p-0" *ngIf="partners2.length > 3">
+                                    <carousel>
+                                        <slide class=" col-md-12 text-center "
+                                            *ngFor="let item of partners2; let i = index">
+                                            <div class="slide p-0">
+                                                <img class="d-flex align-items-center product-partner-images  "
+                                                    src="{{item.logo}}" alt="first slide" style="display: block;">
+                                                <div class="  ms-1  d-none d-md-block ">
+                                                    
+                                                    <span style="color:white;font-size: 35px;">{{ item.name }}</span>
+                                                </div>
+                                            </div>
+                                        </slide>
+                                    </carousel>
+                                    
+
+                                    <!-- <div class="col-md-3 p-0" *ngIf="partners2.length > 3">
                                         <button role="button" data-slide="next" (click)="partner_type(2)"
                                             style="margin: 0px 7px 10px" type="button" class="view-more"
                                             data-toggle="modal" data-target="#extra_partners">
                                             <span>Mehr Anzeigen <i aria-hidden="true"
                                                     class="fa fa-angle-right"></i></span>
                                         </button>
-                                    </div>
+                                    </div> -->
 
                                 </div>
 
-                                <div class="row mt-3" *ngIf="partners2.length<=0">
-                                    <div class="col-md-12 text-center" style="color:white;">
+                                <div class=" mt-3" *ngIf="partners2.length<=0">
+                                    <div class="col-md-12 text-center" style="color:white;font-size: 30px">
                                         No Produktpartner found.
                                     </div>
                                 </div>
@@ -213,36 +209,36 @@
 
 
                         <!-- <div class="row mt-3" style="border: 1px solid skyblue;border-radius: 10px;"> -->
-                        <div class="row mt-3">
-                            <div class="col-md-12" style="padding: 5px;background: skyblue;border-radius: 6px;">
-                                <h6 style="color: #18459a;"><!--<i class="fa fa-university"></i>--> &nbsp;&nbsp;Banken
-                                </h6>
+                        <div class=" mt-3">
+                            <div class="col-md-12 p-0">
+                                <span class="heads" style="color: #ffffff"><!--<i class="fa fa-university"></i>--> Banken
+                                </span>
                             </div>
-                            <div class="col-md-12">
-                                <div class="row mt-2">
-                                    <div class="col-md-3 pl-0 pr-0">
+                            <div class="col-md-12 pl-0 pr-0 partners-list ">
+                                <div class="buttons-grp d-flex flex-wrap justify-content-around  ">
+                                    <div class="col-md-3 pl-0 pr-0 " style="padding: 3px ;">
                                         <span class="sparte_span3" id="Immobilienfinanzierung"
                                             (click)="show_spartewise_partners('Immobilienfinanzierung','partners3', 'Immobilienfinanzierung')"
-                                            style="cursor:pointer;background: skyblue;color: #18489c;font-weight: bold;">Immobilienfinanzierung</span>
+                                            style="cursor:pointer;background: rgb(255, 255, 255);color: #3D3C3C;font-weight: 400px;">Immobilienfinanzierung</span>
                                     </div>
-                                    <div class="col-md-3 pl-0 pr-0">
+                                    <div class="col-md-3 pl-0 pr-0" style="padding: 3px;">
                                         <span class="sparte_span3" id="Verbraucherkredite"
                                             (click)="show_spartewise_partners('Verbraucherkredite','partners3', 'Verbraucherkredite')"
                                             style="cursor:pointer;">Verbraucherkredite</span>
                                     </div>
-                                    <div class="col-md-3 pl-0 pr-0">
+                                    <div class="col-md-3 pl-0 pr-0" style="padding: 3px;">
                                         <span class="sparte_span3" id="Unternehmensfinanzierung"
                                             (click)="show_spartewise_partners('Unternehmensfinanzierung','partners3', 'Unternehmensfinanzierung')"
                                             style="cursor:pointer;">Unternehmensfinanzierung</span>
                                     </div>
-                                    <div class="col-md-3 pl-0 pr-0">
+                                    <div class="col-md-2 pl-0 pr-0" style="padding: 3px;">
                                         <span class="sparte_span3" id="KFZ"
                                             (click)="show_spartewise_partners('KFZ Kredite','partners3', 'KFZ')"
-                                            style="cursor:pointer;">KFZ Kredite</span>
+                                            style="cursor:pointer;width: 110% !important;">KFZ Kredite</span>
                                     </div>
                                 </div>
-                                <div class="row mt-3" *ngIf="partners3.length>0">
-                                    <ng-container *ngFor="let item of partners3; let i = index">
+                                <div class=" mt-3" *ngIf="partners3.length>0">
+                                    <!-- <ng-container *ngFor="let item of partners3; let i = index">
                                         <div class="col-md-4 text-center" *ngIf="partners3.length <=3 ">
                                             <div class="row">
                                                 <div class="col-md-12">
@@ -266,22 +262,36 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </ng-container>
+                                    </ng-container> -->
 
-                                    <div class="col-md-3 p-0" *ngIf="partners3.length > 3">
+                                    <!-- <div class="col-md-3 p-0" *ngIf="partners3.length > 3">
                                         <button role="button" data-slide="next" (click)="partner_type(3)"
                                             style="margin: 0px 7px 10px" type="button" class="view-more"
                                             data-toggle="modal" data-target="#extra_partners">
                                             <span>Mehr Anzeigen <i aria-hidden="true"
                                                     class="fa fa-angle-right"></i></span>
                                         </button>
-                                    </div>
+                                    </div> -->
+
+                                    <carousel>
+                                        <slide class=" col-md-12 text-center "
+                                            *ngFor="let item of partners3; let i = index">
+                                            <div class="slide p-0">
+                                                <img class="d-flex align-items-center product-partner-images  "
+                                                    src="{{item.logo}}" alt="first slide" style="display: block;">
+                                                <div class=" ms-1  d-none d-md-block ">
+                                                    <span style="color:white;font-size: 35px;">{{item.name}}</span>
+                                                </div>
+                                            </div>
+                                        </slide>
+                                    </carousel>
+
 
                                 </div>
 
 
-                                <div class="row mt-3" *ngIf="partners3.length<=0">
-                                    <div class="col-md-12 text-center" style="color:white;">
+                                <div class=" mt-3" *ngIf="partners3.length<=0">
+                                    <div class="col-md-12 text-center" style="color:white;font-size: 30px">
                                         No Produktpartner found.
                                     </div>
                                 </div>
@@ -291,12 +301,12 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-5">
+                <div class=" glass col-md-5">
 
 
-                    <mat-horizontal-stepper linear #stepper
+                    <mat-horizontal-stepper linear #addProduct
                         style=" background-color: transparent !important;width: 100% !important; overflow: auto !important"
-                        class="stepnewclass">
+                        class="stepnewclass ">
                         <ng-template matStepperIcon="edit">
                             <mat-icon>check</mat-icon>
                         </ng-template>
@@ -329,11 +339,6 @@
                                               </mat-radio-group> -->
 
                                                             <div class="row">
-                                                                <div class="col-md-10" style="color:white;">
-                                                                    1. Ihr Unternehmen bietet Produkte aus mindestens
-                                                                    einer der Sparten Versicherungen, Geldanlagen oder
-                                                                    Bankprodukte an.
-                                                                </div>
                                                                 <div class="col-md-2">
                                                                     <mat-checkbox class="checkboxStyle checkboxStyle2"
                                                                         color='primary'
@@ -341,14 +346,14 @@
                                                                         value="Ihr Unternehmen bietet Produkte aus mindestens einer der Sparten Versicherungen, Geldanlagen oder Bankprodukte an."
                                                                         name="checkbox"></mat-checkbox>
                                                                 </div>
+                                                                <div class="col-md-10" style="color:white;">
+                                                                    1. Ihr Unternehmen bietet Produkte aus mindestens
+                                                                    einer der Sparten Versicherungen, Geldanlagen oder
+                                                                    Bankprodukte an.
+                                                                </div>
                                                             </div>
 
                                                             <div class="row mt-3">
-                                                                <div class="col-md-10" style="color:white;">
-                                                                    2. Sie sind vertretungsberechtigt oder durch eine
-                                                                    vertretungsberechtigte Person beauftragt eine
-                                                                    Zusammenarbeit mit uns zu beginnen.
-                                                                </div>
                                                                 <div class="col-md-2">
                                                                     <mat-checkbox class="checkboxStyle checkboxStyle2"
                                                                         color='primary'
@@ -356,6 +361,12 @@
                                                                         value="Sie sind Zeichnungsberechtigt oder durch eine vertretungsberechtigte Person beauftragt eine Zusammenarbeit mit uns zu beginnen."
                                                                         name="checkbox"></mat-checkbox>
                                                                 </div>
+                                                                <div class="col-md-10" style="color:white;">
+                                                                    2. Sie sind vertretungsberechtigt oder durch eine
+                                                                    vertretungsberechtigte Person beauftragt eine
+                                                                    Zusammenarbeit mit uns zu beginnen.
+                                                                </div>
+
                                                             </div>
 
                                                             <!-- <mat-checkbox class="checkboxStyle checkboxStyle2" color='primary' (change)="radioValueCheck($event)" value="Ihr Unternehmen bietet Produkte aus mindestens einer der Sparten Versicherungen, Geldanlagen oder Bankprodukte an." name="checkbox">Ihr Unternehmen bietet Produkte aus mindestens einer der Sparten Versicherungen, Geldanlagen oder Bankprodukte an.</mat-checkbox>
@@ -371,9 +382,9 @@
                                         </div>
 
 
-
-                                        <div fxLayoutAlign="end end">
-                                            <button id="btn" class="stepper-btn-two transitionanimation"
+                                        <!-- button-primary-two -->
+                                        <div fxLayoutAlign="end end" style="margin-top: 16vh;">
+                                            <button id="btn" class="button-primary  transitionanimation"
                                                 mat-raised-button matStepperNext [disabled]="!buttonCondition">
                                                 Produktpartner Registrierung starten <i class="fas fa-arrow-right"></i>
                                             </button>
@@ -466,9 +477,9 @@
                                     <div class="row">
                                         <div class="text-right">
                                             <div fxLayoutAlign="end end">
-                                                <button type="button" class="stepper-btn transitionanimation" mat-button
+                                                <button type="button" class="button-primary transitionanimation" mat-raised-button
                                                     matStepperPrevious style="margin-right: 10px">Zurück</button>
-                                                <button id="btn" type="button" class="stepper-btn transitionanimation"
+                                                <button id="btn" type="button" class="button-primary transitionanimation"
                                                     [disabled]="!artsparte.form.valid || !(addedsparte.length > 0)"
                                                     mat-raised-button matStepperNext>Weiter <i
                                                         class="fas fa-arrow-right"></i></button>
@@ -527,12 +538,12 @@
                              <div class="row">
                                <div class="text-right">
                                 <div fxLayoutAlign="end end">
-                                  <button class="stepper-btn transitionanimation" mat-button matStepperPrevious style="margin-right: 10px">
+                                  <button class="button-primary transitionanimation" mat-button matStepperPrevious style="margin-right: 10px">
                         Zurück
                       </button>
                                 <button
                                         id="btn"
-                                        class="stepper-btn transitionanimation"
+                                        class="button-primary transitionanimation"
                                         mat-raised-button
                                         matStepperNext
                                         
@@ -666,11 +677,11 @@
                                     <div class="row">
                                         <div class=" text-right">
                                             <div fxLayoutAlign="end end">
-                                                <button class="stepper-btn transitionanimation" mat-button
+                                                <button class="button-primary transitionanimation" mat-raised-button
                                                     matStepperPrevious style="margin-right: 10px">Zurück</button>
                                                 <button id="btn1"
                                                     [disabled]="!fsp.form.valid || !captcha_resolve || !validemail"
-                                                    class="stepper-btn transitionanimation" mat-raised-button
+                                                    class="button-primary transitionanimation" mat-raised-button
                                                     (click)="add_product_partner()">Registrieren</button>
                                             </div>
                                         </div>
@@ -690,8 +701,12 @@
 
                 </div>
             </div>
+            <div class=" bg-img " >
+                <img width="100%" style="opacity: 0.5;" src="../../assets/produktwelt/img-bg-on-two.png" alt="">
+            </div>
         </div>
     </div>
+
 </div>
 
 <app-front-footer></app-front-footer>

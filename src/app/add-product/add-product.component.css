@@ -58,38 +58,115 @@
     padding: 2rem 14rem 2rem 14rem
 }
 
-.glass{
-    background-color: rgb(71 71 71 / 50%);
-    border-radius: 10px 10px 10px 10px;
+.glass {
+    border-radius: 10px;
     border: 1px solid;
+    background-color: rgba(36, 36, 36, 0.4);
+    backdrop-filter: blur(10px);
+}
+
+.innerglass {
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
+
+    /* Full height */
+    height: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+
+}
+
+.partners-list {
+    border-radius: 7px;
+    border: 1px solid inherit;
+    background-color: rgba(27, 27, 27, 0.4);
+    backdrop-filter: blur(10px);
+    padding-bottom: 2vh;
+}
+
+.heads{
+    font-size: 20px;
+    font-weight: 400;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 
+.buttons-grp {
+    background-color: rgb(71 71 71 / 70%);
+    border-radius: 10px 10px 10px 10px;
+    border: 1px solid;
+    overflow: hidden;
+}
+
+.slide {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.text-produktwalt {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.bg-img {
+    position: absolute;
+    width: 98%;
+    bottom: -33vh;
+}
+
+:host ::ng-deep .mat-horizontal-stepper-header-container {
+    white-space: normal;
+    display: flex;
+    align-items: center;
+    background-color: #495e6d;
+    margin-top: 5px;
+    border-radius: 50px;
+    height: 7vh !important;
+}
+
+:host ::ng-deep .mat-stepper-horizontal-line {
+    color: transparent;
+    background-color: transparent;
+    border: 0px !important;
+    border-top-style: none
+}
+
+:host ::ng-deep .mat-stepper-horizontal-line::before {
+    content: "\f105" !important;
+    font: normal normal normal 36px/1 FontAwesome !important;
+    position: relative !important;
+    color: white !important;
+}
+
+:host ::ng-deep .mat-step-icon .mat-step-icon-state-number .mat-step-icon-selected {
+    background: rgb(255, 255, 255) !important;
+    background-image: none !important;
+}
+
+/* #addProduct .mat-step-header .mat-step-icon-selected,
+.mat-step-header .mat-step-icon-state-done,
+.mat-horizontal-stepper-header .mat-step-icon-selected {
+    background: white !important;
+    border: none !important;
+} */
 
 
+.mat-horizontal-stepper-header .mat-step-icon-selected {
+    background-color: white;
+    border: none !important;
+    color: black;
+}
 
+:host ::ng-deep .mat-step-label .mat-step-label-active .mat-step-label-selected {
+    color: rgba(15, 191, 126, 0) !important;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/* from old  */
 
 .logo img {
     width: 186px;
@@ -160,7 +237,7 @@
 
 
 .mat-step-header .mat-step-label {
-    color: #fff
+    color: #ae2424
 }
 
 :host ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
@@ -543,9 +620,9 @@ a {
 }
 
 .product-partner-images {
-    border-radius: 10px;
-    width: 100px;
-    height: 90px;
+    border-radius: 5px;
+    width: 50px;
+    height: 45px;
     display: inline-block !important;
 }
 
@@ -5489,11 +5566,12 @@ sidea2 li a:hover {
 
 
 :host ::ng-deep .mat-step-icon-state-edit.mat-step-icon {
-    background: green;
+    background: rgb(255, 255, 255);
 }
 
-:host ::ng-deep .mat-step-label {
-    color: white !important;
+:host ::ng-deep .mat-horizontal-stepper-header .mat-step-icon-selected {
+    background-color: rgb(255, 255, 255) !important;
+    color: #000 !important;
 }
 
 
@@ -5540,9 +5618,9 @@ sidea2 li a:hover {
     margin-top: 4px;
 }
 
-:host ::ng-deep .mat-horizontal-stepper-header {
+/* :host ::ng-deep .mat-horizontal-stepper-header {
     padding: 0 24px 0px 0px !important;
-}
+} */
 
 :host ::ng-deep .mat-horizontal-content-container {
     padding: 0 24px 24px 0px !important;
@@ -5559,7 +5637,6 @@ sidea2 li a:hover {
 
 
 .sparte_span {
-    border: 1px solid white;
     border-radius: 5px;
     color: white;
     height: 32px;
@@ -5570,7 +5647,6 @@ sidea2 li a:hover {
 }
 
 .sparte_span2 {
-    border: 1px solid white;
     border-radius: 5px;
     color: white;
     height: 32px;
@@ -5581,12 +5657,12 @@ sidea2 li a:hover {
 }
 
 .sparte_span3 {
-    border: 1px solid white;
     border-radius: 5px;
     color: white;
     height: 32px;
     width: 99%;
     text-align: center;
-    font-size: 14px;
-    padding-top: 4px;
+    font-size: 12px;
+    /* padding-top: 4px; */
+    padding: 5px 3px 0px 3px;
 }

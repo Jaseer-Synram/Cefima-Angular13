@@ -6,7 +6,7 @@
             <div class="container logo-sec-main p-0 m-0 " fxLayout="row wrap" fxLayoutAlign="center"
                 fxLayoutAlign.xs="center center" fxLayoutAlign.sm="center center" fxLayoutAlign.md="center center"
                 fxLayoutAlign.lg="start center" fxLayoutAlign.xl="center center">
-                <section style="width: 100%" class="main table-section table-min-height">
+                <section style="width: 100%" class="main table-section table-min-height" id="documentupload">
                     <div class="col-md-12 card border-0 " style="background-color: #F2F2F2;">
                         <div class="d-flex flex-raw m-0 px-0 py-1 justify-content-between align-items-center  ">
                             <span class="card-text">Um ein Dokument hochzuladen, wählen Sie bitte einen Kunden aus
@@ -208,20 +208,27 @@
                                                 <img mat-card-image class="flex-item custom-margin" style="width: 40%;"
                                                     src="../assets/icons/document-second-first.svg" />
                                                 <span style="text-align: center;"
-                                                    class="custom-heading flex-item ">bestands
-                                                    Ubertragung</span>
+                                                    class="custom-heading flex-item ">BESTANDS
+                                                    UBERTRAGUNG</span>
                                             </mat-card-title>
                                         </mat-card>
                                     </div>
                                 </div>
                                 <ng-template #firma>
                                     <div class="col-md-4">
-                                        <mat-card (click)="GoNext2('bestandsübertragung')" class="links1"
-                                            style="text-align: start;">
+                                        <mat-card (click)="GoNext2('bestandsübertragung')"
+                                            (mouseover)="hoverBestands = true" (mouseleave)="hoverBestands = false"
+                                            class="links1" style="text-align: start;">
                                             <mat-card-title
                                                 class="  d-flex flex-column align-items-center justify-content-center">
-                                                <img mat-card-image class="flex-item custom-margin" style="width: 40%;"
+                                                <img *ngIf="!hoverBestands else hoverBestand" mat-card-image
+                                                    class="flex-item custom-margin" style="width: 40%;"
                                                     src="../assets/icons/document-second-first.svg" />
+                                                <ng-template #hoverBestand>
+                                                    <img mat-card-image class="flex-item custom-margin"
+                                                        style="width: 40%;"
+                                                        src="../assets/icons/bestandsübertragung-white.svg" />
+                                                </ng-template>
                                                 <span style="text-align: center;"
                                                     class="custom-heading flex-item">BESTANDS
                                                     UBERTRAGUNG</span>
@@ -231,12 +238,20 @@
                                 </ng-template>
                                 <!-- routerLink="/upload-document/{{ user_id }}/fremdvertrag" -->
                                 <div class="col-md-4">
-                                    <mat-card (click)="GoNext2('fremdvertrag')" class="links1"
+                                    <mat-card (click)="GoNext2('fremdvertrag')" (mouseover)="hoverFremdvertrag = true"
+                                        (mouseleave)="hoverFremdvertrag = false" class="links1"
                                         style="text-align: center;">
                                         <mat-card-title
                                             class="  d-flex flex-column align-items-center justify-content-center">
-                                            <img mat-card-image class="flex-item custom-margin" style="width: 40%;"
-                                                src="../assets//icons/document-second-second.svg" />
+                                            <!-- <img mat-card-image class="flex-item custom-margin" style="width: 40%;"
+                                                src="../assets//icons/document-second-second.svg" /> -->
+                                            <img *ngIf="!hoverFremdvertrag else hoverFremdvertra" mat-card-image
+                                                class="flex-item custom-margin" style="width: 40%;"
+                                                src="../assets/icons/document-second-second.svg" />
+                                            <ng-template #hoverFremdvertra>
+                                                <img mat-card-image class="flex-item custom-margin" style="width: 40%;"
+                                                    src="../assets/icons/fremdvertrag-white.svg" />
+                                            </ng-template>
                                             <span style="margin-top: 10px;"
                                                 class="custom-heading flex-item">FREMDVERTRAG</span>
                                         </mat-card-title>
@@ -244,12 +259,18 @@
                                 </div>
                                 <!-- routerLink="/upload-document/{{ user_id }}/allgemeines" -->
                                 <div class="col-md-4">
-                                    <mat-card (click)="GoNext2('Allgemeines Dokument')" class="links1"
-                                        style="text-align: end;">
+                                    <mat-card (click)="GoNext2('Allgemeines Dokument')"
+                                        (mouseover)="hoverAllgemeines = true" (mouseleave)="hoverAllgemeines = false"
+                                        class="links1" style="text-align: end;">
                                         <mat-card-title
                                             class="  d-flex flex-column align-items-center justify-content-center">
-                                            <img mat-card-image class="flex-item custom-margin" style="width: 40%;"
-                                                src="../assets//icons/document-second-third.svg" />
+                                            <img *ngIf="!hoverAllgemeines else hoverAllgemeine" mat-card-image
+                                                class="flex-item custom-margin" style="width: 40%;"
+                                                src="../assets/icons/document-second-third.svg" />
+                                            <ng-template #hoverAllgemeine>
+                                                <img mat-card-image class="flex-item custom-margin" style="width: 40%;"
+                                                    src="../assets/icons/Allgemeines-white.svg" />
+                                            </ng-template>
                                             <span style="text-align: center;"
                                                 class="custom-heading flex-item">ALLGEMEINES DOKUMENT</span>
                                         </mat-card-title>

@@ -12,6 +12,7 @@ import { COMMA, ENTER } from "@angular/cdk/keycodes";
 import Swal from 'sweetalert2';
 import intlTelInput from 'intl-tel-input';
 import { HttpEvent, HttpEventType } from '@angular/common/http';
+import { CarouselConfig } from 'ngx-bootstrap/carousel';
 
 type unit = "bytes" | "KB" | "MB" | "GB" | "TB" | "PB";
 type unitPrecisionMap = {
@@ -36,8 +37,12 @@ export interface Fruitnew {
 @Component({
   selector: 'app-add-product',
   templateUrl: './add-product.component.html',
-  styleUrls: ['./add-product.component.css']
+  styleUrls: ['./add-product.component.css'],
+  providers: [
+    { provide: CarouselConfig, useValue: { interval: 1500, noPause: true, showIndicators: false } }
+  ]
 })
+
 export class AddProductComponent implements OnInit {
 
   api_url: any;
@@ -1928,25 +1933,25 @@ export class AddProductComponent implements OnInit {
       $('.sparte_span').css('background', 'transparent');
       $('.sparte_span').css('font-weight', '');
       $('.sparte_span').css('color', 'white');
-      $('#' + event).css('background', 'skyblue');
-      $('#' + event).css('font-weight', 'bold');
-      $('#' + event).css('color', '#18489c');
+      $('#' + event).css('background', 'white');
+      $('#' + event).css('font-weight', '400px');
+      $('#' + event).css('color', '#3D3C3C');
       this.partners1 = [];
     } else if (partner_array == "partners2") {
       $('.sparte_span2').css('background', 'transparent');
       $('.sparte_span2').css('font-weight', '');
       $('.sparte_span2').css('color', 'white');
-      $('#' + event).css('background', 'skyblue');
-      $('#' + event).css('font-weight', 'bold');
-      $('#' + event).css('color', '#18489c');
+      $('#' + event).css('background', 'white');
+      $('#' + event).css('font-weight', '400px');
+      $('#' + event).css('color', '#3D3C3C');
       this.partners2 = [];
     } else if (partner_array == "partners3") {
       $('.sparte_span3').css('background', 'transparent');
       $('.sparte_span3').css('font-weight', '');
       $('.sparte_span3').css('color', 'white');
-      $('#' + event).css('background', 'skyblue');
-      $('#' + event).css('font-weight', 'bold');
-      $('#' + event).css('color', '#18489c');
+      $('#' + event).css('background', 'white');
+      $('#' + event).css('font-weight', '400px');
+      $('#' + event).css('color', '#3D3C3C');
       this.partners3 = [];
     }
 

@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { AddProductRoutingModule } from './add-product-routing.module';
-import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
+import { CarouselModule } from 'ngx-bootstrap/carousel';
 
 
 @NgModule({
@@ -10,7 +10,7 @@ import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
   imports: [
     CommonModule,
     AddProductRoutingModule,
-    NgbCarouselModule 
+    // CarouselModule.forRoot()
   ]
 })
 export class AddProductModule { }

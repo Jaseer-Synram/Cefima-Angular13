@@ -108,7 +108,9 @@ export class UploadDocumentComponent implements OnInit {
   slectedUserFirstname = "";
   slectedUserLastname = "";
 
-  pdfUrl = ''
+  hoverBestands = false
+  hoverFremdvertrag = false
+  hoverAllgemeines = false
 
   constructor(
     private _formBuilder: FormBuilder,

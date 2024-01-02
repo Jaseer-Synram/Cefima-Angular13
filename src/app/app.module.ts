@@ -41,6 +41,8 @@ import { AddProductComponent } from './add-product/add-product.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FrontFooterComponent } from './front-footer/front-footer.component';
 
+import { CarouselModule } from 'ngx-bootstrap/carousel';
+
 export const MY_FORMATS = {
   parse: {
     dateInput: "DD.MM.YYYY",
@@ -101,6 +103,7 @@ export function tokenGetter() {
         path: "/api/socket.io",
       },
     }),
+    CarouselModule.forRoot()
     // RecaptchaModule,
     // TabsModule.forRoot(),
     // SignaturePadModule,

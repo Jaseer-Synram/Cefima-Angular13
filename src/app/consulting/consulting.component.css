@@ -42,13 +42,6 @@
   opacity: 0;
 } */
 
-/* :host ::ng-deep .last-edited-step-1 .mat-horizontal-stepper-header .mat-stepper-horizontal-line:nth-child(2):before {
-  position: relative !important;
-  left: 99% !important;
-  top: -12px;
-  color: #049FE5 !important;
-  font-weight: bolder !important;
-} */
 
 :host ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline-thick {
   /* color: #17459b !important; */
@@ -223,6 +216,39 @@
   font-weight: 300;
   background: #3c9ed617;
 } */
+
+:host ::ng-deep .mat-horizontal-stepper-header .mat-step-icon-selected {
+  background-image: linear-gradient(to right, #154FA3, #049FE5) !important;
+  border: none !important;
+}
+
+:host ::ng-deep .mat-step-header .mat-step-icon-state-edit {
+  background-color: #d1ecfe;
+  border: 1px solid;
+  border-color: #b0daf9;
+  color: #049FE5;
+}
+
+
+
+/* .mat-step-header .mat-step-icon-selected, .mat-step-header .mat-step-icon-state-done, .mat-step-header .mat-step-icon-state-edit{
+  background-color: #d1ecfe;
+  border: 1px solid;
+  border-color: #b0daf9;
+  color: #049FE5;
+} */
+
+#QAStepper .mat-step-header .mat-step-icon-selected, .mat-step-header .mat-step-icon-state-done, .mat-step-header .mat-step-icon-state-edit {
+  background-image: linear-gradient(to right, #154FA3, #049FE5);
+  border: none !important;
+}
+
+:host ::ng-deep .mat-horizontal-stepper-header .mat-step-icon-selected #QAStepper :host ::ng-deep .mat-step-header .mat-step-icon-state-edit {
+  background-color: #d1ecfe !important;
+  border: 1px solid  !important;
+  border-color: #b0daf9  !important;
+  color: #049FE5  !important;
+}
 
 .disabled-btn {
   border: 1px solid #0986d0 !important;

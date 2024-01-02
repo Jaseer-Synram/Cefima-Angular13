@@ -60,6 +60,11 @@ international-phone-number {
   background-color: bottom;
 }
 
+.mat-horizontal-stepper-header .mat-step-icon-selected {
+  background-image: linear-gradient(to right, #154FA3, #049FE5);
+  border: none !important;
+}
+
 .checkboxStyle {
   float: right;
   margin-right: 16px;
