@@ -2,7 +2,7 @@
 
 <div class="gradient p-0">
     <div class="p-0 d-flex col-md-12 justify-content-between ">
-        <div class="p-0 col-sm-12 col-md-12  head-rectangle d-flex justify-content-start align-items-center ">
+        <div class="p-0 col-sm-12 col-md-12 head-rectangle   d-flex justify-content-start align-items-center ">
             <div class=" inner-div pl-5 col-sm-12 col-md-6 d-flex flex-column text-white ">
                 <span class=""
                     style="font-family:Verdana, Geneva, Tahoma, sans-serif  ;font-weight: 900;font-size: 45px;letter-spacing: -1px;">PRODUKTWELT</span>
@@ -12,7 +12,7 @@
                     Technologie. Ganz nach dem Motto "Gemeinsam
                     sind wir Stark"</span>
                 <span class=""
-                    style="font-family:Verdana, Geneva, Tahoma, sans-serif  ;font-weight: normal ;font-size: 16px;letter-spacing: 0;">Mit
+                    style="font-family:Verdana, Geneva, Tahoma, sans-serif  ;font-weight: normal ;font-size: 13px;letter-spacing: 0;">Mit
                     unseren Produktpartnern das passende Produkt finden. Auf CEFIMA gibt es in den Sparten
                     Versicherungen, Baufinanzierung, Anschlussfinanzierung, Ratenkredit und Geldanlagen ein umfassendes
                     Produktangebot. Für nahezu jeden Bedarf bieten wir Ihnen das geeignete Produkt - sorgfältig
@@ -31,10 +31,10 @@
                     Produktanbieter und möchten mit uns zusammenarbeiten? Gerne können Sie den Anbindungsprozess hier
                     in wenigen Schritten anstoßen.</span>
             </div>
-            <div class="col-md-12 d-flex flex-raw justify-content-around align-items-center mt-3 pb-5 ">
-                <div class=" glass col-md-5 p-3 ">
-                    <div>
-                        <div class="" style="border: 1px #3D3C3C;">
+            <div class="col-md-12 d-flex flex-raw justify-content-around align-items-center mt-3 pb-5 flex-wrap ">
+                <div class=" glass  p-3 ">
+                    <div class="inner-glass d-flex flex-column justify-content-center align-items-stretch  ">
+                        <div class="  " style="border: 1px #3D3C3C;">
                             <div class="col-md-12 p-0 ">
                                 <span class="heads" style="color: #ffffff;"><!--<i class="fa fa-house-damage"></i>-->
                                     Versicherungsgesellschaften </span>
@@ -59,12 +59,10 @@
                                     <div class="col-md-3 pl-0 pr-0" style="padding: 3px;">
                                         <span class="sparte_span" id="Gewerbesach"
                                             (click)="show_spartewise_partners('Gewerbesach','partners1','Gewerbesach')"
-                                            style="cursor:pointer;">Gewerbesach</span>
+                                            style="cursor:pointer;width: 98%;">Gewerbesach</span>
                                     </div>
                                 </div>
-                                <div class=" mt-3" *ngIf="partners1.length>0">
-
-
+                                <div class=" mt-4 mb-2" *ngIf="partners1.length>0">
                                     <carousel>
                                         <slide class=" col-md-12 text-center "
                                             *ngFor="let item of partners1; let i = index">
@@ -80,9 +78,8 @@
 
                                         </slide>
                                     </carousel>
-
                                 </div>
-                                <div class=" mt-3" *ngIf="partners1.length<=0">
+                                <div class=" mt-4 mb-2" *ngIf="partners1.length<=0">
                                     <div class="col-md-12 text-center" style="color:white;font-size: 30px;">
                                         No Produktpartner found.
                                     </div>
@@ -92,7 +89,7 @@
 
 
 
-                        <div class=" mt-3">
+                        <div class=" ">
                             <div class="col-md-12 p-0">
                                 <span class="heads"
                                     style="color: #ffffff;"><!--<i class="fa fa-hand-holding-usd"></i>-->
@@ -111,7 +108,7 @@
                                             style="cursor:pointer;">Sachwerte</span>
                                     </div>
                                 </div>
-                                <div class=" mt-3" *ngIf="partners2.length>0">
+                                <div class=" mt-4 mb-2" *ngIf="partners2.length>0">
 
                                     <carousel>
                                         <slide class=" col-md-12 text-center "
@@ -130,7 +127,7 @@
 
                                 </div>
 
-                                <div class=" mt-3" *ngIf="partners2.length<=0">
+                                <div class=" mt-4 mb-2" *ngIf="partners2.length<=0">
                                     <div class="col-md-12 text-center" style="color:white;font-size: 30px">
                                         No Produktpartner found.
                                     </div>
@@ -141,7 +138,7 @@
                         </div>
 
 
-                        <div class=" mt-3">
+                        <div class=" ">
                             <div class="col-md-12 p-0">
                                 <span class="heads" style="color: #ffffff"><!--<i class="fa fa-university"></i>-->
                                     Banken
@@ -167,10 +164,10 @@
                                     <div class="col-md-2 pl-0 pr-0" style="padding: 3px;">
                                         <span class="sparte_span3" id="KFZ"
                                             (click)="show_spartewise_partners('KFZ Kredite','partners3', 'KFZ')"
-                                            style="cursor:pointer;width: 110% !important;">KFZ Kredite</span>
+                                            style="cursor:pointer;width: 100% !important;">KFZ Kredite</span>
                                     </div>
                                 </div>
-                                <div class=" mt-3" *ngIf="partners3.length>0">
+                                <div class=" mt-4 mb-2" *ngIf="partners3.length>0">
 
                                     <carousel>
                                         <slide class=" col-md-12 text-center "
@@ -189,7 +186,7 @@
                                 </div>
 
 
-                                <div class=" mt-3" *ngIf="partners3.length<=0">
+                                <div class=" mt-4 mb-2" *ngIf="partners3.length<=0">
                                     <div class="col-md-12 text-center" style="color:white;font-size: 30px">
                                         No Produktpartner found.
                                     </div>
@@ -201,7 +198,7 @@
                     </div>
                 </div>
 
-                <div class=" glass-second col-md-5">
+                <div class=" glass-second p-3 ">
                     <mat-horizontal-stepper linear #addProduct
                         style=" background-color: transparent !important;width: 100% !important; overflow: auto !important"
                         class="stepnewclass ">
@@ -213,14 +210,14 @@
                                 <ng-template matStepLabel>Anforderungen</ng-template>
                                 <div>
                                     <form class="Official-residence-form">
-                                        <div class="row" style="width: 100%; margin: 0px">
+                                        <div class="" style="width: 100%; margin: 0px">
                                             <div class="col-md-12"><br /></div>
-                                            <div class="col-md-12">
+                                            <div class="col-md-12 p-0">
 
 
-                                                <div class="row">
+                                                <div class="">
                                                     <!-- <div style="text-align: center"> -->
-                                                    <div style="padding-left:0px;">
+                                                    <div style="padding:0px;">
                                                         <p class="color-font">
                                                             Für eine Zusammenarbeit müssen folgende Punkte auf Sie als
                                                             Produktpartner zutreffen. Bitte bestätigen Sie die
@@ -236,30 +233,30 @@
                                                 </mat-radio-button>
                                               </mat-radio-group> -->
 
-                                                            <div class="row">
-                                                                <div class="col-md-1 mr-2">
+                                                            <div class=" d-flex justify-content-start pl-0 ">
+                                                                <div class="col-md-1 p-0 ">
                                                                     <mat-checkbox class="checkboxStyle checkboxStyle2"
                                                                         color='primary'
                                                                         (change)="radioValueCheck($event)"
                                                                         value="Ihr Unternehmen bietet Produkte aus mindestens einer der Sparten Versicherungen, Geldanlagen oder Bankprodukte an."
                                                                         name="checkbox"></mat-checkbox>
                                                                 </div>
-                                                                <div class="col-md-10" style="color:white;">
+                                                                <div class="col-md-10 p-0" style="color:white;">
                                                                     1. Ihr Unternehmen bietet Produkte aus mindestens
                                                                     einer der Sparten Versicherungen, Geldanlagen oder
                                                                     Bankprodukte an.
                                                                 </div>
                                                             </div>
 
-                                                            <div class="row mt-3">
-                                                                <div class="col-md-1 mr-2">
+                                                            <div class="mt-3 d-flex justify-content-start pl-0">
+                                                                <div class="col-md-1 p-0 ">
                                                                     <mat-checkbox class="checkboxStyle checkboxStyle2"
                                                                         color='primary'
                                                                         (change)="radioValueCheck($event)"
                                                                         value="Sie sind Zeichnungsberechtigt oder durch eine vertretungsberechtigte Person beauftragt eine Zusammenarbeit mit uns zu beginnen."
                                                                         name="checkbox"></mat-checkbox>
                                                                 </div>
-                                                                <div class="col-md-10" style="color:white;">
+                                                                <div class="col-md-10 p-0" style="color:white;">
                                                                     2. Sie sind vertretungsberechtigt oder durch eine
                                                                     vertretungsberechtigte Person beauftragt eine
                                                                     Zusammenarbeit mit uns zu beginnen.
@@ -281,7 +278,7 @@
 
 
                                         <!-- button-primary-two -->
-                                        <div fxLayoutAlign="end end" style="margin-top: 16vh;">
+                                        <div fxLayoutAlign="end end" style="margin-top: 40%;">
                                             <button id="btn" class="button-primary  transitionanimation"
                                                 mat-raised-button matStepperNext [disabled]="!buttonCondition">
                                                 Produktpartner Registrierung starten <i class="fas fa-arrow-right"></i>
@@ -344,27 +341,30 @@
                                                         aus:</span>
 
                                                     <ng-container *ngFor="let sparte of spartes;let i = index">
-                                                        <!-- <i  click function was in button (click)="choose_sparte(sparte.replaceAll(' ','_'))"
+                                                        <!-- <i  click function was in button 
                                                             class="fa fa-square sparte-square {{sparte.replaceAll(' ','_')}}-square"></i><i
                                                             class="fa fa-check-square sparte-square-check {{sparte.replaceAll(' ','_')}}-square-check"
                                                             style="display:none;"></i> -->
                                                         <button *ngIf="i==0"
+                                                            (click)="choose_sparte(sparte.replaceAll(' ','_'))"
                                                             class="btn btn-step2 {{sparte.replaceAll(' ','_')}}1 sparte-btnclass1 mr-2 mt-2"
                                                             style="box-shadow: 1px 1px 1px 0px black;">
                                                             {{sparte}}
                                                         </button>
-                                                        <!-- <i click function was in button (click)="choose_sparte(sparte.replaceAll(' ','_'))"
+                                                        <!-- <i click function was in button 
                                                             class="fa fa-square sparte-square {{sparte.replaceAll(' ','_')}}-square"></i><i
                                                             class="fa fa-check-square sparte-square-check {{sparte.replaceAll(' ','_')}}-square-check"
                                                             style="display:none;"></i> -->
                                                         <button *ngIf="i!=0 && sparte != 'Renten/Leben'"
+                                                            (click)="choose_sparte(sparte.replaceAll(' ','_'))"
                                                             class="btn btn-step2 {{sparte.replaceAll(' ','_')}}1 sparte-btnclass1 mr-2 mt-2"
                                                             style="box-shadow: 1px 1px 1px 0px black;">{{sparte}}</button>
-                                                        <!-- <i (click)="choose_sparte('renten')"
+                                                        <!-- <i 
                                                                 class="fa fa-square sparte-square renten-square"></i><i
                                                                 class="fa fa-check-square sparte-square-check renten-square-check"
                                                                 style="display:none;"></i> -->
                                                         <button *ngIf="sparte == 'Renten/Leben'"
+                                                            (click)="choose_sparte('renten')"
                                                             class="btn btn-step2 renten1 sparte-btnclass1 mr-2 mt-2"
                                                             style="box-shadow: 1px 1px 1px 0px black;">
                                                             {{sparte}}</button>
@@ -377,17 +377,17 @@
                                         </div>
                                     </div>
 
-                                    <div class="row" style="margin-top: 22vh;">
+                                    <div class="row" style="margin-top: 38%;">
                                         <div class="text-right">
                                             <div fxLayoutAlign="end end">
                                                 <button type="button" class="button-primary transitionanimation"
                                                     mat-raised-button matStepperPrevious style="margin-right: 10px"> <i
                                                         class="fas fa-arrow-left"></i>Zurück</button>
-                                                <!-- || !(addedsparte.length > 0) -->
                                                 <button id="btn" type="button"
                                                     class="button-primary transitionanimation"
-                                                    [disabled]="!artsparte.form.valid" mat-raised-button
-                                                    matStepperNext>Weiter <i class="fas fa-arrow-right"></i></button>
+                                                    [disabled]="!artsparte.form.valid || !(addedsparte.length > 0)"
+                                                    mat-raised-button matStepperNext>Weiter <i
+                                                        class="fas fa-arrow-right"></i></button>
                                             </div>
                                         </div>
                                     </div>
@@ -470,7 +470,8 @@
                         <mat-step>
                             <div>
                                 <ng-template matStepLabel>Partnerinformationen</ng-template>
-                                <form [formGroup]="personalInfoFormGroup" #fsp="ngForm" id="forSwal" class="Official-residence-form">
+                                <form [formGroup]="personalInfoFormGroup" #fsp="ngForm" id="forSwal"
+                                    class="Official-residence-form">
 
                                     <div class="" style="width: 100%; margin-top: 5vh">
                                         <div class="col-md-12 p-0">
@@ -546,9 +547,8 @@
 
                                                         <div class="col-md-6" style="display: inline-block">
                                                             <mat-form-field appearance="outline" style="width: 100%">
-                                                                <mat-label
-                                                                    style="margin-left: 40px">Telefon</mat-label>
-                                                                <input type="tel" matInput placeholder="Telefon" 
+                                                                <mat-label style="margin-left: 40px">Telefon</mat-label>
+                                                                <input type="tel" matInput placeholder="Telefon"
                                                                     formControlName="partnerOfNumber" [maxlength]="20"
                                                                     name="partnerOfNumber" class="test" value="+49"
                                                                     id="brokeradvisor_telefonn"
@@ -562,7 +562,7 @@
                                                 </div>
 
                                                 <div class="col-md-12 p-0">
-                                                    <div class="col-md-5" style="display: inline-block"></div>
+                                                    <div class="col-md-6" style="display: inline-block"></div>
                                                     <div class="col-md-6 text-right" style="display: inline-block">
                                                         <!-- <div id="recaptcha1"> -->
                                                         <re-captcha class="g-recaptchanew1"
@@ -606,7 +606,7 @@
                 </div>
             </div>
             <div class=" bg-img ">
-                <img width="100%" style="opacity: 0.5;" src="../../assets/produktwelt/img-bg-on-two.png" alt="">
+                <img width="100%" style="opacity: 0.2;" src="../../assets/produktwelt/img-bg-on-two.png" alt="">
             </div>
         </div>
     </div>

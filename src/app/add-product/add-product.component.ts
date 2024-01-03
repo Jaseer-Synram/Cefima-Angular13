@@ -1857,16 +1857,16 @@ export class AddProductComponent implements OnInit {
     }
 
     if (exists == 0) {
-      $('.' + sparte + "1").removeClass('btn-info');
-      $('.' + sparte + "1").addClass('btn-success');
+      $('.' + sparte + "1").removeClass('btn-step2');
+      $('.' + sparte + "1").addClass('btn-step2-success');
 
       $('.' + sparte + "-square").css('display', 'none');
       $('.' + sparte + "-square-check").css('display', '');
 
       this.addedsparte.push(spartename);
     } else {
-      $('.' + sparte + "1").removeClass('btn-success');
-      $('.' + sparte + "1").addClass('btn-info');
+      $('.' + sparte + "1").removeClass('btn-step2-success');
+      $('.' + sparte + "1").addClass('btn-step2');
 
       $('.' + sparte + "-square").css('display', '');
       $('.' + sparte + "-square-check").css('display', 'none');
