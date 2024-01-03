@@ -68,6 +68,16 @@
     top: -9999px;
 }
 
+.btn-login{
+    background: linear-gradient(rgba(60, 158, 214, 0.65) , rgba(60, 158, 214));
+    border-radius: 3px;
+    box-shadow: none;
+    border: none;
+    padding: 0px 3vh 0px 3vh;
+    box-shadow: #003b52;
+    color: white;
+}
+
 .pure-toggle:focus~.pure-toggle-label {
     border-color: #1fc08e;
     color: #1fc08e;
