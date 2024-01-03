@@ -889,7 +889,7 @@ export class AddProductComponent implements OnInit {
         },
       }).then(result => {
         if (result.value) {
-          this.router.navigate(['/']);
+          this.router.navigate(['./produktwelt']);
         }
       })
     })
