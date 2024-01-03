@@ -34,167 +34,166 @@
             <div class="col-md-12 d-flex flex-raw justify-content-around align-items-center mt-3 pb-5 flex-wrap ">
                 <div class=" glass  p-3 ">
                     <!-- <div > -->
-                        <div class="  " style="border: 1px #3D3C3C;">
-                            <div class="col-md-12 p-0 ">
-                                <span class="heads" style="color: #ffffff;"><!--<i class="fa fa-house-damage"></i>-->
-                                    Versicherungsgesellschaften </span>
+                    <div class=" " style="border: 1px #3D3C3C;">
+                        <div class="col-md-12 p-0 ">
+                            <span class="heads" style="color: #ffffff;"><!--<i class="fa fa-house-damage"></i>-->
+                                Versicherungsgesellschaften </span>
+                        </div>
+                        <div class="col-md-12 pl-0 pr-0 partners-list">
+                            <div class="buttons-grp d-flex flex-wrap   ">
+                                <div class="col-md-3 " style="padding: 3px;">
+                                    <span class="sparte_span text-produktwalt" id="Sach"
+                                        (click)="show_spartewise_partners('Sach','partners1','Sach')"
+                                        style="cursor:pointer;background: rgb(255, 255, 255);color: #3D3C3C;font-weight: 400px;">Sach</span>
+                                </div>
+                                <div class="col-md-3 pl-0 pr-0" style="padding: 3px;">
+                                    <span class="sparte_span" id="Renten"
+                                        (click)="show_spartewise_partners('Renten/Leben','partners1','Renten')"
+                                        style="cursor:pointer;">Renten/Leben</span>
+                                </div>
+                                <div class="col-md-3 pl-0 pr-0" style="padding: 3px;">
+                                    <span class="sparte_span" id="Kranken"
+                                        (click)="show_spartewise_partners('Kranken','partners1','Kranken')"
+                                        style="cursor:pointer;">Kranken</span>
+                                </div>
+                                <div class="col-md-3 pl-0 pr-0" style="padding: 3px;">
+                                    <span class="sparte_span" id="Gewerbesach"
+                                        (click)="show_spartewise_partners('Gewerbesach','partners1','Gewerbesach')"
+                                        style="cursor:pointer;width: 98%;">Gewerbesach</span>
+                                </div>
                             </div>
-                            <div class="col-md-12 pl-0 pr-0 partners-list">
-                                <div class="buttons-grp d-flex flex-wrap   ">
-                                    <div class="col-md-3 " style="padding: 3px;">
-                                        <span class="sparte_span text-produktwalt" id="Sach"
-                                            (click)="show_spartewise_partners('Sach','partners1','Sach')"
-                                            style="cursor:pointer;background: rgb(255, 255, 255);color: #3D3C3C;font-weight: 400px;">Sach</span>
-                                    </div>
-                                    <div class="col-md-3 pl-0 pr-0" style="padding: 3px;">
-                                        <span class="sparte_span" id="Renten"
-                                            (click)="show_spartewise_partners('Renten/Leben','partners1','Renten')"
-                                            style="cursor:pointer;">Renten/Leben</span>
-                                    </div>
-                                    <div class="col-md-3 pl-0 pr-0" style="padding: 3px;">
-                                        <span class="sparte_span" id="Kranken"
-                                            (click)="show_spartewise_partners('Kranken','partners1','Kranken')"
-                                            style="cursor:pointer;">Kranken</span>
-                                    </div>
-                                    <div class="col-md-3 pl-0 pr-0" style="padding: 3px;">
-                                        <span class="sparte_span" id="Gewerbesach"
-                                            (click)="show_spartewise_partners('Gewerbesach','partners1','Gewerbesach')"
-                                            style="cursor:pointer;width: 98%;">Gewerbesach</span>
-                                    </div>
-                                </div>
-                                <div class=" mt-4 mb-2" *ngIf="partners1.length>0">
-                                    <carousel>
-                                        <slide class=" col-md-12 text-center "
-                                            *ngFor="let item of partners1; let i = index">
-                                            <div class="slide p-0">
-                                                <img class="d-flex align-items-center product-partner-images  "
-                                                    src="{{item.logo}}" alt="first slide" style="display: block;">
-                                                <div class="  ms-1  d-none d-md-block ">
-                                                    <span
-                                                        [ngStyle]="{'color': 'white', 'font-size': item.length < 10 ? '35px' : '25px'}">
-                                                        {{item.length}} {{ item.name }}</span>
-                                                </div>
+                            <div class=" col-md-12" *ngIf="partners1.length>0">
+                                <carousel class=" col-md-12">
+                                    <slide class=" col-md-12 text-center "
+                                        *ngFor="let item of partners1; let i = index">
+                                        <div class="col-md-12 slide ">
+                                            <img class="d-flex align-items-center product-partner-images  "
+                                                src="{{item.logo}}" [alt]="item.name" style="display: block;">
+                                            <div class="  ms-1  d-none d-md-block ">
+                                                <span
+                                                    [ngStyle]="{'color': 'white', 'font-size': item.length < 10 ? '35px' : '25px'}">
+                                                    {{item.length}} {{ item.name }}</span>
                                             </div>
+                                        </div>
 
-                                        </slide>
-                                    </carousel>
-                                </div>
-                                <div class=" mt-4 mb-2" *ngIf="partners1.length<=0">
-                                    <div class="col-md-12 text-center" style="color:white;font-size: 30px;">
-                                        No Produktpartner found.
-                                    </div>
+                                    </slide>
+                                </carousel>
+                            </div>
+                            <div class="col-md-12" *ngIf="partners1.length<=0">
+                                <div class="col-md-12 text-center" style="color:white;font-size: 30px;">
+                                    No Produktpartner found.
                                 </div>
                             </div>
                         </div>
+                    </div>
 
 
 
-                        <div class=" ">
-                            <div class="col-md-12 p-0">
-                                <span class="heads"
-                                    style="color: #ffffff;"><!--<i class="fa fa-hand-holding-usd"></i>-->
-                                    Geldanlagen</span>
-                            </div>
-                            <div class="col-md-12 pl-0 pr-0 partners-list">
-                                <div class="buttons-grp d-flex flex-wrap justify-content-around  ">
-                                    <div class="col-md-6 " style="padding: 3px;">
-                                        <span class="sparte_span2" id="Investment"
-                                            (click)="show_spartewise_partners('Investment','partners2','Investment')"
-                                            style="cursor:pointer;background: rgb(255, 255, 255);color: #3D3C3C;font-weight: 400px;">Investment</span>
-                                    </div>
-                                    <div class="col-md-6 pl-0 pr-0" style="padding: 3px;">
-                                        <span class="sparte_span2" id="Sachwerte"
-                                            (click)="show_spartewise_partners('Sachwerte','partners2','Sachwerte')"
-                                            style="cursor:pointer;">Sachwerte</span>
-                                    </div>
-                                </div>
-                                <div class=" mt-4 mb-2" *ngIf="partners2.length>0">
-
-                                    <carousel>
-                                        <slide class=" col-md-12 text-center "
-                                            *ngFor="let item of partners2; let i = index">
-                                            <div class="slide p-0">
-                                                <img class="d-flex align-items-center product-partner-images  "
-                                                    src="{{item.logo}}" alt="first slide" style="display: block;">
-                                                <div class="  ms-1  d-none d-md-block ">
-
-                                                    <span style="color:white;font-size: 35px;">{{ item.name }}</span>
-                                                </div>
-                                            </div>
-                                        </slide>
-                                    </carousel>
-
-
-                                </div>
-
-                                <div class=" mt-4 mb-2" *ngIf="partners2.length<=0">
-                                    <div class="col-md-12 text-center" style="color:white;font-size: 30px">
-                                        No Produktpartner found.
-                                    </div>
-                                </div>
-
-
-                            </div>
+                    <div class=" ">
+                        <div class="col-md-12 p-0">
+                            <span class="heads" style="color: #ffffff;"><!--<i class="fa fa-hand-holding-usd"></i>-->
+                                Geldanlagen</span>
                         </div>
-
-
-                        <div class=" ">
-                            <div class="col-md-12 p-0">
-                                <span class="heads" style="color: #ffffff"><!--<i class="fa fa-university"></i>-->
-                                    Banken
-                                </span>
-                            </div>
-                            <div class="col-md-12 pl-0 pr-0 partners-list ">
-                                <div class="buttons-grp d-flex flex-wrap justify-content-around  ">
-                                    <div class="col-md-3 pl-0 pr-0 " style="padding: 3px ;">
-                                        <span class="sparte_span3" id="Immobilienfinanzierung"
-                                            (click)="show_spartewise_partners('Immobilienfinanzierung','partners3', 'Immobilienfinanzierung')"
-                                            style="cursor:pointer;background: rgb(255, 255, 255);color: #3D3C3C;font-weight: 400px;">Immobilienfinanzierung</span>
-                                    </div>
-                                    <div class="col-md-3 pl-0 pr-0" style="padding: 3px;">
-                                        <span class="sparte_span3" id="Verbraucherkredite"
-                                            (click)="show_spartewise_partners('Verbraucherkredite','partners3', 'Verbraucherkredite')"
-                                            style="cursor:pointer;">Verbraucherkredite</span>
-                                    </div>
-                                    <div class="col-md-3 pl-0 pr-0" style="padding: 3px;">
-                                        <span class="sparte_span3" id="Unternehmensfinanzierung"
-                                            (click)="show_spartewise_partners('Unternehmensfinanzierung','partners3', 'Unternehmensfinanzierung')"
-                                            style="cursor:pointer;">Unternehmensfinanzierung</span>
-                                    </div>
-                                    <div class="col-md-2 pl-0 pr-0" style="padding: 3px;">
-                                        <span class="sparte_span3" id="KFZ"
-                                            (click)="show_spartewise_partners('KFZ Kredite','partners3', 'KFZ')"
-                                            style="cursor:pointer;width: 100% !important;">KFZ Kredite</span>
-                                    </div>
+                        <div class="col-md-12 pl-0 pr-0 partners-list">
+                            <div class="buttons-grp d-flex flex-wrap justify-content-around  ">
+                                <div class="col-md-6 " style="padding: 3px;">
+                                    <span class="sparte_span2" id="Investment"
+                                        (click)="show_spartewise_partners('Investment','partners2','Investment')"
+                                        style="cursor:pointer;background: rgb(255, 255, 255);color: #3D3C3C;font-weight: 400px;">Investment</span>
                                 </div>
-                                <div class=" mt-4 mb-2" *ngIf="partners3.length>0">
+                                <div class="col-md-6 pl-0 pr-0" style="padding: 3px;">
+                                    <span class="sparte_span2" id="Sachwerte"
+                                        (click)="show_spartewise_partners('Sachwerte','partners2','Sachwerte')"
+                                        style="cursor:pointer;">Sachwerte</span>
+                                </div>
+                            </div>
+                            <div class="" *ngIf="partners2.length>0">
 
-                                    <carousel>
-                                        <slide class=" col-md-12 text-center "
-                                            *ngFor="let item of partners3; let i = index">
-                                            <div class="slide p-0">
-                                                <img class="d-flex align-items-center product-partner-images  "
-                                                    src="{{item.logo}}" alt="first slide" style="display: block;">
-                                                <div class=" ms-1  d-none d-md-block ">
-                                                    <span style="color:white;font-size: 35px;">{{item.name}}</span>
-                                                </div>
+                                <carousel class=" col-md-12">
+                                    <slide class=" col-md-12 text-center "
+                                        *ngFor="let item of partners2; let i = index">
+                                        <div class="col-md-12 slide p-0">
+                                            <img class="d-flex align-items-center product-partner-images  "
+                                                src="{{item.logo}}" [alt]="item.name" style="display: block;">
+                                            <div class="  ms-1  d-none d-md-block ">
+
+                                                <span style="color:white;font-size: 35px;">{{ item.name }}</span>
                                             </div>
-                                        </slide>
-                                    </carousel>
-
-
-                                </div>
-
-
-                                <div class=" mt-4 mb-2" *ngIf="partners3.length<=0">
-                                    <div class="col-md-12 text-center" style="color:white;font-size: 30px">
-                                        No Produktpartner found.
-                                    </div>
-                                </div>
+                                        </div>
+                                    </slide>
+                                </carousel>
 
 
                             </div>
+
+                            <div class="col-md-12" *ngIf="partners2.length<=0">
+                                <div class="col-md-12 text-center" style="color:white;font-size: 30px">
+                                    No Produktpartner found.
+                                </div>
+                            </div>
+
+
                         </div>
+                    </div>
+
+
+                    <div class=" ">
+                        <div class="col-md-12 p-0">
+                            <span class="heads" style="color: #ffffff"><!--<i class="fa fa-university"></i>-->
+                                Banken
+                            </span>
+                        </div>
+                        <div class="col-md-12 pl-0 pr-0 partners-list ">
+                            <div class="buttons-grp d-flex flex-wrap justify-content-around  ">
+                                <div class="col-md-3 pl-0 pr-0 " style="padding: 3px ;">
+                                    <span class="sparte_span3" id="Immobilienfinanzierung"
+                                        (click)="show_spartewise_partners('Immobilienfinanzierung','partners3', 'Immobilienfinanzierung')"
+                                        style="cursor:pointer;background: rgb(255, 255, 255);color: #3D3C3C;font-weight: 400px;">Immobilienfinanzierung</span>
+                                </div>
+                                <div class="col-md-3 pl-0 pr-0" style="padding: 3px;">
+                                    <span class="sparte_span3" id="Verbraucherkredite"
+                                        (click)="show_spartewise_partners('Verbraucherkredite','partners3', 'Verbraucherkredite')"
+                                        style="cursor:pointer;">Verbraucherkredite</span>
+                                </div>
+                                <div class="col-md-3 pl-0 pr-0" style="padding: 3px;">
+                                    <span class="sparte_span3" id="Unternehmensfinanzierung"
+                                        (click)="show_spartewise_partners('Unternehmensfinanzierung','partners3', 'Unternehmensfinanzierung')"
+                                        style="cursor:pointer;">Unternehmensfinanzierung</span>
+                                </div>
+                                <div class="col-md-2 pl-0 pr-0" style="padding: 3px;">
+                                    <span class="sparte_span3" id="KFZ"
+                                        (click)="show_spartewise_partners('KFZ Kredite','partners3', 'KFZ')"
+                                        style="cursor:pointer;width: 100% !important;">KFZ Kredite</span>
+                                </div>
+                            </div>
+                            <div class="" *ngIf="partners3.length>0">
+
+                                <carousel class=" col-md-12">
+                                    <slide class=" col-md-12 text-center "
+                                        *ngFor="let item of partners3; let i = index">
+                                        <div class="col-md-12 slide p-0">
+                                            <img class="d-flex align-items-center product-partner-images  "
+                                                src="{{item.logo}}" [alt]="item.name" style="display: block;">
+                                            <div class=" ms-1  d-none d-md-block ">
+                                                <span style="color:white;font-size: 35px;">{{item.name}}</span>
+                                            </div>
+                                        </div>
+                                    </slide>
+                                </carousel>
+
+
+                            </div>
+
+
+                            <div class="col-md-12" *ngIf="partners3.length<=0">
+                                <div class="col-md-12 text-center" style="color:white;font-size: 30px">
+                                    No Produktpartner found.
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
                     <!-- </div> -->
                 </div>
 

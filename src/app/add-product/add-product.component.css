@@ -1,22 +1,11 @@
 .head-rectangle {
-    height: calc(100vh - 30vh);
+    height: 700px;
     background-image: url('../../assets/produktwelt/Banner.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
 
-@media screen and (min-width: 1800px) {
-    .head-rectangle{
-        height: 90vh;
-    }
-}
-
-@media screen and (min-width: 2200px) {
-    .head-rectangle{
-        height: 100vh;
-    }
-}
 
 
 .gradient {
@@ -44,7 +33,7 @@
     background-color: rgba(36, 36, 36, 0.4);
     backdrop-filter: blur(10px);
     z-index: 1;
-    height:  calc(100vh - 25vh);
+    height:  603px;
     width: 48%;
 }
 
@@ -53,7 +42,7 @@
     /* border: 1px solid; */
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.54) 15%, rgba(36, 36, 36, 0.4) 15%);
     z-index: 1;
-    height: calc(100vh - 25vh);
+    height: 603px;
     width: 48%;
 }
 
@@ -122,6 +111,7 @@
     background-color: rgba(27, 27, 27, 0.4);
     backdrop-filter: blur(10px);
     padding-bottom: 2vh;
+    height: 135px;
 }
 
 .heads {
@@ -135,7 +125,10 @@
     background-color: rgb(71 71 71 / 70%);
     border-radius: 10px 10px 10px 10px;
     border: 1px solid;
-    overflow: hidden;
+}
+
+.carousel{
+    height: 100px;
 }
 
 .slide {
@@ -163,7 +156,7 @@
     color: white;
     /* margin-top: 2vh; */
     border-radius: 50px;
-    height: 7vh !important;
+    height: 50px !important;
 }
 
 :host ::ng-deep .mat-stepper-horizontal-line {
@@ -180,7 +173,7 @@
     font-style: normal;
     font-size: 24px !important;
     position: relative !important;
-    bottom: 1.5vh;
+    bottom: 12px;
     left: 42%;
     color: #291F18 !important;
 }
