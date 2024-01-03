@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../auth.service';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -13,6 +13,7 @@ import Swal from 'sweetalert2';
 import intlTelInput from 'intl-tel-input';
 import { HttpEvent, HttpEventType } from '@angular/common/http';
 import { CarouselConfig } from 'ngx-bootstrap/carousel';
+import { MatStepper } from '@angular/material/stepper';
 
 type unit = "bytes" | "KB" | "MB" | "GB" | "TB" | "PB";
 type unitPrecisionMap = {
@@ -800,6 +801,16 @@ export class AddProductComponent implements OnInit {
     }
   }
 
+  @ViewChild('addProduct') stepper: MatStepper;
+  clearSteps(){
+    this.personalInfoFormGroup.reset()
+    this.addedsparte = []
+    this.answer1 = ""
+    this.answer2 = ""
+    this.buttonCondition = false
+    this.stepper.selectedIndex = 0;
+  }
+
   add_product_partner() {
 
     $("#loaderouterid").css("display", "block");
@@ -889,10 +900,13 @@ export class AddProductComponent implements OnInit {
         },
       }).then(result => {
         if (result.value) {
+          this.clearSteps()
           this.router.navigate(['./produktwelt']);
         }
       })
     })
+
+    
 
     //let formData = new FormData();
     // for (var i = 0; i < this.uploadedFiles.length; i++) {
