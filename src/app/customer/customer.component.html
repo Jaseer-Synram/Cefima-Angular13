@@ -134,10 +134,9 @@
                                                     </li>
                                                     <!--
                                                             class="openclass offnen-cls btn btn-info btn-sm add-assigment mr-2 py-1 b"
-                                                            -->
+                                                            data-toggle="collapse" -->
                                                     <li class="customer-action mb-2" style="width:20%">
                                                         <a class="btn btn-sm button-primary botton-hover mr-2"
-                                                            data-toggle="collapse"
                                                             (click)="editRecord(cl._id, i + 1, cl)"
                                                             id="click{{ cl._id }}">Öffnen</a>
                                                         <a href="javascript:void(0)"
@@ -247,9 +246,7 @@
                                 <div id="collapse" class="collapse opened-list-item-collapse px-3 pb-2 pt-1 mb-2"
                                     data-parent="#accordion">
                                     <div class="table-section">
-                                        <!-- <div class="card-body px-0 py-3"> -->
                                         <form [formGroup]="customerFormGroup" #f="ngForm" novalidate="">
-                                            <!-- <div class="form-body"> -->
                                             <div role="button" class="Persönliche-Informationen mb-3"
                                                 (click)="opened_tab.personal_data = !opened_tab.personal_data">
                                                 <span><img src="assets/PERSONLICHE.svg" /></span>
@@ -562,7 +559,7 @@
                                                             <input matInput id="phone" name="phone_number"
                                                                 formControlName="phone_number" class="test"
                                                                 placeholder="Telefonnummer" type="tel"
-                                                                (keyup)="checkDataAndCreateUpdateData()"
+                                                                (keyup)="checkDataAndCreateUpdateData()"  
                                                                 oninput="this.value=this.value.replace(/[^0-9/+]/g,'')" />
                                                         </mat-form-field>
                                                     </div>
@@ -610,7 +607,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <!-- <div class="d-block"> -->
+
                                             <div class="text-end">
                                                 <div class="alert alert-success d-flex py-2 mr-3" role="alert"
                                                     *ngIf="registerDone">
@@ -633,10 +630,7 @@
                                                 </button>
 
                                             </div>
-                                            <!-- </div> -->
-                                            <!-- </div> -->
                                         </form>
-                                        <!-- </div> -->
                                     </div>
                                 </div>
                             </div>
@@ -646,5 +640,32 @@
             </div>
         </div>
         <div fxFlex></div>
+    </div>
+</div>
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticEditBackdrop">
+    Launch static backdrop modal
+</button>
+
+<!-- Modal -->
+<div id="staticEditBackdropParent">
+    <div class="modal fade" id="staticEditBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                    <button type="button" (click)="close_modal('staticEditBackdrop','staticEditBackdropParent')" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    ...ghhhukbhjkh
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Understood</button>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

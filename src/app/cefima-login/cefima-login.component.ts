@@ -6,7 +6,7 @@ import {
   FormControl,
   FormGroupDirective,
   NgForm,
-  Validators, 
+  Validators,
   FormGroup,
   FormBuilder,
 } from "@angular/forms";
@@ -132,7 +132,7 @@ export class CefimaLoginComponent implements OnInit {
     }
     this.loading = true;
     if (this.f["username"].value) {
-      
+
       this.authService
         .checkEmail(this.forgotPasswordForm.value.username)
         .pipe(first())
@@ -234,8 +234,11 @@ export class CefimaLoginComponent implements OnInit {
             let decodedData = this.userService.getDecodedAccessToken(
               localStorage.getItem("token")!
             );
-            
-            $(".modal-backdrop").removeClass("modal-backdrop");
+
+            setTimeout(() => {
+              $(".modal-backdrop").removeClass("modal-backdrop");
+              $('body').removeClass("mainfist");
+            }, 500);
             $("#loginModalClose1").trigger("click");
             $("#loginModalClose2").trigger("click");
             if (
@@ -248,18 +251,18 @@ export class CefimaLoginComponent implements OnInit {
               localData.companies_with_roles.includes("cefima_customer")
             ) {
               localStorage.setItem("currentActiveRole", "customer");
-              
+
             } else if (localData.TypeOfUser == "Specialist") {
-              
+
             }
-            console.log('fromlocal',localData.frontend_home_page,'brand,',environment.brand_id);
-            
-            let urlRed =  localData.frontend_home_page.find(x => x.id == environment.brand_id)?.url
-            console.log('urlRed',urlRed);
-            
+            console.log('fromlocal', localData.frontend_home_page, 'brand,', environment.brand_id);
+
+            let urlRed = localData.frontend_home_page.find(x => x.id == environment.brand_id)?.url
+            console.log('urlRed', urlRed);
+
             $("body").css("padding-right", "0px");
             console.log('nav');
-            
+
             this.router.navigate(["./cefima"]);
           },
 
