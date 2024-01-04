@@ -35,6 +35,10 @@
     z-index: 1;
     height:  603px;
     width: 48%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: stretch;
 }
 
 .glass-second {

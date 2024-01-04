@@ -34,8 +34,8 @@
             <div class="col-md-12 d-flex flex-raw justify-content-around align-items-center mt-3 pb-5 flex-wrap ">
                 <div class=" glass  p-3 ">
                     <!-- <div > -->
-                    <div class=" " style="border: 1px #3D3C3C;">
-                        <div class="col-md-12 p-0 ">
+                    <div class="col-md-12 " style="border: 1px #3D3C3C;">
+                        <div class="col-md-12 pl-0 pr-0 pb-1  ">
                             <span class="heads" style="color: #ffffff;"><!--<i class="fa fa-house-damage"></i>-->
                                 Versicherungsgesellschaften </span>
                         </div>
@@ -79,8 +79,8 @@
                                     </slide>
                                 </carousel>
                             </div>
-                            <div class="col-md-12" *ngIf="partners1.length<=0">
-                                <div class="col-md-12 text-center" style="color:white;font-size: 30px;">
+                            <div class="col-md-12 h-75 d-flex justify-content-center align-items-center" *ngIf="partners1.length<=0">
+                                <div class="col-md-12 d-flex justify-content-center align-items-center text-center" style="color:white;font-size: 30px;">
                                     No Produktpartner found.
                                 </div>
                             </div>
@@ -89,8 +89,8 @@
 
 
 
-                    <div class=" ">
-                        <div class="col-md-12 p-0">
+                    <div class="col-md-12 ">
+                        <div class="col-md-12 pl-0 pr-0 pb-1 ">
                             <span class="heads" style="color: #ffffff;"><!--<i class="fa fa-hand-holding-usd"></i>-->
                                 Geldanlagen</span>
                         </div>
@@ -126,8 +126,8 @@
 
                             </div>
 
-                            <div class="col-md-12" *ngIf="partners2.length<=0">
-                                <div class="col-md-12 text-center" style="color:white;font-size: 30px">
+                            <div class="col-md-12 h-75 d-flex justify-content-center align-items-center" *ngIf="partners2.length<=0">
+                                <div class="col-md-12 d-flex justify-content-center align-items-center text-center" style="color:white;font-size: 30px">
                                     No Produktpartner found.
                                 </div>
                             </div>
@@ -137,8 +137,8 @@
                     </div>
 
 
-                    <div class=" ">
-                        <div class="col-md-12 p-0">
+                    <div class="col-md-12 ">
+                        <div class="col-md-12 pl-0 pr-0 pb-1 ">
                             <span class="heads" style="color: #ffffff"><!--<i class="fa fa-university"></i>-->
                                 Banken
                             </span>
@@ -185,8 +185,8 @@
                             </div>
 
 
-                            <div class="col-md-12" *ngIf="partners3.length<=0">
-                                <div class="col-md-12 text-center" style="color:white;font-size: 30px">
+                            <div class="col-md-12 h-75 d-flex justify-content-center align-items-center" *ngIf="partners3.length<=0">
+                                <div class="col-md-12 d-flex justify-content-center align-items-center text-center " style="color:white;font-size: 30px">
                                     No Produktpartner found.
                                 </div>
                             </div>
@@ -214,7 +214,7 @@
                                             <div class="col-md-12 p-0">
 
 
-                                                <div class="">
+                                                <div class="col-md-12 p-2">
                                                     <!-- <div style="text-align: center"> -->
                                                     <div style="padding:0px;">
                                                         <p class="color-font">
@@ -277,7 +277,7 @@
 
 
                                         <!-- button-primary-two -->
-                                        <div fxLayoutAlign="end end" style="margin-top: 40%;">
+                                        <div fxLayoutAlign="end end" style="margin-top: 37%;">
                                             <button id="btn" class="button-primary  transitionanimation"
                                                 mat-raised-button matStepperNext [disabled]="!buttonCondition">
                                                 Produktpartner Registrierung starten <i class="fas fa-arrow-right"></i>
@@ -291,11 +291,11 @@
                             <div>
                                 <ng-template matStepLabel>Produktportfolio</ng-template>
                                 <form [formGroup]="artsparteFormGroup" #artsparte="ngForm" novalidate=""
-                                    class="Official-residence-form">
+                                    class="Official-residence-form p-2">
                                     <div class="row" style="width: 100%; margin: 0px">
                                         <div class="col-md-12"><br /></div>
                                         <div class="col-md-12 pl-0">
-                                            <div>
+                                            <div class="col-md-12 p-0 ">
                                                 <p class="color-font">
                                                     Bitte legen Sie die Art des zu registrierenden Unternehmen mit den
                                                     jeweiligen Produktsparten fest.
@@ -333,8 +333,8 @@
                                   <div class="col-md-3" style="display: inline-block"></div> -->
 
 
-                                            <div class="row">
-                                                <div class="col-md-12" style="padding-left:12px;">
+                                            <div class="">
+                                                <div class="col-md-12 p-0" >
                                                     <span class="col-md-12 p-0 " style="color:white;">Bitte wählen Sie
                                                         die zutreffenden Sparten
                                                         aus:</span>
@@ -376,7 +376,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="row" style="margin-top: 38%;">
+                                    <div class="row" [style.margin-top]="artsparte.form.valid ? '38%' : '45%'">
                                         <div class="text-right">
                                             <div fxLayoutAlign="end end">
                                                 <button type="button" class="button-primary transitionanimation"
@@ -560,7 +560,7 @@
 
                                                 </div>
 
-                                                <div class="col-md-12 p-0">
+                                                <div class="col-md-12 p-0" style="margin-top: -15px;">
                                                     <div class="col-md-6" style="display: inline-block"></div>
                                                     <div class="col-md-6 text-right" style="display: inline-block">
                                                         <!-- <div id="recaptcha1"> -->
@@ -577,7 +577,7 @@
                                     </div>
 
 
-                                    <div class="row">
+                                    <div class="col-md-12 p-0" >
                                         <div class=" text-right">
                                             <div fxLayoutAlign="end end">
                                                 <button class="button-primary transitionanimation" mat-raised-button
