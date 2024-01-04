@@ -1046,6 +1046,16 @@ body {
     background-color: #1ca706 !important;
 }
 
+/* :host ::ng-deep .mat-checkbox-frame{
+    border-radius: 5px;
+} */
+
+:host ::ng-deep .checkboxStyle {
+    & .mat-checkbox-background, .mat-checkbox-frame {
+      border-radius: 6px !important;
+    }
+  }
+
 
 .sparte_span {
     border-radius: 5px;
