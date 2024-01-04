@@ -208,7 +208,7 @@
                             <div class="mainForm">
                                 <ng-template matStepLabel>Anforderungen</ng-template>
                                 <div>
-                                    <form class="Official-residence-form">
+                                    <form class="Official-residence-form step2Form d-flex flex-column justify-content-between align-items-stretch">
                                         <div class="" style="width: 100%; margin: 0px">
                                             <div class="col-md-12"><br /></div>
                                             <div class="col-md-12 p-0">
@@ -277,7 +277,7 @@
 
 
                                         <!-- button-primary-two -->
-                                        <div fxLayoutAlign="end end" style="margin-top: 37%;">
+                                        <div fxLayoutAlign="end end" >
                                             <button id="btn" class="button-primary  transitionanimation"
                                                 mat-raised-button matStepperNext [disabled]="!buttonCondition">
                                                 Produktpartner Registrierung starten <i class="fas fa-arrow-right"></i>
@@ -291,12 +291,12 @@
                             <div>
                                 <ng-template matStepLabel>Produktportfolio</ng-template>
                                 <form [formGroup]="artsparteFormGroup" #artsparte="ngForm" novalidate=""
-                                    class="Official-residence-form p-2">
-                                    <div class="row" style="width: 100%; margin: 0px">
+                                    class="Official-residence-form step2Form  d-flex flex-column justify-content-between align-items-stretch ">
+                                    <div class="  " style="width: 100%; margin: 0px">
                                         <div class="col-md-12"><br /></div>
                                         <div class="col-md-12 pl-0">
                                             <div class="col-md-12 p-0 ">
-                                                <p class="color-font">
+                                                <p class="color-font pt-2">
                                                     Bitte legen Sie die Art des zu registrierenden Unternehmen mit den
                                                     jeweiligen Produktsparten fest.
                                                 </p>
@@ -376,7 +376,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="row" [style.margin-top]="artsparte.form.valid ? '38%' : '45%'">
+                                    <div class="col-md-12 p-0 ">
                                         <div class="text-right">
                                             <div fxLayoutAlign="end end">
                                                 <button type="button" class="button-primary transitionanimation"
