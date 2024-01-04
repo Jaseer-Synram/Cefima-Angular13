@@ -6,7 +6,17 @@
     background-repeat: no-repeat;
 }
 
+@media screen and (min-height: 1100px) {
+    .head-rectangle {
+        height: 900px; 
+    }
+}
 
+@media screen and (min-height: 1300px) {
+    .head-rectangle {
+        height: 1100px; 
+    }
+}
 
 .gradient {
     background: rgb(16, 103, 182);

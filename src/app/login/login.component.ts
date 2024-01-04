@@ -280,6 +280,8 @@ export class LoginComponent implements AfterViewInit, OnInit {
   ) {
     this.route.queryParams.subscribe((param) => {
       this.ppid = param["ppid"];
+      console.log(this.ppid);
+      
     });
 
     // for more details on config options please visit fullPage.js docs
@@ -1498,6 +1500,7 @@ export class LoginComponent implements AfterViewInit, OnInit {
   }
   gotosessiondashboard() {
     if (this.tokensession != null) {
+      console.log(this.tokensession);
       if (this.currentActiveRole == "b2b") {
         this.router.navigate(["/b2b-home"]);
       } else {
@@ -1506,6 +1509,8 @@ export class LoginComponent implements AfterViewInit, OnInit {
         });
       }
     } else {
+      console.log('else');
+      
       this.router.navigate(["/"]);
     }
   }
@@ -1750,6 +1755,7 @@ export class LoginComponent implements AfterViewInit, OnInit {
     $("#datedynamic").html(todaynew1);
     if (this.ppid != undefined) {
       $("#loginbtn").trigger("click");
+      console.log(this.ppid);
     }
 
     let that = this;
