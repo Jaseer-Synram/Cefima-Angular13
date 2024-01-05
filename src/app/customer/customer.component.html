@@ -291,9 +291,9 @@
                             </div>
                             <div [ngClass]="opened_tab.personal_data ? '' : 'd-none'">
                                 <div class="row">
-                                    <div *ngIf="customer && !b2b" class="form-group p-0 col-md-4">
-                                        <mat-form-field class="example-full-width col-md-12" appearance="outline"
-                                            style="margin-right: 18px">
+                                    <div *ngIf="customer && !b2b" class="form-group p-0 col-md-8 d-flex">
+                                        <mat-form-field class="example-full-width col-md-6" appearance="outline"
+                                            >
                                             <mat-label>Geschäftszweig</mat-label>
                                             <mat-select matNativeControl formControlName="statusbrand"
                                                 [disabled]="true">
@@ -303,7 +303,7 @@
                                                 </mat-option>
                                             </mat-select>
                                         </mat-form-field>
-                                        <mat-form-field class="col-md-12" appearance="outline">
+                                        <mat-form-field class="col-md-6" appearance="outline">
                                             <mat-label>Status</mat-label>
                                             <mat-select matNativeControl formControlName="status">
                                                 <mat-option value="Kunde (Interessent)">Kunde
@@ -389,6 +389,15 @@
                                         </mat-form-field>
                                     </div>
 
+                                    
+                                    <div class="form-group col-md-4 p-0" *ngIf="companyTitleShow">
+                                        <mat-form-field class="col-md-12" appearance="outline">
+                                            <mat-label>Firmenname</mat-label>
+                                            <input (keyup)="checkDataAndCreateUpdateData()"
+                                                (blur)="checkDataAndCreateUpdateData()" matInput
+                                                formControlName="companyname" placeholder="Firmenname" />
+                                        </mat-form-field>
+                                    </div>
                                     <div class="form-group col-md-4 p-0">
                                         <mat-form-field class="col-md-12" appearance="outline">
                                             <mat-label>Anrede</mat-label>
@@ -398,14 +407,6 @@
                                                 <mat-option value="Frau">Frau</mat-option>
                                                 <mat-option value="Firma">Firma</mat-option>
                                             </mat-select>
-                                        </mat-form-field>
-                                    </div>
-                                    <div class="form-group col-md-4 p-0" *ngIf="companyTitleShow">
-                                        <mat-form-field class="col-md-12" appearance="outline">
-                                            <mat-label>Firmenname</mat-label>
-                                            <input (keyup)="checkDataAndCreateUpdateData()"
-                                                (blur)="checkDataAndCreateUpdateData()" matInput
-                                                formControlName="companyname" placeholder="Firmenname" />
                                         </mat-form-field>
                                     </div>
                                     <div class="form-group col-md-4 p-0">
@@ -582,7 +583,8 @@
                                                 </mat-option>
                                             </mat-select>
                                         </mat-form-field>
-
+                                    </div>
+                                    <div class="form-group col-md-4 p-0" *ngIf="customer">
                                         <mat-form-field class="example-full-width col-md-12" appearance="outline">
                                             <mat-label>Verknüpftes Konto</mat-label>
 

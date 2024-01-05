@@ -1299,7 +1299,7 @@ export class UploadDocumentComponent implements OnInit {
         if (extension == "doc" || extension == "docx") {
           ImageName = "../assets/docx.png";
         } else if (extension == "pdf" || extension == "pdfx") {
-          ImageName = "../assets/PDF.svg";
+          ImageName = "../assets/icons/file-upload-blue-pdf.svg";
         } else {
           ImageName = (e.target as any).result;
         }
