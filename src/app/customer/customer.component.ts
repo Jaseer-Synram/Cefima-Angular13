@@ -17,8 +17,6 @@ import {
   FormGroup,
   Validators,
 } from "@angular/forms";
-import { MatTableDataSource } from "@angular/material/table";
-import { log } from "console";
 export interface Broker {
   name: string;
   value: string;
@@ -516,8 +514,6 @@ export class CustomerComponent implements OnInit {
     "Zentralafrikanisch",
   ];
 
-  displayedColumns: string[] = ['Name', 'E-Mail', 'Rolle', 'Kunden-/ Benutzer Nr.','Interaktionen'];
-  dataSource : any  
   secondsSinceEpoch: any;
 
   roleCompaniesbrand: any = {
@@ -964,9 +960,7 @@ export class CustomerComponent implements OnInit {
     element1new.after(accordian);
     accordian.classList.add("collapse");
     // accordian.classList.add("collapse");
-    // accordian.classList.remove("collapse-show");
-    this.open_modal('staticEditBackdrop')
-    console.log('reached ******************************************************************');
+    accordian.classList.remove("collapse-show");
   }
   setPage(page: number) {
     this.getdivoutside();
@@ -978,10 +972,6 @@ export class CustomerComponent implements OnInit {
       this.pager.startIndex,
       this.pager.endIndex + 1
     );
-    console.log(this.pagedItems);
-    
-    this.dataSource = new MatTableDataSource(this.pagedItems)
-
     if (this.customerList.length > 0) {
       this.startRecord =
         this.pager.currentPage * this.pagerService.getDefaultPageSize() -
@@ -1236,7 +1226,6 @@ export class CustomerComponent implements OnInit {
       });
 
       console.log("hjgjjhhjkjkh" + JSON.stringify(data1));
-      
       // console.log("data1"+data1.brokerarray)
       // console.log("data1"+ this.brokerarray)
       // console.log("data1"+ data1.brokerarray.length)
@@ -1432,20 +1421,18 @@ export class CustomerComponent implements OnInit {
       that.companyTitleShow = data1.title === "Firma" ? true : false;
       console.log("CCC", data1);
       that.userData = data1;
-      
     }
-   
   }
 
   brokerDisplayFn(user: Broker): string {
     console.log("sadasdasdasd");
     console.log("befor" + this.disableEditSubmit);
-    console.log(user, 'user');
-    
-    if (user.name != "") {
-      this.disableEditSubmit = false;
-      console.log("after" + this.disableEditSubmit);
-      return user && user.name ? user.name : "";
+    if (user) {
+      if (user.name != "") {
+        this.disableEditSubmit = false;
+        console.log("after" + this.disableEditSubmit);
+        return user && user.name ? user.name : "";
+      }
     } else {
       this.disableEditSubmit = true;
       console.log("aftertest" + this.disableEditSubmit);
@@ -1610,13 +1597,9 @@ export class CustomerComponent implements OnInit {
     console.log("element1new" + element.innerHTML);
     console.log("element" + element);
     console.log("else accordian1", accordian);
-
-
     if (element.innerHTML == "Schließen") {
       console.log("element", element1new);
       element1new.after(accordian);
-      accordian.classList.add("collapse");
-      accordian.classList.add("collapse");
       accordian.classList.remove("collapse-show");
       element.innerHTML = "Öffnen";
 
@@ -1624,12 +1607,11 @@ export class CustomerComponent implements OnInit {
       console.log("elementelse0000000", element1);
       //this.checkDataAndCreateUpdateData(true, element, accordian,close)
     } else {
-      console.log(element.innerHTML, 'html');
       setTimeout(() => {
         const input: any = document.querySelector("#phone");
-        console.log("querySelector" + JSON.stringify(input));
+        console.log("querySelector" + input.value);
         intlTelInput(input, {});
-      }, 1000);
+      }, 500);
 
       if (this.id != "") {
         let elementnew1: HTMLElement = document.getElementById(
@@ -1643,9 +1625,11 @@ export class CustomerComponent implements OnInit {
       console.log("else accordian", accordian);
       console.log("else element", element1);
       element1.after(accordian);
-      accordian.classList.remove("collapse");
-      accordian.classList.add("collapse-show");
-      element.innerHTML = "Schließen";
+      // accordian.classList.remove("collapse");
+      // accordian.classList.add("collapse-show");
+      // element.innerHTML = "Schließen";
+      $('#openpreviewmodel').trigger('click');
+      this.open_modal('staticBackdrop')
       this.id = id;
       this.getcurrentUser(this.id);
     }
@@ -2497,11 +2481,12 @@ export class CustomerComponent implements OnInit {
   }
 
   open_modal(modal_id: any) {
-    console.log(modal_id,'modal here');
+    console.log(modal_id);
     
     $('#' + modal_id).appendTo("body");
   }
   close_modal(modal_id: any, append_to: any) {
     $('#' + modal_id).appendTo("#" + append_to);
   }
+
 }
