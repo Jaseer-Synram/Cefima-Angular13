@@ -122,17 +122,38 @@
 .pure-toggle-label .pure-toggle-icon,
 .pure-toggle-label .pure-toggle-icon:before,
 .pure-toggle-label .pure-toggle-icon:after {
-    position: absolute;
-    top: 50%;
-    left: 50%;
+    text-align: start;
     height: 4px;
-    width: 35px;
     cursor: pointer;
-    background: black;
+    background: rgb(255, 255, 255);
     display: block;
     content: "";
     -webkit-transition: all 500ms ease-in-out;
     transition: all 500ms ease-in-out;
+}
+
+.pure-toggle-label .pure-toggle-icon {
+    width: 30px; 
+    position: absolute;
+    top: 50%;
+    left: 50%; 
+    text-align: start;
+}
+
+.pure-toggle-label .pure-toggle-icon:before {
+    width: 30px ;   
+    position: absolute;
+    top: 50%;
+    left: 50%; 
+    text-align: start;
+}
+
+.pure-toggle-label .pure-toggle-icon:after {
+    width: 30px ;  
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    text-align: start;
 }
 
 .pure-toggle-label .pure-toggle-icon {

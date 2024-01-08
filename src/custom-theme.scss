@@ -414,37 +414,11 @@ $Frontend-theme: mat-light-theme($Frontend-primary, $Frontend-accent, $Frontend-
   transform: scale(1.2);
 }
 
-// @mixin styleStepLine($index) {
-//   .mat-horizontal-stepper-header {
-//     &+.mat-stepper-horizontal-line:nth-child(#{$index}) {
-//       height: 2px;
-//       background-image: linear-gradient(to right, #154FA3, #049FE5);
-//       content: "\f105" !important;
-//       font: normal bolder normal 22px/1 FontAwesome !important;
-
-//       &:before {
-//         position: relative !important;
-//         left: 98% !important;
-//         top: -11px;
-//         color: #049FE5 !important;
-//         font-weight: bolder !important;
-//       }
-
-//       // position: relative !important;
-//       // color: #049FE5 !important;
-//       border: none !important;
-//     }
-//   }
-// }
-
-
-
-
 @mixin styleStepLine($index) {
   .mat-horizontal-stepper-header {
     &+.mat-stepper-horizontal-line:nth-child(#{$index}) {
       height: 2px;
-      background: linear-gradient(to right, #154FA3, #049FE5);
+      background-image: linear-gradient(to right, #154FA3, #049FE5);
       content: "\f105" !important;
       font: normal bolder normal 22px/1 FontAwesome !important;
 
@@ -456,10 +430,13 @@ $Frontend-theme: mat-light-theme($Frontend-primary, $Frontend-accent, $Frontend-
         font-weight: bolder !important;
       }
 
+      // position: relative !important;
+      // color: #049FE5 !important;
       border: none !important;
     }
   }
 }
+
 
 @mixin styleEditedStepIcon($index) {
   .mat-horizontal-stepper-header:nth-child(#{$index}) {
@@ -506,6 +483,8 @@ $Frontend-theme: mat-light-theme($Frontend-primary, $Frontend-accent, $Frontend-
   @include styleStepLine(8);
   @include styleStepLine(10);
 }
+
+
 
 .mat-stepper-label-position-bottom .mat-horizontal-stepper-header:not(:first-child)::before,
 .mat-stepper-label-position-bottom .mat-horizontal-stepper-header:not(:last-child)::after,

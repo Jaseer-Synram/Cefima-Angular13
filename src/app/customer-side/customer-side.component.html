@@ -1744,19 +1744,18 @@
                           <form [formGroup]="addressFormGroupnew" #fso1="ngForm" class="Official-residence-form">
                             <ng-template matStepLabel>Offizielle Unternehmensdaten
                             </ng-template>
-                            <div class="col-md-12">
-                              <div class="row" id="addressFormNew" style="
-                                  padding: 0px;
+                            <div class="col-md-12 p-0 ">
+                              <div class="col-md-12 p-0 d-flex flex-raw " id="addressFormNew" style="
                                   margin-top: 20px !important;
                                 ">
-                                <div class="col-md-4" style="padding: 0px">
-                                  <mat-form-field appearance="outline">
+                                <div class="col-md-4 p-0" style="padding: 0px">
+                                  <mat-form-field class="col-md-11 p-0" appearance="outline">
                                     <mat-label>Name der Firma</mat-label>
                                     <input matInput formControlName="companyname" placeholder="Name der Firma" />
                                   </mat-form-field>
                                 </div>
-                                <div class="col-md-4" style="padding: 0px">
-                                  <mat-form-field class="example-full-width" appearance="outline">
+                                <div class="col-md-4 p-0" style="padding: 0px">
+                                  <mat-form-field class="col-md-11 p-0 example-full-width" appearance="outline">
                                     <mat-label>Unternehmensform</mat-label>
                                     <input type="text" aria-label="Number" matInput [formControl]="ThirdTypeDoc"
                                       (ngModelChange)="ThirdTypeDocValue()" [matAutocomplete]="auto2" />
@@ -1770,18 +1769,17 @@
                                     </mat-autocomplete>
                                   </mat-form-field>
                                 </div>
+                                <div class="col-md-12 px-0 py-2 graybox">
+                                  <span class="">
+                                    Bitte geben Sie hier die offizielle
+                                    Geschäftsadresse an.
+                                  </span>
+                                </div>
 
-                                <p style="
-                                    text-align: left;
-                                    margin-bottom: 5px;
-                                    font-size: 12px;
-                                  ">
-                                  Bitte geben Sie hier die offizielle
-                                  Geschäftsadresse an.
-                                </p>
 
-                                <div class="col-md-4" style="padding: 0px">
-                                  <mat-form-field appearance="outline" style="background-color: white !important">
+                                <div class="col-md-4 p-0" style="padding: 0px">
+                                  <mat-form-field class="col-md-11 p-0" appearance="outline"
+                                    style="background-color: white !important">
                                     <mat-label>Straße</mat-label>
                                     <input matInput placeholder="Straße" formControlName="street"
                                       ngx-google-places-autocomplete [options]="options" #placesRef="ngx-places"
@@ -1791,28 +1789,28 @@
                                   </mat-form-field>
                                 </div>
 
-                                <div class="col-md-4" style="padding: 0px">
-                                  <mat-form-field appearance="outline">
+                                <div class="col-md-4 p-0" style="padding: 0px">
+                                  <mat-form-field class="col-md-11 p-0" appearance="outline">
                                     <mat-label>Nr.</mat-label>
                                     <input matInput placeholder="Nr." formControlName="streetNumber" />
                                   </mat-form-field>
                                 </div>
-                                <div class="col-md-4" style="padding: 0px">
-                                  <mat-form-field appearance="outline">
+                                <div class="col-md-4 p-0" style="padding: 0px">
+                                  <mat-form-field class="col-md-11 p-0" appearance="outline">
                                     <mat-label>PLZ</mat-label>
                                     <input matInput placeholder="PLZ" formControlName="postCode" />
                                   </mat-form-field>
                                 </div>
 
-                                <div class="col-md-4" style="padding: 0px">
-                                  <mat-form-field appearance="outline">
+                                <div class="col-md-4 p-0" style="padding: 0px">
+                                  <mat-form-field class="col-md-11 p-0" appearance="outline">
                                     <mat-label>Stadt</mat-label>
                                     <input matInput placeholder="Stadt" formControlName="city" />
                                   </mat-form-field>
                                 </div>
 
-                                <div class="col-md-4" style="padding: 0px">
-                                  <mat-form-field appearance="outline">
+                                <div class="col-md-4 p-0" style="padding: 0px">
+                                  <mat-form-field class="col-md-11 p-0" appearance="outline">
                                     <mat-label>C/O Appartmentnummer, Türcode,
                                       usw.</mat-label>
                                     <input matInput placeholder="C/O Appartmentnummer, Türcode, usw."
@@ -1820,8 +1818,8 @@
                                   </mat-form-field>
                                 </div>
 
-                                <div class="col-md-4" style="padding: 0px">
-                                  <mat-form-field appearance="outline">
+                                <div class="col-md-4 p-0" style="padding: 0px">
+                                  <mat-form-field class="col-md-11 p-0" appearance="outline">
                                     <mat-label>Land des Wohnsitzes</mat-label>
                                     <input matInput placeholder="Land des Wohnsitzes"
                                       formControlName="countryOfResidence" ngx-google-places-autocomplete
@@ -1834,7 +1832,7 @@
 
                               <div fxLayoutAlign="end end">
                                 <!-- <button
-                          class="stepper-btn transitionanimation"
+                          class="stepper-btn btn transitionanimation"
                           
                           mat-raised-button
                           
@@ -1843,7 +1841,7 @@
                           Reset 
                         </button> -->
 
-                                <button class="stepper-btn transitionanimation" mat-raised-button matStepperNext
+                                <button class="stepper-btn btn transitionanimation" mat-raised-button matStepperNext
                                   [disabled]="
                                     ThirdTypeDoc.value != '' &&
                                     ThirdTypeDoc.value != null &&
@@ -1871,8 +1869,8 @@
                             <ng-template matStepLabel>Persönliche Informationen
                             </ng-template>
 
-                            <div class="col-md-12">
-                              <div class="row" id="personaladdressFormNew" style="
+                            <div class="col-md-12 p-0">
+                              <div class="col-md-12 p-0 d-flex flex-raw flex-wrap" id="personaladdressFormNew" style="
                                   padding: 0px;
                                   margin-top: 20px !important;
                                 ">
@@ -1989,14 +1987,14 @@
                                 </div>
                               </div>
                               <div fxLayoutAlign="end end">
-                                <button class="stepper-btn transitionanimation" mat-button matStepperPrevious
+                                <button class="stepper-btn btn transitionanimation" mat-button matStepperPrevious
                                   style="width: 110px">
                                   <i class="fa fa-arrow-left" aria-hidden="true"></i>
                                   &nbsp; Zurück
                                 </button>
                                 &nbsp;
                                 <!-- <button
-                  class="stepper-btn transitionanimation"
+                  class="stepper-btn btn transitionanimation"
                   
                   mat-raised-button
                   
@@ -2004,7 +2002,7 @@
                 >
                   Reset 
                 </button> -->
-                                <button class="stepper-btn transitionanimation" matStepperNext mat-raised-button
+                                <button class="stepper-btn btn transitionanimation" matStepperNext mat-raised-button
                                   [disabled]="!livingfso1.form.valid">
                                   Weiter &nbsp;
                                   <i class="fa fa-arrow-right" aria-hidden="true"></i>
@@ -2231,7 +2229,7 @@
                                       <button *ngIf="
                                           addedpersonsFirst.length == i;
                                           else openclose
-                                        " style="margin-top: auto" class="stepper-btn transitionanimation"
+                                        " style="margin-top: auto" class="stepper-btn btn transitionanimation"
                                         mat-raised-button (click)="
                                           addlegalrepresentativeform('tick')
                                         " [disabled]="
@@ -2241,7 +2239,7 @@
                                           aria-hidden="true"></i>
                                       </button>
                                       <ng-template #openclose>
-                                        <button class="stepper-btn transitionanimation" mat-raised-button
+                                        <button class="stepper-btn btn transitionanimation" mat-raised-button
                                           style="margin-top: auto" (click)="showhiddenfieldsFirst(i)" [disabled]="
                                             legalrepresentativeform11.invalid
                                           ">
@@ -2264,7 +2262,7 @@
                                 </div>
                               </div>
 
-                              <button style="margin-top: 20px; float: right" class="stepper-btn transitionanimation"
+                              <button style="margin-top: 20px; float: right" class="stepper-btn btn transitionanimation"
                                 mat-raised-button (click)="addlegalrepresentativeform('addmore')"
                                 [disabled]="!secondcompanyfso.form.valid">
                                 <i class="fas fa-user-plus"></i>&nbsp;Hinzufügen&nbsp;<i class="fa fa-arrow-down"
@@ -2448,7 +2446,7 @@
                                       <button *ngIf="
                                           addedpersonsSecond.length == i;
                                           else openclose
-                                        " style="margin-top: auto" class="stepper-btn transitionanimation"
+                                        " style="margin-top: auto" class="stepper-btn btn transitionanimation"
                                         mat-raised-button (click)="
                                           addlegalrepresentativeform1('tick')
                                         " [disabled]="
@@ -2458,7 +2456,7 @@
                                           aria-hidden="true"></i>
                                       </button>
                                       <ng-template #openclose>
-                                        <button class="stepper-btn transitionanimation" mat-raised-button
+                                        <button class="stepper-btn btn transitionanimation" mat-raised-button
                                           style="margin-top: auto" (click)="showhiddenfieldsSecond(i)" [disabled]="
                                             legalrepresentativeform111.invalid
                                           ">
@@ -2483,7 +2481,7 @@
                               <button style="
                                   margin-top: 20px !important;
                                   float: right;
-                                " class="stepper-btn transitionanimation" mat-raised-button
+                                " class="stepper-btn btn transitionanimation" mat-raised-button
                                 (click)="addlegalrepresentativeform1('addmore')"
                                 [disabled]="!secondcompanyfso1.form.valid">
                                 <i class="fas fa-user-plus"></i>&nbsp;Hinzufügen&nbsp;<i class="fa fa-arrow-down"
@@ -2715,7 +2713,7 @@
                                       <button *ngIf="
                                           addedpersons.length == i;
                                           else openclose
-                                        " style="margin-top: auto" class="stepper-btn transitionanimation"
+                                        " style="margin-top: auto" class="stepper-btn btn transitionanimation"
                                         mat-raised-button (click)="
                                           addlegalrepresentativeform2('tick')
                                         " [disabled]="
@@ -2725,7 +2723,7 @@
                                           aria-hidden="true"></i>
                                       </button>
                                       <ng-template #openclose>
-                                        <button class="stepper-btn transitionanimation" mat-raised-button
+                                        <button class="stepper-btn btn transitionanimation" mat-raised-button
                                           style="margin-top: auto" (click)="showhiddenfields(i)" [disabled]="
                                             legalrepresentativeform112.invalid
                                           ">
@@ -2759,7 +2757,7 @@
                               <button *ngIf="
                                   legalrepresentativeform2().length > 0;
                                   else showAddbutton
-                                " style="float: right" class="stepper-btn transitionanimation" mat-raised-button
+                                " style="float: right" class="stepper-btn btn transitionanimation" mat-raised-button
                                 (click)="addlegalrepresentativeform2('addmore')" [disabled]="
                                   secondcompanyfso2.form.valid && addmoredata
                                     ? false
@@ -2769,7 +2767,7 @@
                                   aria-hidden="true"></i>
                               </button>
                               <ng-template #showAddbutton>
-                                <button style="float: right" class="stepper-btn transitionanimation" mat-raised-button
+                                <button style="float: right" class="stepper-btn btn transitionanimation" mat-raised-button
                                   (click)="addlegalrepresentativeform21()" [disabled]="false">
                                   <i class="fas fa-user-plus"></i>&nbsp;Hinzufügen&nbsp;<i class="fa fa-arrow-down"
                                     aria-hidden="true"></i>
@@ -2780,14 +2778,14 @@
                         </div>
 
                         <div fxLayoutAlign="end end">
-                          <button class="stepper-btn transitionanimation" mat-button matStepperPrevious
+                          <button class="stepper-btn btn transitionanimation" mat-button matStepperPrevious
                             style="width: 110px">
                             <i class="fa fa-arrow-left" aria-hidden="true"></i>
                             &nbsp; Zurück
                           </button>
                           &nbsp;
                           <!-- <button
-                class="stepper-btn transitionanimation"
+                class="stepper-btn btn transitionanimation"
                 
                 mat-raised-button
                 
@@ -2798,7 +2796,7 @@
                           <button *ngIf="
                               legalrepresentativeform2().length > 0;
                               else noshareholder
-                            " class="stepper-btn transitionanimation" mat-raised-button matStepperNext [disabled]="
+                            " class="stepper-btn btn transitionanimation" mat-raised-button matStepperNext [disabled]="
                               secondcompanyfso.form.valid == true &&
                               moveForward &&
                               secondcompanyfso2.form.valid == true
@@ -2809,7 +2807,7 @@
                             <i class="fa fa-arrow-right" aria-hidden="true"></i>
                           </button>
                           <ng-template #noshareholder>
-                            <button class="stepper-btn transitionanimation" (click)="calculateType3()" mat-raised-button
+                            <button class="stepper-btn btn transitionanimation" (click)="calculateType3()" mat-raised-button
                               matStepperNext [disabled]="
                                 secondcompanyfso.form.valid == true
                                   ? false
@@ -3421,20 +3419,20 @@
                           </div>
 
                           <div fxLayoutAlign="end end">
-                            <button class="stepper-btn transitionanimation" mat-button matStepperPrevious
+                            <button class="stepper-btn btn transitionanimation" mat-button matStepperPrevious
                               style="width: 110px">
                               <i class="fa fa-arrow-left" aria-hidden="true"></i>
                               &nbsp; Zurück
                             </button>
                             &nbsp;
 
-                            <button class="stepper-btn transitionanimation" (click)="finalFirstname()" mat-raised-button
+                            <button class="stepper-btn btn transitionanimation" (click)="finalFirstname()" mat-raised-button
                               matStepperNext [disabled]="!docuploaded" *ngIf="currentActiveRole == 'customer'">
                               Weiter &nbsp;
                               <i class="fa fa-arrow-right" aria-hidden="true"></i>
                             </button>
 
-                            <button id="secondbutton" class="stepper-btn transitionanimation" mat-raised-button
+                            <button id="secondbutton" class="stepper-btn btn transitionanimation" mat-raised-button
                               (click)="finalFirstname(); saveCustomerCompany()" type="button"
                               style="width: 228px; margin-top: 10px" [disabled]="!enablebutton"
                               *ngIf="currentActiveRole != 'customer'">
@@ -3462,7 +3460,7 @@
                               data-toggle="modal"
                           
                                data-target="#exampleModalLongnew"
-                              class="stepper-btn transitionanimation" 
+                              class="stepper-btn btn transitionanimation" 
                               mat-button
                               type="button"
                               (click)="DateRender()"
@@ -3475,7 +3473,7 @@
                               data-toggle="modal"
                           
                                data-target="#exampleModalLongCustomer"
-                              class="stepper-btn transitionanimation" 
+                              class="stepper-btn btn transitionanimation" 
                               mat-button
                               type="button"
                               (click)="DateRender()"
@@ -3548,7 +3546,7 @@
                                   <div class="col-md-5">
                                     <!-- Maklervollmacht öffnen &nbsp; -->
                                     <button *ngIf="brokername == ''; else brokerPOA" data-toggle="modal"
-                                      data-target="#exampleModalLongnew" class="stepper-btn transitionanimation"
+                                      data-target="#exampleModalLongnew" class="stepper-btn btn transitionanimation"
                                       mat-button type="button" (click)="DateRender()" style="
                                         font-size: 18px;
                                         padding: 10px;
@@ -3559,7 +3557,7 @@
                                     </button>
                                     <ng-template #brokerPOA>
                                       <button data-toggle="modal" data-target="#exampleModalLongCustomer"
-                                        class="stepper-btn transitionanimation" mat-button type="button"
+                                        class="stepper-btn btn transitionanimation" mat-button type="button"
                                         (click)="DateRender()" style="
                                           font-size: 18px;
                                           padding: 10px;
@@ -3639,24 +3637,24 @@
                             <div class="col-md-4">
                               <div style="text-align: right">
                                 <div>
-                                  <button class="stepper-btn transitionanimation" mat-button matStepperPrevious
+                                  <button class="stepper-btn btn transitionanimation" mat-button matStepperPrevious
                                     style="width: 110px">
                                     <i class="fa fa-arrow-left" aria-hidden="true"></i>
                                     Zurück</button>&nbsp;
-                                  <button class="stepper-btn transitionanimation" mat-button type="button"
+                                  <button class="stepper-btn btn transitionanimation" mat-button type="button"
                                     id="resetStepper" (click)="stepper.reset()" style="width: 110px">
                                     Reset
                                   </button>
                                 </div>
                                 <!-- <div *ngIf="realcustomer">
                             <div>
-                              <button class="stepper-btn" mat-raised-button (click)="register('0')" [disabled]="!fsl.form.valid"
+                              <button class="stepper-btn btn" mat-raised-button (click)="register('0')" [disabled]="!fsl.form.valid"
                                 style="margin-right: 0px">
                                 Ohne Verifizierungsmail anlegen
                               </button>
                             </div>
           
-                            <button class="stepper-btn" mat-raised-button (click)="register('1')" [disabled]="!fsl.form.valid"
+                            <button class="stepper-btn btn" mat-raised-button (click)="register('1')" [disabled]="!fsl.form.valid"
                               style="margin-right: 0px; padding: 0px 25px">
                               Mit Verifizierungsmail anlegen
                             </button>
@@ -3668,7 +3666,7 @@
                           
                             <button
                             id="secondbutton"
-                            class="stepper-btn transitionanimation"
+                            class="stepper-btn btn transitionanimation"
                             mat-raised-button
                             (click)="save()"
                             style="width: 233px"
@@ -3682,7 +3680,7 @@
                            
                             <button
                             id="secondbutton"
-                            class="stepper-btn transitionanimation"
+                            class="stepper-btn btn transitionanimation"
                             mat-raised-button
                             (click)="save()"
                             style="width: 233px"
@@ -3695,7 +3693,7 @@
                        
                           </div> -->
                                 <div *ngIf="drawingnew == 1">
-                                  <button id="secondbutton" class="stepper-btn transitionanimation" mat-raised-button
+                                  <button id="secondbutton" class="stepper-btn btn transitionanimation" mat-raised-button
                                     (click)="saveCustomerCompany()" type="button" style="width: 228px; margin-top: 10px"
                                     [disabled]="!enablebutton">
                                     Registrierung abschließen&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i>
@@ -3703,7 +3701,7 @@
                                 </div>
 
                                 <div *ngIf="drawingnew == 0">
-                                  <button class="stepper-btn transitionanimation" mat-raised-button
+                                  <button class="stepper-btn btn transitionanimation" mat-raised-button
                                     style="width: 228px; margin-top: 10px" [disabled]="true">
                                     Registrierung abschließen&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i>
                                   </button>
@@ -3730,8 +3728,10 @@
                     margin-bottom: 0px;
                     margin-right: 15x;
                     font-size: 20px;
+                    font-weight:bold;
+                    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
                   ">
-                  Kundentyp hinzufügen
+                  Kundentyp hinzufügen:
                 </p>
                 <button type="button" class="close transitionanimation" data-dismiss="modal" aria-label="Close"
                   (click)="setKeyval('')" id="closeModalCompanyCustomer">
@@ -3740,57 +3740,81 @@
               </div>
               <div class="modal-body">
                 <div class="container">
-                  <div class="row" class="meine-daten-content-main" style="margin-top: 10px; margin-bottom: 15px">
+                  <div class="row" style="margin-top: 10px; margin-bottom: 15px">
                     <mat-horizontal-stepper linear #stepper style="background: bottom" class="stepnewclass"
-                      style="width: 100%">
+                      ngClass="{{ 'last-edited-step-' + stepper.selectedIndex }}">
                       <ng-template matStepperIcon="edit">
                         <mat-icon>check</mat-icon>
                       </ng-template>
 
                       <mat-step [stepControl]="askquestion">
                         <div class="container" style="margin: 0px">
-                          <ng-template matStepLabel>Kundentyp</ng-template>
+                          <ng-template matStepLabel>
+                            <span>Kundentyp</span>
+
+                          </ng-template>
+
+
                           <div class="col-md-12">
                             <div style="text-align: center; margin: 50px">
-                              <p>
-                                Welche Art von Kunden möchten Sie hinzufügen?
-                              </p>
-                              <div style="display: inline-flex !important">
-                                <mat-card class="links" (click)="setKeyval('company')">
-                                  <mat-card-title style="
-                                      margin: inherit !important;
-                                      width: auto;
-                                    ">
-                                    <img mat-card-image src="../assets/Unternehmen.svg" />
-                                  </mat-card-title>
-                                </mat-card>
-                                <mat-card class="links" *ngIf="familyData.length == 0; else showcard"
-                                  (click)="setKeyval('familymember')">
-                                  <mat-card-title style="
-                                      margin: inherit !important;
-                                      width: auto;
-                                    ">
-                                    <img mat-card-image src="../assets/Haushalt.svg" />
-                                  </mat-card-title>
-                                </mat-card>
-                                <ng-template #showcard>
-                                  <mat-card class="links" style="
-                                      background-color: rgba(45, 45, 45, 0.5);
-                                    ">
-                                    <mat-card-title style="
-                                        margin: inherit !important;
-                                        width: auto;
-                                      ">
-                                      <img mat-card-image src="../assets/Haushalt.svg" />
-                                    </mat-card-title>
-                                  </mat-card>
-                                </ng-template>
+                              <div class="col-md-12" style="text-align: left;">
+                                <div style="text-align: left;width: fit-content;margin: 0 auto; font-weight: bold;">
+                                  <p>Welche Art von Kunden möchten Sie hinzufügen?</p>
+                                </div>
+                              </div>
+                              <div class="col-md-12">
+                                <div class="row" style="width: 60%; margin: 20px auto;">
+                                  <div class="col-md-6">
+                                    <mat-card class="links1" (click)="setKeyval('company')"
+                                      (mouseover)="isHoverUnternahman = true" (mouseleave)="isHoverUnternahman = false">
+                                      <mat-card-title class="  d-flex flex-column align-items-center">
+                                        <img *ngIf="!isHoverUnternahman else hoverUnternehmen" mat-card-image
+                                          class="flex-item custom-margin" style="width: 40%;"
+                                          src="../assets/icons/icon1.svg" />
+                                        <ng-template #hoverUnternehmen>
+                                          <img mat-card-image class="flex-item custom-margin" style="width: 40%;"
+                                            src="../../assets/icons/Unternehmen(white).svg" />
+                                        </ng-template>
+                                        <span class="custom-heading flex-item">UNTERNEHMEN</span>
+                                      </mat-card-title>
+                                    </mat-card>
+                                  </div>
+
+                                  <div class="col-md-6" *ngIf="familyData.length == 0;">
+                                    <mat-card class="links1" (click)="setKeyval('familymember')"
+                                      (mouseover)="isHoverHaushalt = true" (mouseleave)="isHoverHaushalt = false">
+                                      <mat-card-title class="d-flex flex-column align-items-center">
+                                        <img *ngIf="!isHoverHaushalt else hoverHaushalt" mat-card-image
+                                          class="flex-item custom-margin" style="width: 40%;"
+                                          src="../../assets/icons/icon2.svg" />
+                                        <ng-template #hoverHaushalt>
+                                          <img mat-card-image class="flex-item custom-margin" style="width: 40%;"
+                                            src="../../assets/icons/haushalt(white).svg" />
+                                        </ng-template>
+                                        <span class=" custom-heading flex-item">HAUSHALT</span>
+                                      </mat-card-title>
+                                    </mat-card>
+
+
+                                  </div>
+                                  <div class="col-md-6" *ngIf="familyData.length != 0;">
+                                    <mat-card class="links1-disabled" (click)="setKeyval('familymember')">
+                                      <mat-card-title class="d-flex flex-column align-items-center">
+                                        <img mat-card-image class="flex-item custom-margin" style="width: 40%;"
+                                          src="../../assets/icons/icon2.svg" />
+                                        <span class=" custom-heading flex-item">HAUSHALT</span>
+                                      </mat-card-title>
+                                    </mat-card>
+
+                                  </div>
+                                </div>
+
                               </div>
                             </div>
                           </div>
 
                           <div fxLayoutAlign="end end">
-                            <button style="display: none" matStepperNext id="movetonextstep">
+                            <button class="stepper-btn btn" style="display: none" matStepperNext id="movetonextstep">
                               Weiter &nbsp;
                               <i class="fa fa-arrow-right" aria-hidden="true"></i>
                             </button>
@@ -3803,19 +3827,19 @@
                           <form [formGroup]="addressFormGroupnew" #fso1="ngForm" class="Official-residence-form">
                             <ng-template matStepLabel>Offizielle Unternehmensdaten
                             </ng-template>
-                            <div class="col-md-12">
-                              <div class="row" id="addressFormNew" style="
-                                  padding: 0px;
+                            <div class="col-md-12 p-0">
+                              <div class="col-md-12 p-0 d-flex flex-raw flex-wrap " id="addressFormNew" style="
+                                  padding: 0px !important;
                                   margin-top: 20px !important;
                                 ">
-                                <div class="col-md-4" style="padding: 0px">
-                                  <mat-form-field appearance="outline">
+                                <div class="col-md-4 p-0" style="padding: 0px">
+                                  <mat-form-field class="col-md-11 p-0" appearance="outline">
                                     <mat-label>Name der Firma</mat-label>
                                     <input matInput formControlName="companyname" placeholder="Name der Firma" />
                                   </mat-form-field>
                                 </div>
-                                <div class="col-md-4" style="padding: 0px">
-                                  <mat-form-field class="example-full-width" appearance="outline">
+                                <div class="col-md-4 p-0" style="padding: 0px">
+                                  <mat-form-field class="col-md-11 p-0 example-full-width" appearance="outline">
                                     <mat-label>Unternehmensform</mat-label>
                                     <input type="text" aria-label="Number" matInput [formControl]="ThirdTypeDoc"
                                       (ngModelChange)="ThirdTypeDocValue()" [matAutocomplete]="auto2" />
@@ -3830,17 +3854,17 @@
                                   </mat-form-field>
                                 </div>
 
-                                <p style="
-                                    text-align: left;
-                                    margin-bottom: 5px;
-                                    font-size: 12px;
-                                  ">
-                                  Bitte geben Sie hier die offizielle
-                                  Geschäftsadresse an.
-                                </p>
+                                <div class="col-md-12">
+                                  <p>
+                                    Bitte geben Sie hier die offizielle
+                                    Geschäftsadresse an.
+                                  </p>
+                                </div>
 
-                                <div class="col-md-4" style="padding: 0px">
-                                  <mat-form-field appearance="outline" style="background-color: white !important">
+
+                                <div class="col-md-4 p-0" style="padding: 0px">
+                                  <mat-form-field class="col-md-11 p-0" appearance="outline"
+                                    style="background-color: white !important">
                                     <mat-label>Straße</mat-label>
                                     <input matInput placeholder="Straße" formControlName="street"
                                       ngx-google-places-autocomplete [options]="options" #placesRef="ngx-places"
@@ -3850,28 +3874,28 @@
                                   </mat-form-field>
                                 </div>
 
-                                <div class="col-md-4" style="padding: 0px">
-                                  <mat-form-field appearance="outline">
+                                <div class="col-md-4 p-0" style="padding: 0px">
+                                  <mat-form-field class="col-md-11 p-0" appearance="outline">
                                     <mat-label>Nr.</mat-label>
                                     <input matInput placeholder="Nr." formControlName="streetNumber" />
                                   </mat-form-field>
                                 </div>
-                                <div class="col-md-4" style="padding: 0px">
-                                  <mat-form-field appearance="outline">
+                                <div class="col-md-4 p-0" style="padding: 0px">
+                                  <mat-form-field class="col-md-11 p-0" appearance="outline">
                                     <mat-label>PLZ</mat-label>
                                     <input matInput placeholder="PLZ" formControlName="postCode" />
                                   </mat-form-field>
                                 </div>
 
-                                <div class="col-md-4" style="padding: 0px">
-                                  <mat-form-field appearance="outline">
+                                <div class="col-md-4 p-0" style="padding: 0px">
+                                  <mat-form-field class="col-md-11 p-0" appearance="outline">
                                     <mat-label>Stadt</mat-label>
                                     <input matInput placeholder="Stadt" formControlName="city" />
                                   </mat-form-field>
                                 </div>
 
-                                <div class="col-md-4" style="padding: 0px">
-                                  <mat-form-field appearance="outline">
+                                <div class="col-md-4 p-0" style="padding: 0px">
+                                  <mat-form-field class="col-md-11 p-0" appearance="outline">
                                     <mat-label>C/O Appartmentnummer, Türcode,
                                       usw.</mat-label>
                                     <input matInput placeholder="C/O Appartmentnummer, Türcode, usw."
@@ -3879,8 +3903,8 @@
                                   </mat-form-field>
                                 </div>
 
-                                <div class="col-md-4" style="padding: 0px">
-                                  <mat-form-field appearance="outline">
+                                <div class="col-md-4 p-0" style="padding: 0px">
+                                  <mat-form-field class="col-md-11 p-0" appearance="outline">
                                     <mat-label>Land des Wohnsitzes</mat-label>
                                     <input matInput placeholder="Land des Wohnsitzes"
                                       formControlName="countryOfResidence" ngx-google-places-autocomplete
@@ -3893,7 +3917,7 @@
 
                               <div fxLayoutAlign="end end">
                                 <!-- <button
-                        class="stepper-btn transitionanimation"
+                        class="stepper-btn btn transitionanimation"
                         
                         mat-raised-button
                         
@@ -3902,7 +3926,7 @@
                         Reset 
                       </button> -->
 
-                                <button class="stepper-btn transitionanimation" mat-raised-button matStepperNext
+                                <button class="stepper-btn btn btn transitionanimation" mat-raised-button matStepperNext
                                   [disabled]="
                                     ThirdTypeDoc.value != '' &&
                                     ThirdTypeDoc.value != null &&
@@ -3931,8 +3955,8 @@
                             <ng-template matStepLabel>Persönliche Informationen
                             </ng-template>
 
-                            <div class="col-md-12">
-                              <div class="row" id="personaladdressFormNew" style="
+                            <div class="col-md-12 p-0">
+                              <div class="col-md-12 p-0 d-flex flex-raw flex-wrap" id="personaladdressFormNew" style="
                                   padding: 0px;
                                   margin-top: 20px !important;
                                 ">
@@ -4049,14 +4073,14 @@
                                 </div>
                               </div>
                               <div fxLayoutAlign="end end">
-                                <button class="stepper-btn transitionanimation" mat-button matStepperPrevious
+                                <button class="stepper-btn btn transitionanimation" mat-button matStepperPrevious
                                   style="width: 110px">
                                   <i class="fa fa-arrow-left" aria-hidden="true"></i>
                                   &nbsp; Zurück
                                 </button>
                                 &nbsp;
                                 <!-- <button
-                class="stepper-btn transitionanimation"
+                class="stepper-btn btn transitionanimation"
                 
                 mat-raised-button
                 
@@ -4064,7 +4088,7 @@
               >
                 Reset 
               </button> -->
-                                <button class="stepper-btn transitionanimation" matStepperNext mat-raised-button
+                                <button class="stepper-btn btn transitionanimation" matStepperNext mat-raised-button
                                   [disabled]="!livingfso1.form.valid">
                                   Weiter &nbsp;
                                   <i class="fa fa-arrow-right" aria-hidden="true"></i>
@@ -4291,7 +4315,7 @@
                                       <button *ngIf="
                                           addedpersonsFirst.length == i;
                                           else openclose
-                                        " style="margin-top: auto" class="stepper-btn transitionanimation"
+                                        " style="margin-top: auto" class="stepper-btn btn transitionanimation"
                                         mat-raised-button (click)="
                                           addlegalrepresentativeform('tick')
                                         " [disabled]="
@@ -4301,7 +4325,7 @@
                                           aria-hidden="true"></i>
                                       </button>
                                       <ng-template #openclose>
-                                        <button class="stepper-btn transitionanimation" mat-raised-button
+                                        <button class="stepper-btn btn transitionanimation" mat-raised-button
                                           style="margin-top: auto" (click)="
                                             showhiddenfieldsFirstCompany(i)
                                           " [disabled]="
@@ -4326,7 +4350,7 @@
                                 </div>
                               </div>
 
-                              <button style="margin-top: 20px; float: right" class="stepper-btn transitionanimation"
+                              <button style="margin-top: 20px; float: right" class="stepper-btn btn transitionanimation"
                                 mat-raised-button (click)="addlegalrepresentativeform('addmore')"
                                 [disabled]="!secondcompanyfso.form.valid">
                                 <i class="fas fa-user-plus"></i>&nbsp;Hinzufügen&nbsp;<i class="fa fa-arrow-down"
@@ -4510,7 +4534,7 @@
                                       <button *ngIf="
                                           addedpersonsSecond.length == i;
                                           else openclose
-                                        " style="margin-top: auto" class="stepper-btn transitionanimation"
+                                        " style="margin-top: auto" class="stepper-btn btn transitionanimation"
                                         mat-raised-button (click)="
                                           addlegalrepresentativeform1('tick')
                                         " [disabled]="
@@ -4520,7 +4544,7 @@
                                           aria-hidden="true"></i>
                                       </button>
                                       <ng-template #openclose>
-                                        <button class="stepper-btn transitionanimation" mat-raised-button
+                                        <button class="stepper-btn btn transitionanimation" mat-raised-button
                                           style="margin-top: auto" (click)="
                                             showhiddenfieldsSecondCompany(i)
                                           " [disabled]="
@@ -4547,7 +4571,7 @@
                               <button style="
                                   margin-top: 20px !important;
                                   float: right;
-                                " class="stepper-btn transitionanimation" mat-raised-button
+                                " class="stepper-btn btn transitionanimation" mat-raised-button
                                 (click)="addlegalrepresentativeform1('addmore')"
                                 [disabled]="!secondcompanyfso1.form.valid">
                                 <i class="fas fa-user-plus"></i>&nbsp;Hinzufügen&nbsp;<i class="fa fa-arrow-down"
@@ -4779,7 +4803,7 @@
                                       <button *ngIf="
                                           addedpersons.length == i;
                                           else openclose
-                                        " style="margin-top: auto" class="stepper-btn transitionanimation"
+                                        " style="margin-top: auto" class="stepper-btn btn transitionanimation"
                                         mat-raised-button (click)="
                                           addlegalrepresentativeform2('tick')
                                         " [disabled]="
@@ -4789,7 +4813,7 @@
                                           aria-hidden="true"></i>
                                       </button>
                                       <ng-template #openclose>
-                                        <button class="stepper-btn transitionanimation" mat-raised-button
+                                        <button class="stepper-btn btn transitionanimation" mat-raised-button
                                           style="margin-top: auto" (click)="showhiddenfieldsCompany(i)" [disabled]="
                                             legalrepresentativeform112.invalid
                                           ">
@@ -4823,7 +4847,7 @@
                               <button *ngIf="
                                   legalrepresentativeform2().length > 0;
                                   else showAddbutton
-                                " class="stepper-btn transitionanimation" style="float: right" mat-raised-button
+                                " class="stepper-btn btn transitionanimation" style="float: right" mat-raised-button
                                 (click)="addlegalrepresentativeform2('addmore')" [disabled]="
                                   secondcompanyfso2.form.valid && addmoredata
                                     ? false
@@ -4833,7 +4857,7 @@
                                   aria-hidden="true"></i>
                               </button>
                               <ng-template #showAddbutton>
-                                <button class="stepper-btn transitionanimation" style="float: right" mat-raised-button
+                                <button class="stepper-btn btn transitionanimation" style="float: right" mat-raised-button
                                   (click)="addlegalrepresentativeform21()" [disabled]="false">
                                   <i class="fas fa-user-plus"></i>&nbsp;Hinzufügen&nbsp;<i class="fa fa-arrow-down"
                                     aria-hidden="true"></i>
@@ -4844,14 +4868,14 @@
                         </div>
 
                         <div fxLayoutAlign="end end">
-                          <button class="stepper-btn transitionanimation" mat-button matStepperPrevious
+                          <button class="stepper-btn btn transitionanimation" mat-button matStepperPrevious
                             style="width: 110px">
                             <i class="fa fa-arrow-left" aria-hidden="true"></i>
                             &nbsp; Zurück
                           </button>
                           &nbsp;
                           <!-- <button
-              class="stepper-btn transitionanimation"
+              class="stepper-btn btn transitionanimation"
               
               mat-raised-button
               
@@ -4862,7 +4886,7 @@
                           <button *ngIf="
                               legalrepresentativeform2().length > 0;
                               else noshareholder
-                            " class="stepper-btn transitionanimation" mat-raised-button matStepperNext [disabled]="
+                            " class="stepper-btn btn transitionanimation" mat-raised-button matStepperNext [disabled]="
                               secondcompanyfso.form.valid == true &&
                               moveForward &&
                               secondcompanyfso2.form.valid == true
@@ -4873,7 +4897,7 @@
                             <i class="fa fa-arrow-right" aria-hidden="true"></i>
                           </button>
                           <ng-template #noshareholder>
-                            <button class="stepper-btn transitionanimation" (click)="calculateType3()" mat-raised-button
+                            <button class="stepper-btn btn transitionanimation" (click)="calculateType3()" mat-raised-button
                               matStepperNext [disabled]="
                                 secondcompanyfso.form.valid == true
                                   ? false
@@ -5161,14 +5185,14 @@
                           </div>
 
                           <div fxLayoutAlign="end end">
-                            <button class="stepper-btn transitionanimation" mat-button matStepperPrevious
+                            <button class="stepper-btn btn transitionanimation" mat-button matStepperPrevious
                               style="width: 110px">
                               <i class="fa fa-arrow-left" aria-hidden="true"></i>
                               &nbsp; Zurück
                             </button>
                             &nbsp;
                             <!-- <button
-                          class="stepper-btn transitionanimation"
+                          class="stepper-btn btn transitionanimation"
                           
                           mat-raised-button
                           
@@ -5176,7 +5200,7 @@
                         >
                           Reset 
                         </button> -->
-                            <button class="stepper-btn transitionanimation" (click)="finalFirstname()" mat-raised-button
+                            <button class="stepper-btn btn transitionanimation" (click)="finalFirstname()" mat-raised-button
                               matStepperNext [disabled]="!docuploaded">
                               Weiter &nbsp;
                               <i class="fa fa-arrow-right" aria-hidden="true"></i>
@@ -5201,13 +5225,13 @@
                                     <br />
                                     Maklervollmacht öffnen &nbsp;
                                     <button *ngIf="brokername == ''; else brokerPOA" data-toggle="modal"
-                                      data-target="#exampleModalLongnew" class="stepper-btn transitionanimation"
+                                      data-target="#exampleModalLongnew" class="stepper-btn btn transitionanimation"
                                       mat-button type="button" (click)="DateRender()">
                                       Vorschau anzeigen &nbsp;<i class="far fa-eye"></i>
                                     </button>
                                     <ng-template #brokerPOA>
                                       <button data-toggle="modal" data-target="#exampleModalLongCustomer"
-                                        class="stepper-btn transitionanimation" mat-button type="button"
+                                        class="stepper-btn btn transitionanimation" mat-button type="button"
                                         (click)="DateRender()">
                                         Vorschau anzeigen &nbsp;<i class="far fa-eye"></i>
                                       </button>
@@ -5279,24 +5303,24 @@
                             <div class="col-md-4">
                               <div style="text-align: right">
                                 <div>
-                                  <button class="stepper-btn transitionanimation" mat-button matStepperPrevious
+                                  <button class="stepper-btn btn transitionanimation" mat-button matStepperPrevious
                                     style="width: 110px">
                                     <i class="fa fa-arrow-left" aria-hidden="true"></i>
                                     Zurück</button>&nbsp;
-                                  <button class="stepper-btn transitionanimation" mat-button type="button"
+                                  <button class="stepper-btn btn transitionanimation" mat-button type="button"
                                     id="resetStepper" (click)="stepper.reset()" style="width: 110px">
                                     Reset
                                   </button>
                                 </div>
                                 <!-- <div *ngIf="realcustomer">
                           <div>
-                            <button class="stepper-btn" mat-raised-button (click)="register('0')" [disabled]="!fsl.form.valid"
+                            <button class="stepper-btn btn" mat-raised-button (click)="register('0')" [disabled]="!fsl.form.valid"
                               style="margin-right: 0px">
                               Ohne Verifizierungsmail anlegen
                             </button>
                           </div>
         
-                          <button class="stepper-btn" mat-raised-button (click)="register('1')" [disabled]="!fsl.form.valid"
+                          <button class="stepper-btn btn" mat-raised-button (click)="register('1')" [disabled]="!fsl.form.valid"
                             style="margin-right: 0px; padding: 0px 25px">
                             Mit Verifizierungsmail anlegen
                           </button>
@@ -5308,7 +5332,7 @@
                         
                           <button
                           id="secondbutton"
-                          class="stepper-btn transitionanimation"
+                          class="stepper-btn btn transitionanimation"
                           mat-raised-button
                           (click)="save()"
                           style="width: 233px"
@@ -5322,7 +5346,7 @@
                          
                           <button
                           id="secondbutton"
-                          class="stepper-btn transitionanimation"
+                          class="stepper-btn btn transitionanimation"
                           mat-raised-button
                           (click)="save()"
                           style="width: 233px"
@@ -5335,7 +5359,7 @@
                      
                         </div> -->
                                 <div *ngIf="drawingnew == 1">
-                                  <button id="secondbutton" class="stepper-btn transitionanimation" mat-raised-button
+                                  <button id="secondbutton" class="stepper-btn btn transitionanimation" mat-raised-button
                                     (click)="saveCustomerCompany()" type="button" style="width: 228px; margin-top: 10px"
                                     [disabled]="!enablebutton">
                                     Registrierung abschließen&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i>
@@ -5343,7 +5367,7 @@
                                 </div>
 
                                 <div *ngIf="drawingnew == 0">
-                                  <button class="stepper-btn transitionanimation" mat-raised-button
+                                  <button class="stepper-btn btn transitionanimation" mat-raised-button
                                     style="width: 228px; margin-top: 10px" [disabled]="true">
                                     Registrierung abschließen&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i>
                                   </button>
@@ -5537,7 +5561,7 @@
                                 <button *ngIf="
                                     currentActiveRole == 'b2b';
                                     else itscustomer
-                                  " class="stepper-btn transitionanimation" (click)="saveFamilyMember()"
+                                  " class="stepper-btn btn transitionanimation" (click)="saveFamilyMember()"
                                   mat-raised-button [disabled]="
                                     familyRelation.value != '' &&
                                     familyRelation.value != null &&
@@ -5555,7 +5579,7 @@
                                   <i class="fas fa-save" aria-hidden="true"></i>
                                 </button>
                                 <ng-template #itscustomer>
-                                  <button class="stepper-btn transitionanimation" mat-raised-button matStepperNext
+                                  <button class="stepper-btn btn transitionanimation" mat-raised-button matStepperNext
                                     [disabled]="
                                       familyRelation.value != '' &&
                                       familyRelation.value != null &&
@@ -5579,7 +5603,7 @@
                                   <button *ngIf="
                                       currentActiveRole == 'b2b';
                                       else itscustomer
-                                    " class="stepper-btn transitionanimation" (click)="saveFamilyMember()"
+                                    " class="stepper-btn btn transitionanimation" (click)="saveFamilyMember()"
                                     mat-raised-button [disabled]="
                                       martialStatusControl.value != '' &&
                                       martialStatusControl.value != null &&
@@ -5594,7 +5618,7 @@
                                     <i class="fas fa-save" aria-hidden="true"></i>
                                   </button>
                                   <ng-template #itscustomer>
-                                    <button class="stepper-btn transitionanimation" mat-raised-button matStepperNext
+                                    <button class="stepper-btn btn transitionanimation" mat-raised-button matStepperNext
                                       [disabled]="
                                         martialStatusControl.value != '' &&
                                         martialStatusControl.value != null &&
@@ -5613,7 +5637,7 @@
                               </ng-template>
                               <!-- <div fxLayoutAlign="end end">
                           <button
-                          class="stepper-btn transitionanimation"
+                          class="stepper-btn btn transitionanimation"
                           (click)="saveFamilyMember()"
                           mat-raised-button
                          [disabled]="(familyRelation.value!='' && familyRelation.value!=null && familyRelation.value!=' ' && martialStatusControl.value!='' && martialStatusControl.value!=null && martialStatusControl.value!=' ' && livingfso.form.valid) ? false : true"
@@ -5681,13 +5705,13 @@
                                         brokername == '';
                                         else brokerPOAfamily
                                       " data-toggle="modal" data-target="#exampleModalLongnewFamilyMember"
-                                      class="stepper-btn transitionanimation" mat-button type="button"
+                                      class="stepper-btn btn transitionanimation" mat-button type="button"
                                       (click)="DateRender()">
                                       Vorschau anzeigen &nbsp;<i class="far fa-eye"></i>
                                     </button>
                                     <ng-template #brokerPOAfamily>
                                       <button data-toggle="modal" data-target="#exampleModalLongFamilyMember"
-                                        class="stepper-btn transitionanimation" mat-button type="button"
+                                        class="stepper-btn btn transitionanimation" mat-button type="button"
                                         (click)="DateRender()">
                                         Vorschau anzeigen &nbsp;<i class="far fa-eye"></i>
                                       </button>
@@ -5759,24 +5783,24 @@
                             <div class="col-md-4">
                               <div style="text-align: right">
                                 <div>
-                                  <button class="stepper-btn transitionanimation" mat-button matStepperPrevious
+                                  <button class="stepper-btn btn transitionanimation" mat-button matStepperPrevious
                                     style="width: 110px">
                                     <i class="fa fa-arrow-left" aria-hidden="true"></i>
                                     Zurück</button>&nbsp;
-                                  <button class="stepper-btn transitionanimation" mat-button type="button"
+                                  <button class="stepper-btn btn transitionanimation" mat-button type="button"
                                     id="resetStepperCompany" (click)="stepper.reset()" style="width: 110px">
                                     Reset
                                   </button>
                                 </div>
                                 <!-- <div *ngIf="realcustomer">
                         <div>
-                          <button class="stepper-btn" mat-raised-button (click)="register('0')" [disabled]="!fsl.form.valid"
+                          <button class="stepper-btn btn" mat-raised-button (click)="register('0')" [disabled]="!fsl.form.valid"
                             style="margin-right: 0px">
                             Ohne Verifizierungsmail anlegen
                           </button>
                         </div>
       
-                        <button class="stepper-btn" mat-raised-button (click)="register('1')" [disabled]="!fsl.form.valid"
+                        <button class="stepper-btn btn" mat-raised-button (click)="register('1')" [disabled]="!fsl.form.valid"
                           style="margin-right: 0px; padding: 0px 25px">
                           Mit Verifizierungsmail anlegen
                         </button>
@@ -5788,7 +5812,7 @@
                       
                         <button
                         id="secondbutton"
-                        class="stepper-btn transitionanimation"
+                        class="stepper-btn btn transitionanimation"
                         mat-raised-button
                         (click)="save()"
                         style="width: 233px"
@@ -5802,7 +5826,7 @@
                        
                         <button
                         id="secondbutton"
-                        class="stepper-btn transitionanimation"
+                        class="stepper-btn btn transitionanimation"
                         mat-raised-button
                         (click)="save()"
                         style="width: 233px"
@@ -5815,7 +5839,7 @@
                    
                       </div> -->
                                 <div *ngIf="drawingnew == 1">
-                                  <button id="secondbutton" class="stepper-btn transitionanimation" mat-raised-button
+                                  <button id="secondbutton" class="stepper-btn btn transitionanimation" mat-raised-button
                                     (click)="saveFamilyMember()" type="button" style="width: 228px; margin-top: 10px"
                                     [disabled]="!enablebutton">
                                     Registrierung abschließen&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i>
@@ -5823,7 +5847,7 @@
                                 </div>
 
                                 <div *ngIf="drawingnew == 0">
-                                  <button class="stepper-btn transitionanimation" mat-raised-button
+                                  <button class="stepper-btn btn transitionanimation" mat-raised-button
                                     style="width: 228px; margin-top: 10px" [disabled]="true">
                                     Registrierung abschließen&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i>
                                   </button>
@@ -6046,7 +6070,7 @@
                                 </div>
                               </div>
                               <div fxLayoutAlign="end end">
-                                <button class="stepper-btn transitionanimation" mat-raised-button matStepperNext
+                                <button class="stepper-btn btn transitionanimation" mat-raised-button matStepperNext
                                   [disabled]="
                                     livingfsooffice.form.valid &&
                                     wrongBranchValue
@@ -6059,7 +6083,7 @@
                               </div>
                               <!-- <div fxLayoutAlign="end end">
                               <button
-                              class="stepper-btn transitionanimation"
+                              class="stepper-btn btn transitionanimation"
                               (click)="saveFamilyMember()"
                               mat-raised-button
                              [disabled]="(familyRelation.value!='' && familyRelation.value!=null && familyRelation.value!=' ' && martialStatusControl.value!='' && martialStatusControl.value!=null && martialStatusControl.value!=' ' && livingfso.form.valid) ? false : true"
@@ -6146,12 +6170,12 @@
                                 </div>
                               </div>
                               <div fxLayoutAlign="end end">
-                                <button class="stepper-btn transitionanimation" mat-button matStepperPrevious>
+                                <button class="stepper-btn btn transitionanimation" mat-button matStepperPrevious>
                                   <i class="fa fa-arrow-left" aria-hidden="true"></i>
                                   &nbsp; Zurück
                                 </button>
                                 &nbsp;
-                                <button class="stepper-btn transitionanimation" mat-raised-button matStepperNext
+                                <button class="stepper-btn btn transitionanimation" mat-raised-button matStepperNext
                                   [disabled]="
                                     !livingfsoofficeaddress.form.valid &&
                                     !enablebutton
@@ -6162,7 +6186,7 @@
                               </div>
                               <!-- <div fxLayoutAlign="end end">
                               <button
-                              class="stepper-btn transitionanimation"
+                              class="stepper-btn btn transitionanimation"
                               (click)="saveFamilyMember()"
                               mat-raised-button
                              [disabled]="(familyRelation.value!='' && familyRelation.value!=null && familyRelation.value!=' ' && martialStatusControl.value!='' && martialStatusControl.value!=null && martialStatusControl.value!=' ' && livingfso.form.valid) ? false : true"
@@ -6458,7 +6482,7 @@
                                 </div>
                               </div>
                               <div fxLayoutAlign="end end">
-                                <button class="stepper-btn transitionanimation" mat-button matStepperPrevious>
+                                <button class="stepper-btn btn transitionanimation" mat-button matStepperPrevious>
                                   <i class="fa fa-arrow-left" aria-hidden="true"></i>
                                   &nbsp; Zurück
                                 </button>
@@ -6466,13 +6490,13 @@
                                 <button *ngIf="
                                     customerCompanyId != 'user';
                                     else itsuser
-                                  " class="stepper-btn transitionanimation" (click)="saveCompanyOffice()"
+                                  " class="stepper-btn btn transitionanimation" (click)="saveCompanyOffice()"
                                   mat-raised-button [disabled]="!livingfsoofficedoc.form.valid">
                                   Speichern &nbsp;
                                   <i class="fas fa-save" aria-hidden="true"></i>
                                 </button>
                                 <ng-template #itsuser>
-                                  <button class="stepper-btn transitionanimation" (click)="saveUserCompanyOffice()"
+                                  <button class="stepper-btn btn transitionanimation" (click)="saveUserCompanyOffice()"
                                     mat-raised-button [disabled]="!livingfsoofficedoc.form.valid">
                                     Speichern &nbsp;
                                     <i class="fas fa-save" aria-hidden="true"></i>
@@ -6481,7 +6505,7 @@
                               </div>
                               <!-- <div fxLayoutAlign="end end">
                               <button
-                              class="stepper-btn transitionanimation"
+                              class="stepper-btn btn transitionanimation"
                               (click)="saveFamilyMember()"
                               mat-raised-button
                              [disabled]="(familyRelation.value!='' && familyRelation.value!=null && familyRelation.value!=' ' && martialStatusControl.value!='' && martialStatusControl.value!=null && martialStatusControl.value!=' ' && livingfso.form.valid) ? false : true"
@@ -6691,7 +6715,7 @@
                                 <button *ngIf="
                                     currentActiveRole == 'b2b';
                                     else itscustomer
-                                  " class="stepper-btn transitionanimation" (click)="saveFamilyMember()"
+                                  " class="stepper-btn btn transitionanimation" (click)="saveFamilyMember()"
                                   mat-raised-button [disabled]="
                                     familyRelation.value != '' &&
                                     familyRelation.value != null &&
@@ -6709,7 +6733,7 @@
                                   <i class="fas fa-save" aria-hidden="true"></i>
                                 </button>
                                 <ng-template #itscustomer>
-                                  <button class="stepper-btn transitionanimation" mat-raised-button matStepperNext
+                                  <button class="stepper-btn btn transitionanimation" mat-raised-button matStepperNext
                                     [disabled]="
                                       familyRelation.value != '' &&
                                       familyRelation.value != null &&
@@ -6730,7 +6754,7 @@
                               </div>
                               <!-- <div fxLayoutAlign="end end">
                               <button
-                              class="stepper-btn transitionanimation"
+                              class="stepper-btn btn transitionanimation"
                               (click)="saveFamilyMember()"
                               mat-raised-button
                              [disabled]="(familyRelation.value!='' && familyRelation.value!=null && familyRelation.value!=' ' && martialStatusControl.value!='' && martialStatusControl.value!=null && martialStatusControl.value!=' ' && livingfso.form.valid) ? false : true"
@@ -6795,13 +6819,13 @@
                                         brokername == '';
                                         else brokerPOAfamily
                                       " data-toggle="modal" data-target="#exampleModalLongnewFamilyMember"
-                                      class="stepper-btn transitionanimation" mat-button type="button"
+                                      class="stepper-btn btn transitionanimation" mat-button type="button"
                                       (click)="DateRender()">
                                       Vorschau anzeigen &nbsp;<i class="far fa-eye"></i>
                                     </button>
                                     <ng-template #brokerPOAfamily>
                                       <button data-toggle="modal" data-target="#exampleModalLongFamilyMember"
-                                        class="stepper-btn transitionanimation" mat-button type="button"
+                                        class="stepper-btn btn transitionanimation" mat-button type="button"
                                         (click)="DateRender()">
                                         Vorschau anzeigen &nbsp;<i class="far fa-eye"></i>
                                       </button>
@@ -6873,24 +6897,24 @@
                             <div class="col-md-4">
                               <div style="text-align: right">
                                 <div>
-                                  <button class="stepper-btn transitionanimation" mat-button matStepperPrevious
+                                  <button class="stepper-btn btn transitionanimation" mat-button matStepperPrevious
                                     style="width: 110px">
                                     <i class="fa fa-arrow-left" aria-hidden="true"></i>
                                     Zurück</button>&nbsp;
-                                  <button class="stepper-btn transitionanimation" mat-button type="button"
+                                  <button class="stepper-btn btn transitionanimation" mat-button type="button"
                                     id="resetStepperCompany" (click)="stepper.reset()" style="width: 110px">
                                     Reset
                                   </button>
                                 </div>
                                 <!-- <div *ngIf="realcustomer">
                             <div>
-                              <button class="stepper-btn" mat-raised-button (click)="register('0')" [disabled]="!fsl.form.valid"
+                              <button class="stepper-btn btn" mat-raised-button (click)="register('0')" [disabled]="!fsl.form.valid"
                                 style="margin-right: 0px">
                                 Ohne Verifizierungsmail anlegen
                               </button>
                             </div>
           
-                            <button class="stepper-btn" mat-raised-button (click)="register('1')" [disabled]="!fsl.form.valid"
+                            <button class="stepper-btn btn" mat-raised-button (click)="register('1')" [disabled]="!fsl.form.valid"
                               style="margin-right: 0px; padding: 0px 25px">
                               Mit Verifizierungsmail anlegen
                             </button>
@@ -6902,7 +6926,7 @@
                           
                             <button
                             id="secondbutton"
-                            class="stepper-btn transitionanimation"
+                            class="stepper-btn btn transitionanimation"
                             mat-raised-button
                             (click)="save()"
                             style="width: 233px"
@@ -6916,7 +6940,7 @@
                            
                             <button
                             id="secondbutton"
-                            class="stepper-btn transitionanimation"
+                            class="stepper-btn btn transitionanimation"
                             mat-raised-button
                             (click)="save()"
                             style="width: 233px"
@@ -6929,7 +6953,7 @@
                        
                           </div> -->
                                 <div *ngIf="drawingnew == 1">
-                                  <button id="secondbutton" class="stepper-btn transitionanimation" mat-raised-button
+                                  <button id="secondbutton" class="stepper-btn btn transitionanimation" mat-raised-button
                                     (click)="saveFamilyMember()" type="button" style="width: 228px; margin-top: 10px"
                                     [disabled]="!enablebutton">
                                     Registrierung abschließen&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i>
@@ -6937,7 +6961,7 @@
                                 </div>
 
                                 <div *ngIf="drawingnew == 0">
-                                  <button class="stepper-btn transitionanimation" mat-raised-button
+                                  <button class="stepper-btn btn transitionanimation" mat-raised-button
                                     style="width: 228px; margin-top: 10px" [disabled]="true">
                                     Registrierung abschließen&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i>
                                   </button>
@@ -7094,13 +7118,13 @@
                                 <button *ngIf="
                                     companyId == '' || companyId == null;
                                     else mainCustomer1
-                                  " class="stepper-btn transitionanimation" (click)="saveCEO()" mat-raised-button
+                                  " class="stepper-btn btn transitionanimation" (click)="saveCEO()" mat-raised-button
                                   [disabled]="!livingfso12.form.valid">
                                   Speichern&nbsp;
                                   <i class="fas fa-save" aria-hidden="true"></i>
                                 </button>
                                 <ng-template #mainCustomer1>
-                                  <button class="stepper-btn transitionanimation" (click)="saveMemberCEO()"
+                                  <button class="stepper-btn btn transitionanimation" (click)="saveMemberCEO()"
                                     mat-raised-button [disabled]="!livingfso12.form.valid">
                                     Speichern&nbsp;
                                     <i class="fas fa-save" aria-hidden="true"></i>
@@ -7260,7 +7284,7 @@
                                 <button *ngIf="
                                     companyId == '' || companyId == null;
                                     else mainCustomer
-                                  " class="stepper-btn transitionanimation" (click)="saveOtherPerson()"
+                                  " class="stepper-btn btn transitionanimation" (click)="saveOtherPerson()"
                                   mat-raised-button [disabled]="
                                     livingfso123.form.valid ? false : true
                                   ">
@@ -7268,7 +7292,7 @@
                                   <i class="fas fa-save" aria-hidden="true"></i>
                                 </button>
                                 <ng-template #mainCustomer>
-                                  <button class="stepper-btn transitionanimation" (click)="saveMemberOtherPerson()"
+                                  <button class="stepper-btn btn transitionanimation" (click)="saveMemberOtherPerson()"
                                     mat-raised-button [disabled]="
                                       livingfso123.form.valid ? false : true
                                     ">
@@ -7460,7 +7484,7 @@
                                 <button *ngIf="
                                     companyId == '' || companyId == null;
                                     else mainCustomer2
-                                  " class="stepper-btn transitionanimation" (click)="saveShareholder()"
+                                  " class="stepper-btn btn transitionanimation" (click)="saveShareholder()"
                                   mat-raised-button [disabled]="
                                     livingfso1234.form.valid &&
                                     cansaveShareholder
@@ -7471,7 +7495,7 @@
                                   <i class="fas fa-save" aria-hidden="true"></i>
                                 </button>
                                 <ng-template #mainCustomer2>
-                                  <button class="stepper-btn transitionanimation" (click)="saveMemberShareholder()"
+                                  <button class="stepper-btn btn transitionanimation" (click)="saveMemberShareholder()"
                                     mat-raised-button [disabled]="
                                       livingfso1234.form.valid &&
                                       cansaveShareholder
@@ -7572,13 +7596,13 @@
                                         brokername == '';
                                         else brokerPOAfamily
                                       " data-toggle="modal" data-target="#exampleModalLongnewFamilyMember"
-                                      class="stepper-btn transitionanimation" mat-button type="button"
+                                      class="stepper-btn btn transitionanimation" mat-button type="button"
                                       (click)="DateRender()">
                                       Vorschau anzeigen &nbsp;<i class="far fa-eye"></i>
                                     </button>
                                     <ng-template #brokerPOAfamily>
                                       <button data-toggle="modal" data-target="#exampleModalLongFamilyMember"
-                                        class="stepper-btn transitionanimation" mat-button type="button"
+                                        class="stepper-btn btn transitionanimation" mat-button type="button"
                                         (click)="DateRender()">
                                         Vorschau anzeigen &nbsp;<i class="far fa-eye"></i>
                                       </button>
@@ -7650,18 +7674,18 @@
                             <div class="col-md-4">
                               <div style="text-align: right">
                                 <div>
-                                  <button class="stepper-btn transitionanimation" mat-button matStepperPrevious
+                                  <button class="stepper-btn btn transitionanimation" mat-button matStepperPrevious
                                     style="width: 110px">
                                     <i class="fa fa-arrow-left" aria-hidden="true"></i>
                                     Zurück</button>&nbsp;
-                                  <button class="stepper-btn transitionanimation" mat-button type="button"
+                                  <button class="stepper-btn btn transitionanimation" mat-button type="button"
                                     id="resetStepperCompany" (click)="stepper.reset()" style="width: 110px">
                                     Reset
                                   </button>
                                 </div>
 
                                 <div *ngIf="drawingnew == 1">
-                                  <button id="secondbutton" class="stepper-btn transitionanimation" mat-raised-button
+                                  <button id="secondbutton" class="stepper-btn btn transitionanimation" mat-raised-button
                                     (click)="saveFamilyMemberPOA()" type="button" style="width: 228px; margin-top: 10px"
                                     [disabled]="false">
                                     Registrierung abschließen&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i>
@@ -7669,7 +7693,7 @@
                                 </div>
 
                                 <div *ngIf="drawingnew == 0">
-                                  <button class="stepper-btn transitionanimation" mat-raised-button
+                                  <button class="stepper-btn btn transitionanimation" mat-raised-button
                                     style="width: 228px; margin-top: 10px" [disabled]="true">
                                     Registrierung abschließen&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i>
                                   </button>
@@ -7793,7 +7817,7 @@
                               <div class="col-md-5">
                                 <!-- Maklervollmacht öffnen &nbsp; -->
                                 <button *ngIf="brokername == ''; else brokerPOA" data-toggle="modal"
-                                  data-target="#exampleModalLongnew" class="stepper-btn transitionanimation" mat-button
+                                  data-target="#exampleModalLongnew" class="stepper-btn btn transitionanimation" mat-button
                                   type="button" (click)="DateRender()" style="
                                     font-size: 18px;
                                     padding: 10px;
@@ -7805,7 +7829,7 @@
                                 </button>
                                 <ng-template #brokerPOA>
                                   <button data-toggle="modal" data-target="#exampleModalLongCustomer"
-                                    class="stepper-btn transitionanimation" mat-button type="button"
+                                    class="stepper-btn btn transitionanimation" mat-button type="button"
                                     (click)="DateRender()" style="
                                       font-size: 18px;
                                       padding: 10px;
@@ -7888,7 +7912,7 @@
                             <div *ngIf="drawingnew == 1">
                               <!-- <button
                        id="secondbutton"
-                      class="stepper-btn transitionanimation"
+                      class="stepper-btn btn transitionanimation"
                       mat-raised-button
                       (click)="saveCustomerCompany()"
                       type="button"
@@ -7899,7 +7923,7 @@
                     Registrierung abschließen&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i>
                     </button> -->
 
-                              <button id="secondbutton" class="stepper-btn transitionanimation" mat-raised-button
+                              <button id="secondbutton" class="stepper-btn btn transitionanimation" mat-raised-button
                                 (click)="
                                   _handleImageUploadcustomeresign(
                                     'external signature'
@@ -7910,7 +7934,7 @@
                             </div>
 
                             <div *ngIf="drawingnew == 0">
-                              <button class="stepper-btn transitionanimation" mat-raised-button
+                              <button class="stepper-btn btn transitionanimation" mat-raised-button
                                 style="width: 228px; margin-top: 10px" [disabled]="true">
                                 Registrierung abschließen&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i>
                               </button>
@@ -8948,7 +8972,7 @@
 
               <!-- Modal footer -->
               <div class="modal-footer" style="align-items: left; border: unset">
-                <button type="button " class="btn stepper-btn transitionanimation" data-dismiss="modal">
+                <button type="button " class="btn stepper-btn btn transitionanimation" data-dismiss="modal">
                   Verstanden
                 </button>
               </div>
@@ -12047,11 +12071,8 @@
                             setCurrentTabUser(localData, 'haushalt')
                           "><i class="fa-solid fa-family" style="color: black"></i>
                           Haushalt {{ localData.lastname }} </span>&nbsp;
-                        <button *ngIf="companyData.length == 0" class="stepper-btn1 transitionanimation" style="
-                            background: transparent;
-                            color: black !important;
-                            border: 1px solid #ccc;
-                          " data-toggle="modal" data-target="#exampleModalLongnewcompany"
+                        <button *ngIf="companyData.length == 0" class="stepper-btn1 transitionanimation"
+                          data-toggle="modal" data-target="#exampleModalLongnewcompany"
                           (click)="open_modal('exampleModalLongnewcompany')">
                           <i class="fa fa-plus" aria-hidden="true"></i>
                         </button>
@@ -12073,11 +12094,8 @@
                                 {{ localData.firstname }}
                                 {{ localData.lastname }}</span>&nbsp;
                               <button *ngIf="familyData.length == 0" class="stepper-btn1 transitionanimation"
-                                data-toggle="modal" data-target="#exampleModalLongnewfamilyPOA" style="
-                                  background: transparent;
-                                  color: black !important;
-                                  border: 1px solid #ccc;
-                                " (click)="open_modal('exampleModalLongnewfamilyPOA')">
+                                data-toggle="modal" data-target="#exampleModalLongnewfamilyPOA"
+                                (click)="open_modal('exampleModalLongnewfamilyPOA')">
                                 <i class="fa fa-plus" aria-hidden="true"></i>
                               </button>
                             </ng-template>
@@ -12512,18 +12530,18 @@
                                                   {{ j + 1 }}
                                                 </li>
                                                 <li class="tabsecond2" style="width: 50%">
-                                                  {{item.document_info[0]?.document_name        }}
+                                                  {{item.document_info[0]?.document_name }}
                                                 </li>
 
                                                 <li class="tabsecond2" style="width: 10%">
                                                   {{
-                                                    item.document_info[0]?.tags[0].split(',')[0]
+                                                  item.document_info[0]?.tags[0].split(',')[0]
                                                   }}
                                                 </li>
 
                                                 <li class="tabsecond2" style="width: 15%">
                                                   {{
-                                                    item.document_info[0]?.createdAt
+                                                  item.document_info[0]?.createdAt
                                                   | date : "dd-MM-yyyy"
                                                   }}
                                                 </li>
@@ -12580,11 +12598,8 @@
                                   &nbsp;{{ member.firstname }}
                                   {{ member.lastname }} </span>&nbsp;
                                 <button class="stepper-btn1 transitionanimation" data-toggle="modal"
-                                  data-target="#exampleModalLongnewfamilyPOA" style="
-                                    background: transparent;
-                                    color: black !important;
-                                    border: 1px solid #ccc;
-                                  " (click)="open_modal('exampleModalLongnewfamilyPOA')">
+                                  data-target="#exampleModalLongnewfamilyPOA"
+                                  (click)="open_modal('exampleModalLongnewfamilyPOA')">
                                   <i class="fa fa-plus" aria-hidden="true"></i>
                                 </button>
                               </ng-template>
@@ -13186,13 +13201,10 @@
                                     setCurrentTabUser(member, 'company')
                                   "><i class="fa fa-building" aria-hidden="true" style="color: black"></i>
                                   {{ member.companyname }} </span>&nbsp;
-                                <button class="stepper-btn1 transitionanimation" data-toggle="modal"
-                                  data-target="#exampleModalLongnewcompany" style="
-                                    background: transparent;
-                                    color: black !important;
-                                    border: 1px solid #ccc;
-                                  " (click)="open_modal('exampleModalLongnewcompany')">
-                                  <i class="fa fa-plus" aria-hidden="true"></i>
+                                <button class="stepper-btn1 sparte transitionanimation" data-toggle="modal"
+                                  data-target="#exampleModalLongnewcompany"
+                                  (click)="open_modal('exampleModalLongnewcompany')">
+                                  <i class="fa fa-plus text-white" aria-hidden="true"></i>
                                 </button>
                               </ng-template>
                               <ng-template *ngIf="i + 1 != companyData.length" mat-tab-label>
@@ -13216,11 +13228,7 @@
                                           setCurrentTabUser(member, 'company')
                                         ">Stammdaten</span>&nbsp;
                                       <button *ngIf="officeData.length == 0" class="stepper-btn1 transitionanimation"
-                                        style="
-                                          background: transparent;
-                                          color: black !important;
-                                          border: 1px solid #ccc;
-                                        " data-toggle="modal" data-target="#exampleModalLongnewcompanyoffices"
+                                        data-toggle="modal" data-target="#exampleModalLongnewcompanyoffices"
                                         (click)="savecompanyId(member);open_modal('exampleModalLongnewcompanyoffices')">
                                         <i class="fa fa-plus" aria-hidden="true"></i>
                                       </button>
@@ -13793,11 +13801,8 @@
                                           <span>
                                             office {{ i + 1 }}</span>
                                         </ng-template>&nbsp;
-                                        <button class="stepper-btn1 transitionanimation" style="
-                                            background: transparent;
-                                            color: black !important;
-                                            border: 1px solid #ccc;
-                                          " data-toggle="modal" data-target="#exampleModalLongnewcompanyoffices"
+                                        <button class="stepper-btn1 transitionanimation" data-toggle="modal"
+                                          data-target="#exampleModalLongnewcompanyoffices"
                                           (click)="savecompanyId(member);open_modal('exampleModalLongnewcompanyoffices')">
                                           <i class="fa fa-plus" aria-hidden="true"></i>
                                         </button>
@@ -14432,11 +14437,7 @@
                                       <ng-template mat-tab-label>
                                         <span>Stammdaten</span>&nbsp;
                                         <button *ngIf="officeData.length == 0" class="stepper-btn1 transitionanimation"
-                                          style="
-                                            background: transparent;
-                                            color: black !important;
-                                            border: 1px solid #ccc;
-                                          " data-toggle="modal" data-target="#exampleModalLongnewcompanyoffices"
+                                          data-toggle="modal" data-target="#exampleModalLongnewcompanyoffices"
                                           (click)="savecompanyId(member);open_modal('exampleModalLongnewcompanyoffices')">
                                           <i class="fa fa-plus" aria-hidden="true"></i>
                                         </button>
@@ -14974,7 +14975,7 @@
                                                   <div class="total-cnt form-group col-md-9 text-left pr-0"
                                                     style="margin-top: 20px">
                                                     <button style="margin-top: auto"
-                                                      class="stepper-btn transitionanimation" mat-raised-button (click)="
+                                                      class="stepper-btn btn transitionanimation" mat-raised-button (click)="
                                                         patchcompanyid(
                                                           member,
                                                           'CEO'
@@ -15284,7 +15285,7 @@
                                                   <div class="total-cnt form-group col-md-9 text-left pr-0"
                                                     style="margin-top: 20px">
                                                     <button style="margin-top: auto"
-                                                      class="stepper-btn transitionanimation" mat-raised-button (click)="
+                                                      class="stepper-btn btn transitionanimation" mat-raised-button (click)="
                                                         patchcompanyid(
                                                           member,
                                                           'otherperson'
@@ -15631,7 +15632,7 @@
                                                   <div class="total-cnt form-group col-md-9 text-left pr-0"
                                                     style="margin-top: 20px">
                                                     <button style="margin-top: auto"
-                                                      class="stepper-btn transitionanimation" mat-raised-button (click)="
+                                                      class="stepper-btn btn transitionanimation" mat-raised-button (click)="
                                                         patchcompanyid(
                                                           member,
                                                           'shareholder'
@@ -15673,11 +15674,8 @@
                                             <span>
                                               office {{ i + 1 }}</span>
                                           </ng-template>&nbsp;
-                                          <button class="stepper-btn1 transitionanimation" style="
-                                              background: transparent;
-                                              color: black !important;
-                                              border: 1px solid #ccc;
-                                            " data-toggle="modal" data-target="#exampleModalLongnewcompanyoffices"
+                                          <button class="stepper-btn1 transitionanimation" data-toggle="modal"
+                                            data-target="#exampleModalLongnewcompanyoffices"
                                             (click)="savecompanyId(member);open_modal('exampleModalLongnewcompanyoffices')">
                                             <i class="fa fa-plus" aria-hidden="true"></i>
                                           </button>
@@ -15914,11 +15912,7 @@
                                 <ng-template mat-tab-label>
                                   <button class="stepper-btn1 transitionanimation" id="addcompany" data-toggle="modal"
                                     data-target="#exampleModalLongnewcompany" (mouseenter)="remove_border('addcompany')"
-                                    style="
-                                      background: transparent;
-                                      color: black !important;
-                                      border: 1px solid #ccc;
-                                    " (click)="open_modal('exampleModalLongnewcompany')">
+                                    (click)="open_modal('exampleModalLongnewcompany')">
                                     <i class="fa fa-plus" aria-hidden="true"></i>
                                   </button>
                                 </ng-template>
@@ -15940,11 +15934,8 @@
                                   style="color: black"></i>
                                 {{ member.companyname }} </span>&nbsp;
                               <button *ngIf="familyData.length == 0" class="stepper-btn1 transitionanimation"
-                                data-toggle="modal" data-target="#exampleModalLongnewcompanycustomer" style="
-                                  background: transparent;
-                                  color: black !important;
-                                  border: 1px solid #ccc;
-                                " (click)="open_modal('exampleModalLongnewcompanycustomer')">
+                                data-toggle="modal" data-target="#exampleModalLongnewcompanycustomer"
+                                (click)="open_modal('exampleModalLongnewcompanycustomer')">
                                 <i class="fa fa-plus" aria-hidden="true"></i>
                               </button>
                             </ng-template>
@@ -15962,11 +15953,7 @@
                                         setCurrentTabUser(member, 'company')
                                       ">Stammdaten</span>&nbsp;
                                     <button *ngIf="officeData.length == 0" class="stepper-btn1 transitionanimation"
-                                      style="
-                                        background: transparent;
-                                        color: black !important;
-                                        border: 1px solid #ccc;
-                                      " data-toggle="modal" data-target="#exampleModalLongnewcompanyoffices"
+                                      data-toggle="modal" data-target="#exampleModalLongnewcompanyoffices"
                                       (click)="savecompanyId(member);open_modal('exampleModalLongnewcompanyoffices')">
                                       <i class="fa fa-plus" aria-hidden="true"></i>
                                     </button>
@@ -16519,11 +16506,8 @@
                                         <span>
                                           office {{ i + 1 }}</span>
                                       </ng-template>&nbsp;
-                                      <button class="stepper-btn1 transitionanimation" style="
-                                          background: transparent;
-                                          color: black !important;
-                                          border: 1px solid #ccc;
-                                        " data-toggle="modal" data-target="#exampleModalLongnewcompanyoffices"
+                                      <button class="stepper-btn1 transitionanimation" data-toggle="modal"
+                                        data-target="#exampleModalLongnewcompanyoffices"
                                         (click)="savecompanyId(member);open_modal('exampleModalLongnewcompanyoffices')">
                                         <i class="fa fa-plus" aria-hidden="true"></i>
                                       </button>
@@ -17096,11 +17080,8 @@
                                     style="color: black"></i>
                                   {{ member.companyname }} </span>&nbsp;
                                 <button *ngIf="familyData.length == 0" class="stepper-btn1 transitionanimation"
-                                  data-toggle="modal" data-target="#exampleModalLongnewcompanycustomer" style="
-                                    background: transparent;
-                                    color: black !important;
-                                    border: 1px solid #ccc;
-                                  " (click)="open_modal('exampleModalLongnewcompanycustomer')">
+                                  data-toggle="modal" data-target="#exampleModalLongnewcompanycustomer"
+                                  (click)="open_modal('exampleModalLongnewcompanycustomer')">
                                   <i class="fa fa-plus" aria-hidden="true"></i>
                                 </button>
                               </ng-template>
@@ -17117,11 +17098,7 @@
                                     <ng-template mat-tab-label>
                                       <span>Stammdaten</span>&nbsp;
                                       <button *ngIf="officeData.length == 0" class="stepper-btn1 transitionanimation"
-                                        style="
-                                          background: transparent;
-                                          color: black !important;
-                                          border: 1px solid #ccc;
-                                        " data-toggle="modal" data-target="#exampleModalLongnewcompanyoffices"
+                                        data-toggle="modal" data-target="#exampleModalLongnewcompanyoffices"
                                         (click)="savecompanyId(member);open_modal('exampleModalLongnewcompanyoffices')">
                                         <i class="fa fa-plus" aria-hidden="true"></i>
                                       </button>
@@ -17626,7 +17603,7 @@
                                                 <div class="total-cnt form-group col-md-9 text-left pr-0"
                                                   style="margin-top: 20px">
                                                   <button style="margin-top: auto"
-                                                    class="stepper-btn transitionanimation" mat-raised-button (click)="
+                                                    class="stepper-btn btn transitionanimation" mat-raised-button (click)="
                                                       patchcompanyid(
                                                         member,
                                                         'CEO'
@@ -17931,7 +17908,7 @@
                                                 <div class="total-cnt form-group col-md-9 text-left pr-0"
                                                   style="margin-top: 20px">
                                                   <button style="margin-top: auto"
-                                                    class="stepper-btn transitionanimation" mat-raised-button (click)="
+                                                    class="stepper-btn btn transitionanimation" mat-raised-button (click)="
                                                       patchcompanyid(
                                                         member,
                                                         'otherperson'
@@ -18270,7 +18247,7 @@
                                                 <div class="total-cnt form-group col-md-9 text-left pr-0"
                                                   style="margin-top: 20px">
                                                   <button style="margin-top: auto"
-                                                    class="stepper-btn transitionanimation" mat-raised-button (click)="
+                                                    class="stepper-btn btn transitionanimation" mat-raised-button (click)="
                                                       patchcompanyid(
                                                         member,
                                                         'shareholder'
@@ -18309,11 +18286,8 @@
                                           <span>
                                             office {{ i + 1 }}</span>
                                         </ng-template>&nbsp;
-                                        <button class="stepper-btn1 transitionanimation" style="
-                                            background: transparent;
-                                            color: black !important;
-                                            border: 1px solid #ccc;
-                                          " data-toggle="modal" data-target="#exampleModalLongnewcompanyoffices"
+                                        <button class="stepper-btn1 transitionanimation" data-toggle="modal"
+                                          data-target="#exampleModalLongnewcompanyoffices"
                                           (click)="savecompanyId(member);open_modal('exampleModalLongnewcompanyoffices')">
                                           <i class="fa fa-plus" aria-hidden="true"></i>
                                         </button>
@@ -18570,11 +18544,8 @@
                                         {{ member.firstname }}
                                         {{ member.lastname }} </span>&nbsp;
                                       <button class="stepper-btn1 transitionanimation" data-toggle="modal"
-                                        data-target="#exampleModalLongnewfamilyPOA" style="
-                                          background: transparent;
-                                          color: black !important;
-                                          border: 1px solid #ccc;
-                                        " (click)="open_modal('exampleModalLongnewfamilyPOA')">
+                                        data-target="#exampleModalLongnewfamilyPOA"
+                                        (click)="open_modal('exampleModalLongnewfamilyPOA')">
                                         <i class="fa fa-plus" aria-hidden="true"></i>
                                       </button>
                                     </ng-template>
@@ -19157,11 +19128,8 @@
                           <mat-tab>
                             <ng-template mat-tab-label>
                               <button id="addfamily" (mouseenter)="remove_border('addfamily')"
-                                class="stepper-btn1 transitionanimation" style="
-                                  background: transparent;
-                                  color: black !important;
-                                  border: 1px solid #ccc;
-                                " data-toggle="modal" data-target="#exampleModalLongnewcompanycustomer"
+                                class="stepper-btn1 transitionanimation" data-toggle="modal"
+                                data-target="#exampleModalLongnewcompanycustomer"
                                 (click)="open_modal('exampleModalLongnewcompanycustomer')">
                                 <i class="fa fa-plus" aria-hidden="true"></i>
                               </button>
@@ -19191,11 +19159,8 @@
                             {{ localData.companyname }} </span>&nbsp;
                           <button *ngIf="
                               companyData.length == 0 && familyData.length == 0
-                            " class="stepper-btn1 transitionanimation" style="
-                              background: transparent;
-                              color: black !important;
-                              border: 1px solid #ccc;
-                            " data-toggle="modal" data-target="#exampleModalLongnewcompanycustomer"
+                            " class="stepper-btn1 transitionanimation" data-toggle="modal"
+                            data-target="#exampleModalLongnewcompanycustomer"
                             (click)="open_modal('exampleModalLongnewcompanycustomer')">
                             <i class="fa fa-plus" aria-hidden="true"></i>
                           </button>
@@ -19205,11 +19170,7 @@
                             <mat-tab class="styletab">
                               <ng-template mat-tab-label><span>Stammdaten</span>&nbsp;
                                 <button *ngIf="userofficeData.length == 0" class="stepper-btn1 transitionanimation"
-                                  style="
-                                    background: transparent;
-                                    color: black !important;
-                                    border: 1px solid #ccc;
-                                  " data-toggle="modal" data-target="#exampleModalLongnewcompanyoffices"
+                                  data-toggle="modal" data-target="#exampleModalLongnewcompanyoffices"
                                   (click)="savecompanyId('user');open_modal('exampleModalLongnewcompanyoffices')">
                                   <i class="fa fa-plus" aria-hidden="true"></i>
                                 </button>
@@ -19664,11 +19625,8 @@
                                     <span>
                                       office {{ i + 1 }}</span>
                                   </ng-template>&nbsp;
-                                  <button class="stepper-btn1 transitionanimation" style="
-                                      background: transparent;
-                                      color: black !important;
-                                      border: 1px solid #ccc;
-                                    " data-toggle="modal" data-target="#exampleModalLongnewcompanyoffices"
+                                  <button class="stepper-btn1 transitionanimation" data-toggle="modal"
+                                    data-target="#exampleModalLongnewcompanyoffices"
                                     (click)="savecompanyId('user');open_modal('exampleModalLongnewcompanyoffices')">
                                     <i class="fa fa-plus" aria-hidden="true"></i>
                                   </button>
@@ -19884,11 +19842,8 @@
                             <button *ngIf="
                                 companyData.length == 0 &&
                                 familyData.length == 0
-                              " class="stepper-btn1 transitionanimation" style="
-                                background: transparent;
-                                color: black !important;
-                                border: 1px solid #ccc;
-                              " data-toggle="modal" data-target="#exampleModalLongnewcompanycustomer"
+                              " class="stepper-btn1 transitionanimation" data-toggle="modal"
+                              data-target="#exampleModalLongnewcompanycustomer"
                               (click)="open_modal('exampleModalLongnewcompanycustomer')">
                               <i class="fa fa-plus" aria-hidden="true"></i>
                             </button>
@@ -19900,11 +19855,7 @@
                                       setCurrentTabUser(localData, 'company')
                                     ">Stammdaten</span>&nbsp;
                                   <button *ngIf="userofficeData.length == 0" class="stepper-btn1 transitionanimation"
-                                    style="
-                                      background: transparent;
-                                      color: black !important;
-                                      border: 1px solid #ccc;
-                                    " data-toggle="modal" data-target="#exampleModalLongnewcompanyoffices"
+                                    data-toggle="modal" data-target="#exampleModalLongnewcompanyoffices"
                                     (click)="savecompanyId('user');open_modal('exampleModalLongnewcompanyoffices')">
                                     <i class="fa fa-plus" aria-hidden="true"></i>
                                   </button>
@@ -20030,6 +19981,7 @@
                                                       <mat-label>
                                                         Telefonnummer
                                                       </mat-label>
+                                                      <!-- hi ummer mon -->
                                                       <input matInput readonly value="{{
                                                           localData.contactno
                                                         }}" placeholder="Telefonnummer" />
@@ -20192,7 +20144,8 @@
                                         class="customer-managment-content-main" style="margin-top: 0px">
                                         <div class="container-fluid">
                                           <div class="d-flex justify-content-end customer-search mt-3">
-                                            <div class="total-cnt form-group col-md-3 text-right pr-0 table-count" *ngIf="
+                                            <div class="total-cnt form-group col-md-3 text-right pr-0 table-count"
+                                              *ngIf="
                                                 startRecordtype[0].type1 &&
                                                 endRecordtype[0].type1 &&
                                                 pagedItemstype[0].type1.length
@@ -20306,7 +20259,7 @@
                                                   margin-top: 14px;
                                                   padding: initial;
                                                 ">
-                                                <button style="margin-top: auto" class="stepper-btn transitionanimation"
+                                                <button style="margin-top: auto" class="stepper-btn btn transitionanimation"
                                                   mat-raised-button data-toggle="modal" data-target="#exampleModalCEO"
                                                   [disabled]="false">
                                                   Mehr hinzufügen
@@ -20548,7 +20501,8 @@
                                         class="customer-managment-content-main" style="margin-top: 0px">
                                         <div class="container-fluid">
                                           <div class="d-flex justify-content-end customer-search mt-3">
-                                            <div class="total-cnt form-group col-md-3 text-right pr-0 table-count" *ngIf="
+                                            <div class="total-cnt form-group col-md-3 text-right pr-0 table-count"
+                                              *ngIf="
                                                 startRecordtype[0].type2 &&
                                                 endRecordtype[0].type2 &&
                                                 pagedItemstype[0].type2.length
@@ -20662,7 +20616,7 @@
                                                   padding: initial;
                                                   margin-top: 20px;
                                                 ">
-                                                <button style="margin-top: auto" class="stepper-btn transitionanimation"
+                                                <button style="margin-top: auto" class="stepper-btn btn transitionanimation"
                                                   mat-raised-button data-toggle="modal"
                                                   data-target="#exampleModalOtherPerson" [disabled]="false">
                                                   Mehr hinzufügen
@@ -20903,7 +20857,8 @@
                                         class="customer-managment-content-main" style="margin-top: 0px">
                                         <div class="container-fluid">
                                           <div class="d-flex justify-content-end customer-search mt-3">
-                                            <div class="total-cnt form-group col-md-3 text-right pr-0 table-count" *ngIf="
+                                            <div class="total-cnt form-group col-md-3 text-right pr-0 table-count"
+                                              *ngIf="
                                                 startRecordtype[0].type3 &&
                                                 endRecordtype[0].type3 &&
                                                 pagedItemstype[0].type3.length
@@ -21028,7 +20983,7 @@
                                                   padding: initial;
                                                   margin-top: 20px;
                                                 ">
-                                                <button style="margin-top: auto" class="stepper-btn transitionanimation"
+                                                <button style="margin-top: auto" class="stepper-btn btn transitionanimation"
                                                   mat-raised-button (click)="patchsharesvalue()">
                                                   Mehr hinzufügen
                                                 </button>
@@ -21583,11 +21538,8 @@
                                       <span>
                                         office {{ i + 1 }}</span>
                                     </ng-template>&nbsp;
-                                    <button class="stepper-btn1 transitionanimation" style="
-                                        background: transparent;
-                                        color: black !important;
-                                        border: 1px solid #ccc;
-                                      " data-toggle="modal" data-target="#exampleModalLongnewcompanyoffices"
+                                    <button class="stepper-btn1 transitionanimation" data-toggle="modal"
+                                      data-target="#exampleModalLongnewcompanyoffices"
                                       (click)="savecompanyId('user');open_modal('exampleModalLongnewcompanyoffices')">
                                       <i class="fa fa-plus" aria-hidden="true"></i>
                                     </button>
@@ -22578,11 +22530,8 @@
             <mat-tab-group>
               <mat-tab>
                 <ng-template mat-tab-label><span>Laufende Verträge&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
-                  <button class="stepper-btn1 transitionanimation" style="
-                      background: transparent;
-                      color: black !important;
-                      border: 1px solid #ccc;
-                    " data-toggle="modal" data-target="#runningcontracts" (click)="open_modal('runningcontracts')">
+                  <button class="stepper-btn1 transitionanimation" data-toggle="modal" data-target="#runningcontracts"
+                    (click)="open_modal('runningcontracts')">
                     <i class="fa fa-plus" aria-hidden="true"></i>
                   </button>
                 </ng-template>
@@ -24098,11 +24047,8 @@
               <mat-tab>
                 <ng-template mat-tab-label>
                   <span>Angebote/Fremdverträge&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
-                  <button class="stepper-btn1 transitionanimation" style="
-                      background: transparent;
-                      color: black !important;
-                      border: 1px solid #ccc;
-                    " data-toggle="modal" data-target="#externalcontracts" (click)="open_modal('externalcontracts')">
+                  <button class="stepper-btn1 transitionanimation" data-toggle="modal" data-target="#externalcontracts"
+                    (click)="open_modal('externalcontracts')">
                     <i class="fa fa-plus" aria-hidden="true"></i>
                   </button>
                 </ng-template>
@@ -24995,7 +24941,7 @@
             <div class="row">
               <div class="col-md-12 text-right">
                 <button type="button" style="margin-right: 0px !important" [disabled]="!ShowButton"
-                  class="stepper-btn links2" mat-raised-button matStepperNext>
+                  class="stepper-btn btn links2" mat-raised-button matStepperNext>
                   Weiter
                 </button>
               </div>
@@ -25064,14 +25010,14 @@
                 </div>
                 <div class="row mt-4">
                   <div class="col-md-1">
-                    <button type="button" class="stepper-btn links2" mat-raised-button matStepperPrevious>
+                    <button type="button" class="stepper-btn btn links2" mat-raised-button matStepperPrevious>
                       Zurück
                     </button>
                   </div>
                   <div class="col-md-10"></div>
                   <div class="col-md-1">
                     <button type="button" style="margin-left: -12px" [disabled]="uploadingdata"
-                      (click)="_handleImageUpload2('fremdvertrag')" class="stepper-btn links2" mat-raised-button
+                      (click)="_handleImageUpload2('fremdvertrag')" class="stepper-btn btn links2" mat-raised-button
                       matStepperNext>
                       Senden
                     </button>
@@ -25158,7 +25104,7 @@
             <div class="row">
               <div class="col-md-12 text-right">
                 <button type="button" style="margin-right: 0px !important" [disabled]="!ShowButton"
-                  class="stepper-btn links2" mat-raised-button matStepperNext>
+                  class="stepper-btn btn links2" mat-raised-button matStepperNext>
                   Weiter
                 </button>
               </div>
@@ -25227,14 +25173,14 @@
                 </div>
                 <div class="row mt-4">
                   <div class="col-md-1">
-                    <button type="button" class="stepper-btn links2" mat-raised-button matStepperPrevious>
+                    <button type="button" class="stepper-btn btn links2" mat-raised-button matStepperPrevious>
                       Zurück
                     </button>
                   </div>
                   <div class="col-md-10"></div>
                   <div class="col-md-1">
                     <button type="button" style="margin-left: -12px" [disabled]="uploadingdata"
-                      (click)="_handleImageUpload2('bestandsübertragung')" class="stepper-btn links2" mat-raised-button
+                      (click)="_handleImageUpload2('bestandsübertragung')" class="stepper-btn btn links2" mat-raised-button
                       matStepperNext>
                       Senden
                     </button>
@@ -25254,35 +25200,36 @@
   ddd
 </button>
 <div id="exampleModalpreview_parent">
-<div class="modal fade" id="exampleModalpreview" tabindex="-1" role="dialog" aria-labelledby="exampleModalpreviewTitle"
-  aria-hidden="true">
-  <div style="max-width: 1000px; max-height: 800px" class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <span id="showpreviewtitle" style="font-size: 15px"></span>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="close_modal('exampleModalpreview','exampleModalpreview_parent')">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <embed id="showpreviewpdf" style="width: 100%; height: 600px; display: none" src="" />
-        <img id="showpreviewimg" style="width: 100%; height: 100%; display: none" src="" />
+  <div class="modal fade" id="exampleModalpreview" tabindex="-1" role="dialog"
+    aria-labelledby="exampleModalpreviewTitle" aria-hidden="true">
+    <div style="max-width: 1000px; max-height: 800px" class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <span id="showpreviewtitle" style="font-size: 15px"></span>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+            (click)="close_modal('exampleModalpreview','exampleModalpreview_parent')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <embed id="showpreviewpdf" style="width: 100%; height: 600px; display: none" src="" />
+          <img id="showpreviewimg" style="width: 100%; height: 100%; display: none" src="" />
 
-        <div class="col-md-12" style="text-align: end; margin-top: 5px">
-          <a href="" id="showpreviewdownload" target="_blank" style="color: #184297; margin-right: -20px" class="btn"
-            download>
-            <!-- <i class="fa fa-download" aria-hidden="true" style="font-size:20px;"></i>  -->
-            <span class="side-icons"><i class="fa fa-download links2" style="
+          <div class="col-md-12" style="text-align: end; margin-top: 5px">
+            <a href="" id="showpreviewdownload" target="_blank" style="color: #184297; margin-right: -20px" class="btn"
+              download>
+              <!-- <i class="fa fa-download" aria-hidden="true" style="font-size:20px;"></i>  -->
+              <span class="side-icons"><i class="fa fa-download links2" style="
                    background: linear-gradient(#17459b, #02a9ed);
                   position: relative;
                   float: right;
                   padding: 7px 7px 0px 7px;
                   margin: 2px 0px 8px 2px;
                 " aria-hidden="true"></i></span>
-          </a>
+            </a>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 </div>

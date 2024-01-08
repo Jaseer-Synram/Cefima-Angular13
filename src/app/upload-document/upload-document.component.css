@@ -116,7 +116,7 @@ div.mat-form-field-wrapper {
     color: white;
 }
 
-.links1[aria-disabled] {
+.links1-disabled{
     padding: 35px;
     width: 250px;
     height: 200px;

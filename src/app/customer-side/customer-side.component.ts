@@ -928,6 +928,9 @@ export class CustomerSideComponent implements OnInit, AfterViewInit, OnDestroy {
     more_info: false,
   };
 
+  isHoverUnternahman = false
+  isHoverHaushalt = false
+
   constructor(
     private authService: AuthService,
     private router: Router,
@@ -3712,7 +3715,7 @@ export class CustomerSideComponent implements OnInit, AfterViewInit, OnDestroy {
 
           console.log("familydata1" + JSON.stringify(this.familyData));
         });
-    }, 100);
+    }, 500);
 
     this.userService
       .getUserCompanyOffices(this.customerid)
@@ -3743,9 +3746,10 @@ export class CustomerSideComponent implements OnInit, AfterViewInit, OnDestroy {
               });
             }
           }
-        }, 100);
+        }, 500);
         console.log("userofficeData" + JSON.stringify(userofficedata));
       });
+      
   }
   isDivisibleBy(num: any) {
     if (num % 5 == 0 && num % 7 == 0) console.log("isDivisibleByHello World");

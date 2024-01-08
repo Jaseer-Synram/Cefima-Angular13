@@ -1,9 +1,10 @@
 .head-rectangle {
-    height: 700px;
-    background-image: url('../../assets/produktwelt/Banner.png');
+    /* height: 500px; */
+    background-image: url('../../assets/produktwelt/Produktwelt.webp');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    padding: 7rem 0rem 7rem 0rem !important;
 }
 
 .step2Form{
@@ -195,7 +196,7 @@
     position: relative !important;
     bottom: 12px;
     left: 42%;
-    color: #291F18 !important;
+    color: #ffffff !important;
 }
 
 
